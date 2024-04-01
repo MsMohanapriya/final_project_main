@@ -1,0 +1,17 @@
+.button-container {
+    margin-top: 20px;
+}
+
+.user-creation-button, .timesheet-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.user-creation-button:hover, .timesheet-button:hover {
+    background-color: #0056b3;
+}
