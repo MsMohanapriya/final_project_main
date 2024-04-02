@@ -5,6 +5,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function LoginPage() {
+  sessionStorage.clear();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -47,6 +48,7 @@ function LoginPage() {
         if (requirePasswordChange) {
           navigate('/changepassword'); // Navigate to change password page
         } else {
+          console.log("login sucess");
           navigate('/home'); // Navigate to home page
         }
         // if (requirePasswordChange) {
@@ -66,7 +68,8 @@ function LoginPage() {
 
   return (
     <div className="App">
-      <h1>Login</h1>
+      <div className='loginstyle'><h1>Login</h1></div>
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">Email</label>

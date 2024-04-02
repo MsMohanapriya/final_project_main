@@ -14,3 +14,21 @@
     justify-content: center;
     align-items: center;
 }
+
+/* .duration-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .date-time {
+    display: flex;
+    align-items: center;
+  }
+   */
+  .date-time .p-inputtext {
+    width: 120px; /* Adjust the width as needed */
+    margin: 0 5px; /* Add margin between the inputs */
+  }
+  

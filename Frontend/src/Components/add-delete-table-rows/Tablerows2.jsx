@@ -1,18 +1,21 @@
 import BasicDemo from "./Task";
 import Sales from "./SalesProject";
+import { Dropdown } from 'primereact/dropdown';
 function TableRows2({rowsData2, deleteTableRows2, handleChange2,calculateTotal2,addTableRows2}) {
 
     return(
         
         rowsData2.map((data, index)=>{
-            const {mon,tue,wed,thu,fri,sat,sun}= data;
+            const {proj, task, mon,tue,wed,thu,fri,sat,sun}= data;
             return(
 
                 <tr key={index}>
                     {index===0 ?<td>Sales Activity</td>
                     : <td ></td>}
-                    <td><Sales/></td>
-                    <td><BasicDemo/></td>
+                    <td> <Dropdown value={proj} name = "proj" onChange={(e) => handleChange(index,e)} options={["hhh","sss","ddd"]}  
+                placeholder="Select a project" className="w-full md:w-14rem" /></td>
+                    <td> <Dropdown value={task} name = "task" onChange={(e) => handleChange(index,e)} options={["hhh","sss","ddd"]}  
+                placeholder="Select a task" className="w-full md:w-14rem" /></td>
                     <td><input type="text" style={{width:"100%"}} ></input></td>
                     <td><input type="number" value={mon} onChange={(evnt)=>(handleChange2(index, evnt))} name="mon" className="form-control"/></td>
                     <td><input type="number" value={tue}  onChange={(evnt)=>(handleChange2(index, evnt))} name="tue" className="form-control"/> </td>

@@ -1,4 +1,4 @@
-
+/* 
    .App {
     max-width: 400px;
     margin: 0 auto;
@@ -58,7 +58,7 @@
   
   Link:hover {
     text-decoration: underline;
-  }
+  } */
   
 
 /* 
@@ -86,3 +86,89 @@
 }
 
 /* Card container */
+/* Login.css */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  height: 100vh;
+  /* min-height: 100vh; This ensures the form is centered vertically */
+  background-color: #19105b; /* Background color */
+}
+
+form {
+  width: 100%; /* Adjust the width of the form */
+  max-width: 400px;
+  padding: 20px;
+  background-color: #7c3375;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 3%
+
+  ;
+}
+
+label {
+  display: block;
+  color: #fff; /* Label text color */
+  margin-bottom: 5px;
+}
+
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+button[type='submit'] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #472067; /* Button background color */
+  color: #fff; /* Button text color */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover {
+  background-color: #ff6196; /* Button background color on hover */
+}
+
+.error {
+  color: #ff0000; /* Error message color */
+  margin-top: 10px;
+}
+
+a {
+  color: #fff; /* Link text color */
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* @media screen and (max-width: 600px) {
+  form {
+    width: 90%;
+  }
+} */
+
+.loginstyle {
+  color: aliceblue;
+  width:50px;
+ 
+  /* background-color: #7c3375; Background color for the box */
+  padding: 20px; /* Padding around the container */
+  border-radius: 10px; /* Border radius for rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Box shadow for a subtle effect */
+}

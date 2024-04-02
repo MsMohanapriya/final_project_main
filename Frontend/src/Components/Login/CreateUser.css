@@ -1,50 +1,62 @@
 .create-user {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .create-user h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .create-user form {
-    display:grid;
-    gap: 10px;
-  }
-  
-  .create-user label {
-    font-size: 16px;
-  }
-  
-  .create-user input[type="text"],
-  .create-user input[type="email"],
-  .create-user input[type="password"] {
-    width: 95%;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .create-user button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .create-user button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  .create-user p {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
+  background: linear-gradient(#19105b, #472067, #7c3375, #FF6196);
+  padding: 20px 0;
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  min-height: 100vh;
+}
+/* 
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#19105b, #472067, #7c3375, #FF6196);
+  font-family: Arial, sans-serif;
+} */
+
+.container {
+  width: 100%;
+  margin: 0px auto;
+  padding-top: 10px;
+}
+
+.title-bar{
+  color: beige;
+}
+h1 {
+  /* text-decoration-color: aliceblue; */
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #fff;
+  color: #19105b;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #eee;
+}

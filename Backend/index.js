@@ -14,5 +14,5 @@ app.use(cors())
 app.use('/api', myRoute);
 
 app.listen(5000, () => {
-    console.log('Application service started on port 3000');
+    console.log('Application service started on port 5000');
 });

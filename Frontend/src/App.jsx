@@ -23,7 +23,7 @@ function App() {
         <Route path="/createuser" element={<CreateUser/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/forget-password/email" element={<ForgetPasswordEmailPage/>}/>
-        <Route path="/forget-password/otp" element={<ChangePasswordPage/>}/>
+        <Route path="/changepassword" element={<ChangePasswordPage/>}/>
         <Route path="/home" element={<HomePage/>}/>
         <Route path="/timesheet" element={<AddDeleteTableRows/>}/>
         {/* <AddDeleteTableRows /> */}

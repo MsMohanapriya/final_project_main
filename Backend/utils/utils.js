@@ -50,7 +50,7 @@ const transporter = nodemailer.createTransport({
             pass: 'rryt kyor ewdl msbi',
          },
     secure: true,
-    });
+    }); 
  
  
 const authenticateJWT = (req, res, next) => {

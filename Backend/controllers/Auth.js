@@ -222,17 +222,20 @@ const login = async (req, res) => {
 };
  
 const register_user = async (req, res) => {
-    const link = 'http://localhost:3001/login'
+    const link = 'http://localhost:5173/login'
     try {
-        const { first_name, last_name, role, password, email, phone_number } = req.body;
- 
+        const { first_name, last_name, role, password, email, phone_number, employeeId,department,roleCategory } = req.body;
+        console.log(req.body)
         if (req.user && req.user.role === "admin") {
             const newUser = new UserModel({
                 first_name: first_name,
                 last_name: last_name,
-                role: role,
-                password: password,
                 email: email,
+                employeeid: employeeId,
+                role: role,
+                department: department,
+                role_category: roleCategory,
+                password: password,
                 phone_number: phone_number,
                 created_at: new Date()
               });

@@ -106,14 +106,19 @@ function CreateUser() {
     setShowDialog(false);
   };
 
+
   return (
     <div className='create-user'>
       {userRole === 'admin' ? (
-        <div>
+       
+        <div className="container">
+          <div className="title-bar">
           <h1>Register New User</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="form-half">
-              <div>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="row">
+            <div className="col-md-6">
+              <div className="form-group">
                 <label htmlFor="employeeId">Employee ID</label>
                 <input
                   type="text"
@@ -123,7 +128,7 @@ function CreateUser() {
                   required
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <label htmlFor="firstName">First Name</label>
                 <input
                   type="text"
@@ -133,7 +138,7 @@ function CreateUser() {
                   required
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
@@ -143,7 +148,7 @@ function CreateUser() {
                   required
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <label htmlFor="email">Email</label>
                 <input
                   type="email"
@@ -153,7 +158,7 @@ function CreateUser() {
                   required
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <label htmlFor="department">Department</label>
                 <input
                   type="text"
@@ -164,8 +169,8 @@ function CreateUser() {
                 />
               </div>
             </div>
-            <div className="form-half">
-              <div>
+            <div className="col-md-6">
+              <div className="form-group">
                 <label htmlFor="role">Role</label>
                 <select
                   id="role"
@@ -178,7 +183,7 @@ function CreateUser() {
                   <option value="user">User</option>
                 </select>
               </div>
-              <div>
+              <div className="form-group">
                 <label htmlFor="roleCategory">Role Category</label>
                 <input
                   type="text"
@@ -188,7 +193,7 @@ function CreateUser() {
                   required
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <label htmlFor="phoneNumber">Mobile Number</label>
                 <input
                   type="text"
@@ -198,7 +203,7 @@ function CreateUser() {
                   required
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
@@ -210,7 +215,7 @@ function CreateUser() {
               </div>
               {error && <p>{error}</p>}
               {showDialog && <DialogBox message="User created successfully" onClose={handleCloseDialog} />}
-              <button type="submit">Register</button>
+              <button type="submit">Submit</button>
             </div>
           </form>
         </div>

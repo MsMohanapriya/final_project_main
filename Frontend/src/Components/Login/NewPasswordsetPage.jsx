@@ -72,6 +72,8 @@ function ChangePasswordPage() {
           />
         </div>
         {error && <p className="error">{error}</p>}
+        
+        {showDialog && <DialogBox message="Password changed successfully" onClose={handleCloseDialog} />}
         <button type="submit">Change Password</button>
       </form>
       <Link to="/login">Back to Login</Link>
