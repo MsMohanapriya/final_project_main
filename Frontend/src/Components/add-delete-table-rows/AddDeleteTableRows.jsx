@@ -26,7 +26,7 @@ function AddDeleteTableRows() {
 
     useEffect(() => {
         console.log(startDate, endDate)
-    },[startDate, endDate]);
+    }, [startDate, endDate]);
 
     //    Functions for BAU
     const addTableRows = () => {
@@ -304,7 +304,7 @@ function AddDeleteTableRows() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-      
+
         try {
             const newTimesheet = {
                 UID: UID,
@@ -323,7 +323,7 @@ function AddDeleteTableRows() {
                 sun: sun,
                 created_at: new Date()
             };
-    
+
             const response = await fetch('http://localhost:5000/api/registerTimesheet', {
                 method: 'POST',
                 headers: {
@@ -332,9 +332,9 @@ function AddDeleteTableRows() {
                 },
                 body: JSON.stringify(newTimesheet),
             });
-    
+
             const responseData = await response.json();
-    
+
             if (response.ok) {
                 // Handle success: show dialog and reset form fields
                 setShowDialog(true);
@@ -348,7 +348,7 @@ function AddDeleteTableRows() {
             setError('An error occurred while processing your request.');
         }
     };
-    
+
 
     useEffect(() => {
         // LOCAL STORAGE
@@ -387,8 +387,8 @@ function AddDeleteTableRows() {
 
     return (
         <>
-            <ButtonAppBar />
-        {/* <form onSubmit={handleSubmit} className="row"> */}
+            <ButtonAppBar title="Timesheet" />
+            {/* <form onSubmit={handleSubmit} className="row"> */}
             <main>
                 {/* <div className="totalhours"> */}
                 {/* <h className="fs-13 fw-bold text-blue m-0 pt-2">Total Hours: {fintot}</h> */}
@@ -447,33 +447,11 @@ function AddDeleteTableRows() {
                             </tr>
                             <tr>
                                 <td>Machine Hours</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                              
                             </tr>
                             <tr>
                                 <td>Break Hours</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                               
                             </tr>
                         </tbody>
                     </table>
@@ -499,7 +477,7 @@ function AddDeleteTableRows() {
             </main>
             {/* </form> */}
         </>
-       
+
     )
 
 }
