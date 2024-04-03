@@ -23,6 +23,7 @@ function HomePage() {
       <div className="button-container">
         <Link to="/createuser" className="user-creation-button">Create User</Link>
         <Link to="/timesheet" className="timesheet-button">Time Sheet</Link>
+        <Link to="/createproject" className="project-creation-button">Create Project</Link>
       </div>
     </div>
   )}

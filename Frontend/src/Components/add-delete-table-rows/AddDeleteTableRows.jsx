@@ -7,12 +7,12 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import axios from "axios"
 import Duration from "../duration/duration.component";
 import { convertLength } from "@mui/material/styles/cssUtils";
-
+import DialogBox from "../Login/DIalogBox";
 function AddDeleteTableRows() {
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-
+    const [error,setError]  = useState()
     //    this state is for whole table of BAU
     const [rowsData, setRowsData] = useState([{
         proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: '', start_date: startDate, end_date: endDate, date: '89898'
@@ -23,6 +23,15 @@ function AddDeleteTableRows() {
         proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
     }]);
 
+    const[proj, setProj]=useState('')
+    const[mon,setMon]=useState('')
+    const[tue,setTue]= useState('')
+    const[wed,setWed]=useState('')
+    const[thur,setThur] = useState('')
+    const[fri,setFri] = useState('')
+    const[sat,setSat] = useState('')
+    const[sun,setSun] = useState('')
+    const[total,setTotal] = useState('')
 
     useEffect(() => {
         console.log(startDate, endDate)
@@ -81,6 +90,8 @@ function AddDeleteTableRows() {
             rowsInput[index][name] = value;
             setRowsData2(rowsInput);
         }
+        rowsInput[index][name] = value;
+        setRowsData2(rowsInput);
     }
 
     // Calculate total for displaying in last row using reduce function
@@ -302,17 +313,16 @@ function AddDeleteTableRows() {
     //     }
     // }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
+    const handleSubmit = async (rowsData) => {
+        
+        console.log(rowsData)
+        
             const newTimesheet = {
-                UID: UID,
-                PID: PID,
-                activity: activity,
-                comments: comments,
-                start_period: startdate,
-                end_period: enddate,
+                
+                // activity: activity,
+                // comments: comments,
+                // start_period: startdate,
+                // end_period: enddate,
                 pname: proj,
                 mon: mon,
                 tue: tue,
@@ -321,6 +331,7 @@ function AddDeleteTableRows() {
                 fri: fri,
                 sat: sat,
                 sun: sun,
+                total_hrs : total,
                 created_at: new Date()
             };
 
@@ -330,9 +341,9 @@ function AddDeleteTableRows() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${sessionStorage.getItem("accessToken")}`
                 },
-                body: JSON.stringify(newTimesheet),
+                body: JSON.stringify(rowsData), 
             });
-
+            console.log("called ",response)
             const responseData = await response.json();
 
             if (response.ok) {
@@ -343,10 +354,7 @@ function AddDeleteTableRows() {
                 // Handle failure: set error message
                 setError(responseData.message || 'Error in creating timesheet');
             }
-        } catch (error) {
-            // Handle network errors or other exceptions
-            setError('An error occurred while processing your request.');
-        }
+        
     };
 
 
@@ -465,7 +473,7 @@ function AddDeleteTableRows() {
                         </button>
                     </div>
                     <div className="ml-20">
-                        <button type="submit" className="p-button p-component create-button" onClick={handleSubmit}>
+                        <button type="submit" className="p-button p-component create-button"  onClick={()=>handleSubmit(rowsData)}>
                             <span className="p-button-icon p-c p-button-icon-right pi pi-arrow-right">
                             </span>
                             <span className="p-button-label p-c">

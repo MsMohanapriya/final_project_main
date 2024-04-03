@@ -62,21 +62,19 @@ const otpSchema = new mongoose.Schema({
  
 
 const timesheetSchema = new mongoose.Schema({
-    UID: {
-        type: String
-    },
+    
     email: {
         type: String
     },
-    PID: {
-        type: String
-    },
-    activity: {
-        type: String
-    },
-    comments: {
-        type: String
-    },
+    // PID: {
+    //     type: String
+    // },
+    // activity: {
+    //     type: String
+    // },
+    // comments: {
+    //     type: String
+    // },
     pname: {
         type: String // Assuming pname is a string field
     },
@@ -107,21 +105,21 @@ const timesheetSchema = new mongoose.Schema({
     sun: {
         type: Number
     },
+    total_hrs:{
+      type: Number
+    },
     created_at: {
         type: Date,
         default: Date.now
     },
-    visible: {
-        type: Boolean,
-        default: false
-    }
+    visible: {}
 });
 
 
 
-const TimesheetModel = new mongoose.model('timesheet', timesheetSchema);
-const UserModel = new mongoose.model("users", userSchema)
-const otpModel = new mongoose.model("temp_otps", otpSchema)
+const TimesheetModel = mongoose.model('timesheet', timesheetSchema);
+const UserModel = mongoose.model("users", userSchema)
+const otpModel = mongoose.model("temp_otps", otpSchema)
 
 module.exports = {
     UserModel,

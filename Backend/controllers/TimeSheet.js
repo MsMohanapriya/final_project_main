@@ -1,142 +1,85 @@
-// const { UserModel,
-//     projectAssignmentModel,
-//     timesheetModel,
-//     projectModel,
-//     feedbackModel,
-//     feedbackHistoryModel } = require('../models/Models');
 
-// const {ConvertTimesheetFormat,RetreiveProjectName} = require('../utils/timesheet_utils')
+// const timesheetModel =  require('../models/Models').timesheetModel;
+// const jwt = require('jsonwebtoken');
+// const storeTimesheetData = async (req, res) => {
 
-// const RertreiveTimesheetPerWeek = async (req,res) => {
+//     console.log(req.body, req.headers)
 //     try {
+//         const token = req.headers.authorization.split(' ')[1];
+//         const decodedToken = jwt.verify(token, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFuYXRoYW5nYW1hbml2a0BnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTW9oYW5hIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEyMTM2NzAxfQ.EIkbrr_JM0o8D2S3WZIS2f6bDa4bZoAoeDBFJ7rYSIg');
 
-
-//         const user = req.user.email;
-//         const { startdate , enddate } = req.body;
-//         const timeSheetdata = await timesheetModel.find({
-//             email:user,
-//             start_period:startdate,
-//             end_period:enddate,
-//             visible:true
-//         })
-
-//         if(timeSheetdata.length !== 0) {
-            
-//             res.json({ message: "Timesheet data sent", payload: ConvertTimesheetFormat(timeSheetdata) });
+//         /*
+//  authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGFuYXRoYW5nYW1hbml2a0BnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiTW9oYW5hIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEyMTM2NzAxfQ.EIkbrr_JM0o8D2S3WZIS2f6bDa4bZoAoeDBFJ7rYSIg',
+//  decode and fetch the user and assign to request
+//         */
+//         // const user = req.user.email;
+//         if (!decodedToken) {
+//             return res.status(403).json({ message: "Unauthorized access" });
 //         }
-//         else {
-//             const newTimeSheet = new timesheetModel({
-//                 UID: Math.floor(100000 + Math.random() * 900000).toString(),
-//                 email: user,
-//                 PID: "", // Assuming PID is empty initially
-//                 activity: "",
-//                 comments:"",
-//                 start_period: startdate, // Example start date
-//                 end_period: enddate,
-//                 pname: proj, // Example end date
-//                 mon: 0,
-//                 tue: 0,
-//                 wed: 0,
-//                 thur: 0,
-//                 fri: 0,
-//                 sat: 0,
-//                 sun: 0,
+
+//         const { proj,  mon, tue, wed, thur, fri, sat, sun , tot } = req.body;
+//         // if (req.user) {
+//             const newTimesheet = new timesheetModel({
+//                 // UID: UID,
+//                 // PID: PID,
+//                 // activity: activity,
+//                 // comments: comments,
+//                 // start_period: startdate,
+//                 // end_period: enddate,
+//                 pname: proj,
+//                 mon: mon,
+//                 tue: tue,
+//                 wed: wed,
+//                 thur: thur,
+//                 fri: fri,
+//                 sat: sat,
+//                 sun: sun,
+//                 total_hrs : tot,
 //                 created_at: new Date()
 //             });
-            
+
 //             try {
-//                 const result = await newTimeSheet.save();
-//                 console.log(result); 
-//                 res.json({ message: "Timesheet data sent", payload: ConvertTimesheetFormat([result]) });
+//                 const result = await newTimesheet.save();
+//                 console.log(result);
+//                 res.json({ message: "Timesheet data stored successfully", timesheet: result });
 //             } catch (error) {
-//                 console.error(error);
+//                 console.error(error.message);
+//                 res.status(500).json({ message: "Error storing timesheet data" });
 //             }
-
+//         } else {
+//             res.status(403).json({ message: "Unauthorized access" });
 //         }
-//     } catch (error) {
-//         console.log(error);
-//         res.json({"message": "unable to retreive timesheet data"});
-//     }
-// }
-
-// const RetreiveUserProject = async (req,res) => {
-//     try {
-//         const userproject = await projectAssignmentModel.find({
-//             email:req.user.email
-//         });
-
-    
-//         if(userproject.length !== 0) {
-            
-//             res.json({ message: "Project sent", payload: await RetreiveProjectName(userproject)});
-//         }
-//         else{
-//             res.json({ message: "Project sent", payload: [{PID:"0",name:"bench"}]});
-//         }
-//     }
-//     catch{
-//         console.log(error);
-//         res.json({"message": "unable to retreive project data"});
-//     }
-// }
-
-// const CreateUpdateTimesheets = async (req, res) => {
-//     try {
-//         const data = req.body;
-
-//         for (const [key, value] of Object.entries(data)) {
-//             const existingTimesheet = await timesheetModel.findOne({
-//                 UID: value.UID,
-//                 email: value.email, 
-//                 start_period: value.start_period,
-//                 end_period: value.end_period
-//             });
-
-//             if (existingTimesheet) {
-//                 await timesheetModel.updateOne({
-//                     UID: value.UID,
-//                     email: value.email,
-//                     start_period: value.start_period,
-//                     end_period: value.end_period
-//                 }, {
-//                     $set: value
-//                 });
-//                 console.log(`Timesheet entry updated for UID ${value.UID}`);
-//             } else {
-//                 const newTimesheet = new timesheetModel(value);
-//                 await newTimesheet.save();
-//                 console.log(`New timesheet entry created for UID ${value.UID}`);
-//             }
-//         }
-
-//         res.status(200).json({ message: "Timesheets created/updated successfully" });
-//     } catch (error) {
-//         console.error('Error creating/updating timesheets:', error);
-//         res.status(500).json({ message: 'Error creating/updating timesheets' });
+//     } catch (err) {
+//         console.error('Error storing timesheet data', err);
+//         res.status(500).json({ message: "Error storing timesheet data" });
 //     }
 // };
 
+// module.exports = {
+//     storeTimesheetData
+// };
 
-// module.exports ={
-//     RertreiveTimesheetPerWeek,
-//     RetreiveUserProject,
-//     CreateUpdateTimesheets
-// }
-
-const timesheetModel =  require('../models/Models').timesheetModel;
-
+const timesheetModel = require('../models/Models').TimesheetModel;
+const jwt = require('jsonwebtoken');
+const accessTokenSecret = 'youraccesstokensecret';
 const storeTimesheetData = async (req, res) => {
+    console.log(req.body, req.headers);
     try {
-        const user = req.user.email;
-        const { UID, PID, activity, comments,proj, startdate, enddate, mon, tue, wed, thur, fri, sat, sun } = req.body;
-        if (req.user) {
+        const token = req.headers.authorization.split(' ')[1];
+        if (!token) {
+            return res.status(403).json({ message: "Unauthorized access: No token provided" });
+        }
+        
+        const decodedToken = jwt.verify(token, accessTokenSecret);
+        console.log(decodedToken)
+        if (!decodedToken) {
+            return res.status(403).json({ message: "Unauthorized access: Invalid token" });
+        }
+
+        const [{ proj, mon, tue, wed, thur, fri, sat, sun, tot }] = req.body;
+        if(decodedToken.email){
+
             const newTimesheet = new timesheetModel({
-                UID: UID,
-                PID: PID,
-                activity: activity,
-                comments: comments,
-                start_period: startdate,
-                end_period: enddate,
                 pname: proj,
                 mon: mon,
                 tue: tue,
@@ -145,20 +88,14 @@ const storeTimesheetData = async (req, res) => {
                 fri: fri,
                 sat: sat,
                 sun: sun,
+                total_hrs: tot,
                 created_at: new Date()
             });
-
-            try {
-                const result = await newTimesheet.save();
-                console.log(result);
-                res.json({ message: "Timesheet data stored successfully", timesheet: result });
-            } catch (error) {
-                console.error(error);
-                res.status(500).json({ message: "Error storing timesheet data" });
-            }
-        } else {
-            res.status(403).json({ message: "Unauthorized access" });
+            const result = await newTimesheet.save();
+            console.log(result);
+            res.json({ message: "Timesheet data stored successfully", timesheet: result });
         }
+
     } catch (err) {
         console.error('Error storing timesheet data', err);
         res.status(500).json({ message: "Error storing timesheet data" });
@@ -168,3 +105,4 @@ const storeTimesheetData = async (req, res) => {
 module.exports = {
     storeTimesheetData
 };
+

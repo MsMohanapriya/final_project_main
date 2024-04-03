@@ -4,7 +4,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { useState } from "react";
 function TableRows({rowsData, deleteTableRows, handleChange,calculateTotal,addTableRows}) {
     
-    const [selectedCity, setSelectedCity] = useState(null);
+    // const [selectedCity, setSelectedCity] = useState(null);
     return(
         
         rowsData.map((data, index)=>{

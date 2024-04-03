@@ -1,160 +1,216 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import ButtonAppBar from "../navbar/navbar";
-import TopNavbar from '../navbar/Topnavbar';
-let Questions = require('../data/feedbackQuestions.json')
-
+import React, { useState, useEffect, useRef } from 'react';
+import { Card } from 'primereact/card';
+import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
+import { Dropdown } from 'primereact/dropdown';
+import { Toast } from 'primereact/toast';
 
 function Feedback() {
-    const [accessToken, setToken] = useState(sessionStorage.getItem('accessToken'));
-    const [role, setRole] = useState(sessionStorage.getItem('role')); // Assume user is not an admin by default
-    const location = useLocation();
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [displayModal, setDisplayModal] = useState(false);
+  const [feedbackData, setFeedbackData] = useState({
+    question1: 0,
+    question2: 0,
+    question3: 0,
+    question4: 0,
+    question5: 0,
+    comment: ''
+  });
+  const [projects, setProjects] = useState([]);
+  const [token, setToken] = useState('');
+  const [toastVisible, setToastVisible] = useState(false);
+  const toast = useRef(null);
 
-    const navigate = useNavigate();
-    const searchParams = new URLSearchParams(location.search);
-    const PID = searchParams.get('pid');
-    const start_period = searchParams.get('start');
-    const end_period = searchParams.get('end');
-    const decodedPID = decodeURIComponent(PID);
-    const decodedStart = decodeURIComponent(start_period);
-    const decodedEnd = decodeURIComponent(end_period);
-
-    useEffect(() => {
-        if (!accessToken) {
-            navigate('/login');
-        }
-
-        console.log(decodedPID, decodedStart, decodedEnd)
-    }, [location.search]);
-
-    const [formData, setFormData] = useState({
-        q1: 1,
-        q2: 1,
-        q3: 1,
-        q4: 1,
-        q5: 1,
-        q6: 1,
-        q7: 1,
-        q8: 1,
-        comments: ''
-    });
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
+  useEffect(() => {
+    // Fetch data from the API endpoint using the token
+    const fetchProjects = async () => {
+      const storedToken = sessionStorage.getItem('token');
+      setToken(storedToken);
+      try {
+        const response = await fetch('http://localhost:3000/api/feedback_status', {
+          headers: {
+            Authorization: `Bearer ${storedToken}`
+          }
         });
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(formData);
-        try {
-            const response = await fetch('http://localhost:5000/api/CreateFeedback', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${accessToken}`
-                },
-                body: JSON.stringify({
-                    PID: PID,
-                    start_period: start_period,
-                    end_period: end_period,
-                    feedback: formData
-                })
-            });
+    fetchProjects();
+  }, []);
 
-            const res = await response.json()
-            if (res.message != "Feedback data saved") {
-                alert('Failed to save data');
-            }
-            else {
-                alert('feedback given succussfully')
-            }
+  const filteredProjects = projects.filter(project => !project.submission_status);
 
-            navigate('/feedback');
-
-        } catch (error) {
-            console.error('Error submitting feedback:', error.message)
-        }
-
-        try {
-            const response = await fetch('http://localhost:5000/api/FeedbackHistory', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`
-                },
-                body: JSON.stringify({
-                    PID: PID,
-                    start_period: start_period,
-                    end_period: end_period,
-                    feedback_given: true
-                }),
-            });
-
-        } catch (error) {
-            alert('Error updating feedback history:', error.message)
-            console.error('Error fetching timesheet data:', error);
-        }
-
+  const handleSubmitFeedback = async () => {
+    // Create feedback object with selected project details
+    const feedback = {
+      ...feedbackData,
+      project_name: selectedProject.project_name,
+      project_id: selectedProject.project_id,
+      email: selectedProject.email,
+      user_id: selectedProject.user_id
     };
 
-    return (
-        <div>
-            <ButtonAppBar title="Feedback" />
+    try {
+      // Submit feedback
+      const response = await fetch('http://localhost:3000/api/submit_feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(feedback)
+      });
+      // Handle response as needed
+      console.log('Feedback submitted:', response);
 
-        <TopNavbar/>
-        <div className="grid grid-cols-5 mx-auto p-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg shadow-md">
-           <div className='4 col-span-1'></div>
-           <div className='col-span-3 bg-[rgba(255,255,255,0.1)]  p-4 rounded-lg backdrop-blur-xl shadow-xl'>
-            <h2 className="text-3xl font-bold mb-6 text-white">Feedback Form</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-4">  
-                    <label htmlFor="q1" className="block font-bold">{Questions.common.q1}</label>
-                    <input type="number" id="q1" name="q1" value={formData.q1} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="q2" className="block font-bold">{Questions.common.q2}</label>
-                    <input type="number" id="q2" name="q2" value={formData.q2} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="q3" className="block font-bold">{Questions.common.q3}</label>
-                    <input type="number" id="q3" name="q3" value={formData.q3} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="q4" className="block font-bold">{Questions.common.q4}</label>
-                    <input type="number" id="q4" name="q4" value={formData.q4} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="q5" className="block font-bold">{Questions.common.q5}</label>
-                    <input type="number" id="q5" name="q5" value={formData.q5} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="q6" className="block font-bold">{Questions[role].q6}</label>
-                    <input type="number" id="q6" name="q6" value={formData.q6} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="q7" className="block font-bold">{Questions[role].q7}</label>
-                    <input type="number" id="q7" name="q7" value={formData.q7} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="q8" className="block font-bold">{Questions[role].q8}</label>
-                    <input type="number" id="q8" name="q8" value={formData.q8} onChange={handleInputChange} min="1" max="5" className="form-input" required />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="comments" className="block font-bold">Comments:</label>
-                    <textarea id="comments" name="comments" value={formData.comments} onChange={handleInputChange} className="form-textarea" required />
-                </div>
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
-            </form>
-            </div> 
-        </div>
-        </div>
+      // Update submission status
+      const updateResponse = await fetch('http://localhost:3000/api/update_submission_status', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          project_id: selectedProject.project_id,
+          email: selectedProject.email
+        })
+      });
+      // Handle update response as needed
+      console.log('Submission status updated:', updateResponse);
 
-    );
+      // Show toast message
+      setToastVisible(true);
+      toast.current.show({ severity: 'success', summary: 'Feedback Submitted', detail: 'Your feedback has been submitted successfully.' });
+
+      // Fetch updated projects data
+      const updatedResponse = await fetch('http://localhost:3000/api/feedback_status', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      const updatedData = await updatedResponse.json();
+      setProjects(updatedData);
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+    }
+
+    // Reset feedback data
+    setFeedbackData({
+      question1: 0,
+      question2: 0,
+      question3: 0,
+      question4: 0,
+      question5: 0,
+      comment: ''
+    });
+    // Close modal
+    setDisplayModal(false);
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(); // Convert to local date format
+  };
+
+  return (
+    <div className="grid">
+      {filteredProjects.map(project => (
+        <div key={project.project_id} className="col">
+          <Card title={project.project_name}>
+            <div>
+              <p><strong>Week Start Date:</strong> {formatDate(project.week_startdate)}</p>
+              <p><strong>Week End Date:</strong> {formatDate(project.week_enddate)}</p>
+              <Button label="Submit Feedback" className="p-button-success" onClick={() => {
+                setSelectedProject(project);
+                setDisplayModal(true);
+              }} />
+            </div>
+          </Card>
+        </div>
+      ))}
+      <Dialog
+        visible={displayModal}
+        onHide={() => setDisplayModal(false)}
+        header={`Submit Feedback for ${selectedProject?.project_name}`}
+        modal
+        style={{ width: '500px' }}
+        footer={
+          <div>
+            <Button label="Close" icon="pi pi-times" className="p-button-text" onClick={() => setDisplayModal(false)} />
+            <Button label="Submit" icon="pi pi-check" className="p-button-success" onClick={handleSubmitFeedback} />
+          </div>
+        }
+      >
+        <div className="p-fluid">
+          <div className="p-field">
+            <label htmlFor="question1">Question 1</label>
+            <Dropdown
+              id="question1"
+              value={feedbackData.question1}
+              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              onChange={(e) => setFeedbackData({ ...feedbackData, question1: e.value })}
+              placeholder="Select a value"
+            />
+          </div>
+          <div className="p-field">
+            <label htmlFor="question2">Question 2</label>
+            <Dropdown
+              id="question2"
+              value={feedbackData.question2}
+              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              onChange={(e) => setFeedbackData({ ...feedbackData, question2: e.value })}
+              placeholder="Select a value"
+            />
+          </div>
+          <div className="p-field">
+            <label htmlFor="question3">Question 3</label>
+            <Dropdown
+              id="question3"
+              value={feedbackData.question3}
+              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              onChange={(e) => setFeedbackData({ ...feedbackData, question3: e.value })}
+              placeholder="Select a value"
+            />
+          </div>
+          <div className="p-field">
+            <label htmlFor="question4">Question 4</label>
+            <Dropdown
+              id="question4"
+              value={feedbackData.question4}
+              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              onChange={(e) => setFeedbackData({ ...feedbackData, question4: e.value })}
+              placeholder="Select a value"
+            />
+          </div>
+          <div className="p-field">
+            <label htmlFor="question5">Question 5</label>
+            <Dropdown
+              id="question5"
+              value={feedbackData.question5}
+              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              onChange={(e) => setFeedbackData({ ...feedbackData, question5: e.value })}
+              placeholder="Select a value"
+            />
+          </div>
+          <div className="p-field">
+            <label htmlFor="comment">Extra Comment</label>
+            <textarea
+              id="comment"
+              value={feedbackData.comment}
+              onChange={(e) => setFeedbackData({ ...feedbackData, comment: e.target.value })}
+              rows={3}
+              cols={30}
+            ></textarea>
+          </div>
+        </div>
+      </Dialog>
+      <Toast ref={toast} />
+    </div>
+  );
 }
 
 export default Feedback;

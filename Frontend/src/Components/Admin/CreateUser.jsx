@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CreateUser.css';
-import DialogBox from './DIalogBox';
+import DialogBox from '../Login/DIalogBox';
 
 function CreateUser() {
   const [firstName, setFirstName] = useState('');
