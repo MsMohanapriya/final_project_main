@@ -14,5 +14,8 @@ router.post('/generateOtp',AuthControllers.generate_otp);
 router.post('/changePassword',AuthControllers.change_password);
 router.post('/userDetail',AuthControllers.user_detail);
 router.post('/registerTimesheet',TimeSheetController.storeTimesheetData);
-router.post('/createProject',ProjectController.createProject);
+router.post('/createProject', ProjectController.createProject);
+router.post('/allocateProject',ProjectController.AllocateProject)
+router.post('/createFeedbackQuestions', ProjectController.createFeedbackQuestions);
+
 module.exports = router;

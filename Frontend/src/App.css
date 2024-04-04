@@ -109,7 +109,7 @@ td{
 .ml-20 {
   margin-left: 20px;
 }
-.sidebar {
+/* .sidebar {
   background: linear-gradient(#19105b, #472067, #7c3375, #FF6196) !important;
   border-radius: 0px !important;
   border: none !important;
@@ -117,6 +117,36 @@ td{
   overflow: hidden;
   
 overflow-y: auto;
+} */
+
+.sidebar {
+  background: linear-gradient(#19105b, #472067, #7c3375, #FF6196) !important;
+  border-radius: 0px !important;
+  border: none !important;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+  position: fixed;
+  /* Make the sidebar fixed */
+  top: 0;
+  /* Position at the top of the viewport */
+  left: 0;
+  /* Position at the left of the viewport */
+  width: 200px;
+  /* Set the initial width of the sidebar */
+  transition: width 0.3s ease;
+  /* Add transition for smooth resizing */
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    width: 100px;
+    /* Adjust width for smaller screens */
+  }
+
+  @media (max-width: 576px) {
+    width: 70px;
+    /* Further adjust width for even smaller screens */
+  }
 }
 
 .duration-container{
@@ -138,4 +168,7 @@ overflow-y: auto;
 
 title{
   color: aliceblue;
+}
+.p-button-label{
+  color: white;
 }

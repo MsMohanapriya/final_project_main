@@ -2,7 +2,7 @@
     margin-top: 20px;
 }
 
-.user-creation-button, .timesheet-button, .project-creation-button {
+.user-creation-button, .timesheet-button, .project-creation-button , .project-allocation-button, .create-feedback-button{
     background-color: #007bff;
     color: white;
     border: none;

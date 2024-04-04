@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate,Link} from 'react-router-dom';
 import './Home.css';
+import ButtonAppBar from '../navbar/navbar';
+
+
+
+const timeSheetListItems = ['Dashboard', 'Timesheet', 'Leave', 'Work From Home', 'Feedback', 'Survey', 'Service Desks', 'Forms', 'Travel', 'Expenses', 'Resourcesing'];
+
+// List items for admin navigation bar
+const adminListItems = ['Create User', 'Create Project', 'Allocate Project', 'Feedback'];
+
 
 function HomePage() {
   const [role] = useState(sessionStorage.getItem('role')); // Assume user is not an admin by default
@@ -14,9 +23,12 @@ function HomePage() {
   }, [navigate, role]);
 
   return (
+    
     <div>
+      {/* <ButtonAppBar title="ADMIN DASHBOARD" listItems={adminListItems} /> */}
   
-  {role === 'admin' && (
+      {role === 'admin' && (
+        
     <div>
         <h1>Welcome to the Home Page</h1>
       <h2>Hello Admin!</h2>
@@ -24,6 +36,8 @@ function HomePage() {
         <Link to="/createuser" className="user-creation-button">Create User</Link>
         <Link to="/timesheet" className="timesheet-button">Time Sheet</Link>
         <Link to="/createproject" className="project-creation-button">Create Project</Link>
+            <Link to="/allocateProject" className="project-allocation-button">Allocate Project</Link>
+            <Link to="/createFeedbackQuestions" className="create-feedback-button">Create Feedback</Link>
       </div>
     </div>
   )}

@@ -40,6 +40,14 @@ function CreateProject() {
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value);
     };
+    function setErrorWithTimeout(errorMessage) {
+        // Display error message
+        setError(errorMessage);
+
+        // Clear error message after 4 seconds
+        setTimeout(clearError, 2000);
+    }
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -82,11 +90,11 @@ function CreateProject() {
                 setDuration('');
                 setStartDate('');
             } else {
-                setError('Error in creating project');
+                setErrorWithTimeout('Error in creating project');
             }
 
         } catch (error) {
-            setError(error.message);
+            setErrorWithTimeout(error.message);
         }
     };
 

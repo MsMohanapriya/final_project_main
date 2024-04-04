@@ -92,7 +92,7 @@ export default function ButtonAppBar({ title }) {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <TemporaryDrawer state={state} setState={setState} toggleDrawer={toggleDrawer} />
+            <TemporaryDrawer state={state} setState={setState} toggleDrawer={toggleDrawer}  />
         </Box>
     );
 }
