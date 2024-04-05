@@ -95,15 +95,16 @@
   justify-content: center;
   width:100vw;
   height: 100vh;
+  /* color: black; */
   /* min-height: 100vh; This ensures the form is centered vertically */
-  background-color: #19105b; /* Background color */
+  /* background-color: #19105b; Background color */
 }
 
 form {
   width: 100%; /* Adjust the width of the form */
   max-width: 400px;
   padding: 20px;
-  background-color: #7c3375;
+  background-color: #7e787d;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
@@ -133,14 +134,16 @@ button[type='submit'] {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #472067; /* Button background color */
+  background-color: #7285b8; /* Button background color */
   color: #fff; /* Button text color */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button[type='submit']:hover {
-  background-color: #ff6196; /* Button background color on hover */
+/* button[type='submit']:hover {
+  background-color: #506ec0; }/* Button background color on hover */
+.submitbutton:hover{
+  background-color: #7285b8;
 }
 
 .error {
@@ -163,12 +166,12 @@ a:hover {
   }
 } */
 
-.loginstyle {
-  color: aliceblue;
+/* .loginstyle {
+  color: black;
   width:50px;
  
   /* background-color: #7c3375; Background color for the box */
-  padding: 20px; /* Padding around the container */
-  border-radius: 10px; /* Border radius for rounded corners */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Box shadow for a subtle effect */
-}
+  /* padding: 20px; /* Padding around the container */
+  /* border-radius: 10px; /* Border radius for rounded corners */
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); Box shadow for a subtle effect */ 
+/* } */ 

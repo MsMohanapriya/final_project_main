@@ -72,17 +72,17 @@ export default function ButtonAppBar({ title }) {
 
         setState({ ...state, [anchor]: open });
     };
-
+    const role = sessionStorage.getItem('role');
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-                <Toolbar style={{ backgroundColor: 'white', color: '#19105B', fontSize: '13px' }}>
+                <Toolbar style={{ backgroundColor: '#19105B', color: '#19105B', fontSize: '13px' }}>
                     <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}
+                        sx={{ mr: 2, backgroundColor: 'pink' }}
                         onClick={toggleDrawer("left", true)}
                     >
                         <MenuIcon />
@@ -92,7 +92,7 @@ export default function ButtonAppBar({ title }) {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <TemporaryDrawer state={state} setState={setState} toggleDrawer={toggleDrawer}  />
+            <TemporaryDrawer state={state} setState={setState} toggleDrawer={toggleDrawer} role={role} />
         </Box>
     );
 }

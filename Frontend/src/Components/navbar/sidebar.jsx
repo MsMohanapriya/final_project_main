@@ -89,3 +89,67 @@ export default function TemporaryDrawer({ state, setstate, toggleDrawer }) {
     </div>
   );
 }
+
+
+// // TemporaryDrawer.jsx
+// import React, { useEffect, useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import Box from '@mui/material/Box';
+// import Drawer from '@mui/material/Drawer';
+// import List from '@mui/material/List';
+// import Divider from '@mui/material/Divider';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
+// import MailIcon from '@mui/icons-material/Mail';
+// import LoginIcon from '@mui/icons-material/Login';
+
+// const TemporaryDrawer = ({ state, setState, toggleDrawer, role }) => {
+//   const [showing, setShowing] = useState([]);
+
+//   useEffect(() => {
+//     if (role === 'admin') {
+//       setShowing(['Dashboard', 'Timesheet', 'CreateUser', 'CreateProject', 'AllocateProject', 'CreateFeedback', 'Logout']);
+//     } else {
+//       setShowing(['Dashboard', 'Timesheet', 'Feedback', 'Logout']);
+//     }
+//   }, [role]);
+
+//   return (
+//     <div>
+//       {['left'].map((anchor) => (
+//         <React.Fragment key={anchor}>
+//           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+//             <div role="presentation" onClick={toggleDrawer(anchor, false)} onKeyDown={toggleDrawer(anchor, false)}>
+//               <Box sx={{ width: 240 }}>
+//                 <List>
+//                   {showing.map((text, index) => (
+//                     <ListItem key={text} disablePadding>
+//                       <ListItemButton component={Link} to={`/${text.toLowerCase()}`}>
+//                         <ListItemText primary={text} />
+//                       </ListItemButton>
+//                     </ListItem>
+//                   ))}
+//                 </List>
+//                 <Divider />
+//                 <List>
+//                   <ListItem disablePadding>
+//                     <ListItemButton component={Link} to="/login">
+//                       <ListItemIcon>
+//                         <LoginIcon />
+//                       </ListItemIcon>
+//                       <ListItemText primary={sessionStorage.getItem('firstName')} />
+//                     </ListItemButton>
+//                   </ListItem>
+//                 </List>
+//               </Box>
+//             </div>
+//           </Drawer>
+//         </React.Fragment>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default TemporaryDrawer;

@@ -44,7 +44,8 @@ function LoginPage() {
         console.log(accessToken,role,email);
         sessionStorage.setItem('accessToken', accessToken);
         sessionStorage.setItem('role', role);
-        sessionStorage.setItem('email',email);
+        sessionStorage.setItem('email', email);
+        
         if (requirePasswordChange) {
           navigate('/changepassword'); // Navigate to change password page
         } else {
@@ -68,7 +69,7 @@ function LoginPage() {
 
   return (
     <div className="App">
-      <div className='loginstyle'><h1>Login</h1></div>
+      <div className='loginstyle'><h1 style={{color:'black'}}>Login</h1></div>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -92,7 +93,7 @@ function LoginPage() {
           />
         </div>
         {error && <p className="error">{error}</p>}
-        <button type="submit">Login</button>
+        <button className= 'submitbutton' type="submit">Login</button>
       </form>
       <Link to="/forget-password/email">Forgot Password?</Link>
     </div>
