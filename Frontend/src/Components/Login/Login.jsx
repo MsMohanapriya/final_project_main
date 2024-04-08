@@ -9,6 +9,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  // const [userName, setUserName] = useState('')
   const navigate = useNavigate();
 
   
@@ -40,11 +41,13 @@ function LoginPage() {
         alert('Invalid email or password');
       }
       else{
-        const { accessToken,role , requirePasswordChange} = res;
-        console.log(accessToken,role,email);
+        const { accessToken,roles, userId, userName, requirePasswordChange} = res;
+        console.log(accessToken,roles,email,userId, userName);
         sessionStorage.setItem('accessToken', accessToken);
-        sessionStorage.setItem('role', role);
+        sessionStorage.setItem('roles', roles);
         sessionStorage.setItem('email', email);
+        sessionStorage.setItem('userId', userId);
+        sessionStorage.setItem('userName', userName);
         
         if (requirePasswordChange) {
           navigate('/changepassword'); // Navigate to change password page

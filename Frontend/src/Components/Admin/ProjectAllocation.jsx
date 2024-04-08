@@ -5,33 +5,76 @@ import DialogBox from '../Login/DIalogBox';
 
 
 function AllocateProject() {
-    const [projectId, setProjectId] = useState('');
+    const [projects, setProjects] = useState([]);
+    const [users, setUsers] = useState([]);
+    // const [projectId, setProjectId] = useState('');
+    const [projectId, setProjectId] = useState([]);
     const [projectName, setProjectName] = useState('');
-    const [employeeId, setEmployeeId] = useState('');
-    const [department, setDepartment] = useState('');
+    // const [user_id, setUserId] = useState('');
+    const [user_id, setUserId] = useState([]);
+    const [userName, setUserName] = useState('')
+    // const [department, setDepartment] = useState('');
     const [error, setError] = useState('');
     const [showDialog, setShowDialog] = useState(false);
-    const [userRole, setUserRole] = useState('');
+    // const [userRole, setUserRole] = useState('');user_id: user_id,
+
+
+    // useEffect(() => {
+    //     setUserRole(sessionStorage.getItem('roles'));
+    // }, []);
 
     useEffect(() => {
-        setUserRole(sessionStorage.getItem('role'));
+        fetchProjects(),
+            fetchUsers();
     }, []);
 
-    const handleProjectIdChange = (event) => {
-        setProjectId(event.target.value);
+
+    const fetchUsers = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/users');
+            const data = await response.json();
+            setUsers(data.users);
+            console.log(data.users)
+        } catch (error) {
+            console.error('Error fetching projects:', error);
+        }
+    };
+    const fetchProjects = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/projects');
+            const data = await response.json();
+            setProjects(data.projects);
+            console.log("projects data:",data.projects)
+        } catch (error) {
+            console.error('Error fetching projects:', error);
+        }
     };
 
-    const handleProjectNameChange = (event) => {
-        setProjectName(event.target.value);
+    const handleProjectChange = (event) => {
+        const projectId = event.target.value;
+        const selectedProject = projects.find(project => project.projectId === projectId);
+        if (selectedProject) {
+            setProjectId(selectedProject.projectId);
+            setProjectName(selectedProject.projectName);
+        }
+    };
+    const handleUserChange = (event) => {
+        const user_id = event.target.value;
+        const selectedUser = users.find(user => user.user_id === user_id);
+        if (selectedUser) {
+            setUserId(selectedUser.user_id);
+            setUserName(selectedUser.userName);
+        }
     };
 
-    const handleEmployeeIdChange = (event) => {
-        setEmployeeId(event.target.value);
-    };
 
-    const handleDepartmentChange = (event) => {
-        setDepartment(event.target.value);
-    };
+    // const handleUserNameChange = (event) => {
+    //     setUserName(event.target.value);
+    // };
+
+    // const handleDepartmentChange = (event) => {
+    //     setDepartment(event.target.value);
+    // };
 
     function setErrorWithTimeout(errorMessage) {
         // Display error message
@@ -49,7 +92,8 @@ function AllocateProject() {
         event.preventDefault();
 
         try {
-            if (userRole !== 'admin') {
+            const roles = sessionStorage.getItem('roles');
+            if (roles!== 'admin') {
                 throw new Error('Only admins can allocate projects');
             }
             const response = await fetch('http://localhost:5000/api/allocateProject', {
@@ -61,18 +105,18 @@ function AllocateProject() {
                 body: JSON.stringify({
                     projectId: projectId,
                     projectName: projectName,
-                    employeeId: employeeId,
-                    department: department
+                    user_id: user_id,
+                    userName: userName
                 }),
             });
             const res = await response.json();
 
             if (res.message === "Projects allocated successfully") {
                 setShowDialog(true);
-                setProjectId('');
+                setProjectId([]);
                 setProjectName('');
-                setEmployeeId('');
-                setDepartment('');
+                setUserId([]);
+                setUserName('');
             } else {
                 setErrorWithTimeout('Error in allocating project');
             }
@@ -92,54 +136,49 @@ function AllocateProject() {
                     <h1>Allocate Projects</h1>
                 </div>
                 <form onSubmit={handleSubmit} className="row">
-                    <div className="col-md-6" style={{width:'100%'}}>
+                    <div className="col-md-6" style={{ width: '100%' }}>
                         <div className="form-group">
-                            <label htmlFor="projectId">Project ID</label>
-                            <input
-                                type="text"
+                            <label htmlFor="projectId">Select Project</label>
+                            <select
+                                
                                 id="projectId"
                                 value={projectId}
-                                onChange={handleProjectIdChange}
+                                onChange={handleProjectChange}
+                                // multiple
                                 required
-                            />
+                            >
+                                <option key="" value="">Select Project</option>
+                                {projects.map(project => (
+                                    <option key={project.projectId} value={project.projectId}>
+                                        {project.projectName}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="projectName">Project Name</label>
-                            <input
-                                type="text"
-                                id="projectName"
-                                value={projectName}
-                                onChange={handleProjectNameChange}
+                            <label htmlFor="user_id">Select User</label>
+                            <select
+                                id="userId"
+                                value={user_id}
+                                onChange={handleUserChange}
+                                // multiple
                                 required
-                            />
+                            >
+                                <option key="" value="">Select User</option>
+                                {users.map(user => (
+                                    <option key={user.userId} value={user.user_id}>
+                                        {user.userName}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="employeeId">Employee ID</label>
-                            <input
-                                type="text"
-                                id="employeeId"
-                                value={employeeId}
-                                onChange={handleEmployeeIdChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="department">Department</label>
-                            <input
-                                type="text"
-                                id="department"
-                                value={department}
-                                onChange={handleDepartmentChange}
-                                required
-                            />
-                        </div>
-                    </div>
-                   
+
                         {error && <p>{error}</p>}
                         {showDialog && <DialogBox message="Project alloted successfully" onClose={handleCloseDialog} />}
-                    
-                    <div className="col-md-12">
-                        <button type="submit">Submit</button>
+
+                        <div className="col-md-12">
+                            <button type="submit">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -148,3 +187,5 @@ function AllocateProject() {
 }
 
 export default AllocateProject;
+
+

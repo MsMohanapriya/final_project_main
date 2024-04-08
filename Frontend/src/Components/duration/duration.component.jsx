@@ -85,6 +85,8 @@ const Duration = ({ hours, startDate, endDate, setStartDate, setEndDate }) => {
     setStartDate(newStartDate);
   };
 
+  console.log(startDate,endDate)
+
   return (
     <div className="duration-container totalhours">
       <span>Total Hours: {hours}</span>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import DialogBox from './DIalogBox';
 function ChangePasswordPage() {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [showDialog, setShowDialog] = useState(false);
   const navigate = useNavigate();
 
   const handleNewPasswordChange = (event) => {

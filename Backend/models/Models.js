@@ -2,37 +2,66 @@ const mongoose = require('mongoose')
 
 //User
 const userSchema = new mongoose.Schema({
-  first_name: {
-    type: String
-  },
-  last_name: {
-    type: String
-  },
-  role: {
-    type: String
-  },
-  role_category: {
-    type: String
-  },
-  employeeid: {
+  user_id: {
     type: String,
     unique: true
-    
   },
-  password: {
-    type: String,
-    required: true
+  userName: {
+    type: String
+  },
+  dateOfJoin: {
+    type: Date
+  },
+  mobileNumber: {
+    type: String
   },
   email: {
     type: String,
     unique: true,
     required: true
   },
-  phone_number: {
+  city: {
+    type: String
+  },
+  state: {
+    type: String
+  },
+  pin: {
+    type: String
+  },
+  dateOfBirth: {
+    type: Date
+  },
+  gender: {
+    type: String
+  },
+  reportingUserId: {
+    type: String
+  },
+  reporterName: {
+    type: String
+  },
+  roles: {
+    type: String
+  },
+  designationId: {
+    type: String
+  },
+  designation: {
+    type: String
+  },
+  departmentId: {
     type: String
   },
   department: {
     type: String
+  },
+  user_status: {
+    type: String
+  },
+  password: {
+    type: String,
+    require : true
   },
   requirePasswordChange: {
     type: Boolean,
@@ -43,6 +72,7 @@ const userSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
 
 
 const otpSchema = new mongoose.Schema({
@@ -74,15 +104,21 @@ const timesheetSchema = new mongoose.Schema({
     // },
     // comments: {
     //     type: String
-    // },
+  // },
+  user_id: {
+      type : String
+    },
     pname: {
         type: String // Assuming pname is a string field
+  },
+  task: {
+      type : String
     },
     start_period: {
-        type: Date
+        type: String
     },
     end_period: {
-        type: Date
+        type: String
     },
     mon: {
         type: Number

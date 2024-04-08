@@ -5,16 +5,19 @@ import DialogBox from '../Login/DIalogBox';
 function CreateProject() {
     const [projectId, setProjectId] = useState('');
     const [projectName, setProjectName] = useState('');
-    const [department, setDepartment] = useState('');
+    const [projectStartDate, setProjectStartDate] = useState('');
+    const [projectEndDate, setProjectEndDate] = useState('');
+    const [projectStatus, setProjectStatus] = useState('');
+    const [typeOfProject, setTypeOfProject] = useState('');
     const [departmentId, setDepartmentId] = useState('');
-    const [duration, setDuration] = useState('');
-    const [startDate, setStartDate] = useState('');
+    const [department, setDepartment] = useState('');
     const [error, setError] = useState('');
     const [userRole, setUserRole] = useState('');
     const [showDialog, setShowDialog] = useState(false);
+    const [tasks, setTasks] = useState([{ taskName: '' }]);
 
     useEffect(() => {
-        setUserRole(sessionStorage.getItem('role'));
+        setUserRole(sessionStorage.getItem('roles'));
     }, []);
 
     const handleProjectIdChange = (event) => {
@@ -25,41 +28,62 @@ function CreateProject() {
         setProjectName(event.target.value);
     };
 
+    const handleProjectStartDateChange = (event) => {
+        setProjectStartDate(event.target.value);
+    };
+
+    const handleProjectEndDateChange = (event) => {
+        setProjectEndDate(event.target.value);
+    };
+
+    const handleProjectStatusChange = (event) => {
+        setProjectStatus(event.target.value);
+    };
+
+    const handleTypeOfProjectChange = (event) => {
+        setTypeOfProject(event.target.value);
+    };
+
     const handleDepartmentChange = (event) => {
-        setDepartment(event.target.value);
+        const selectedDepartmentId = event.target.value;
+        setDepartmentId(selectedDepartmentId);
+        // Optionally, if you want to update the designation name as well
+        const selectedDepartment = event.target.options[event.target.selectedIndex].text;
+        setDepartment(selectedDepartment);
     };
 
-    const handleDepartmentIdChange = (event) => {
-        setDepartmentId(event.target.value);
+    const handleTaskChange = (index, event) => {
+        const { value } = event.target;
+        const updatedTasks = [...tasks];
+        updatedTasks[index].taskName = value;
+        setTasks(updatedTasks);
     };
 
-    const handleDurationChange = (event) => {
-        setDuration(event.target.value);
+    const addTask = () => {
+        setTasks([...tasks, { taskName: '' }]);
     };
 
-    const handleStartDateChange = (event) => {
-        setStartDate(event.target.value);
+    const removeTask = (index) => {
+        const updatedTasks = [...tasks];
+        updatedTasks.splice(index, 1);
+        setTasks(updatedTasks);
     };
+
     function setErrorWithTimeout(errorMessage) {
-        // Display error message
         setError(errorMessage);
-
-        // Clear error message after 4 seconds
         setTimeout(clearError, 2000);
     }
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
             if (userRole !== 'admin') {
-                throw new Error('Only admins can register new users');
+                throw new Error('Only admins can create projects');
             }
 
-
             // Validation logic
-            if (!projectId || !projectName || !department || !departmentId || !duration || !startDate) {
+            if (!projectId || !projectName || !projectStartDate || !projectStatus || !departmentId || !department) {
                 throw new Error('All fields are required');
             }
 
@@ -70,12 +94,16 @@ function CreateProject() {
                     Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`
                 },
                 body: JSON.stringify({
-                    projectId: projectId,
-                    projectName: projectName,
-                    department: department,
+                    project_id: projectId,
+                    project_name: projectName,
+                    project_startDate: projectStartDate,
+                    project_endDate: projectEndDate,
+                    project_status: projectStatus,
+                    typeOfProject: typeOfProject,
                     departmentId: departmentId,
-                    duration: duration,
-                    startDate: startDate
+                    department: department,
+                    tasks: JSON.stringify(tasks), // Stringify the tasks array
+                    created_at: new Date()
                 }),
             });
 
@@ -85,10 +113,13 @@ function CreateProject() {
                 setShowDialog(true);
                 setProjectId('');
                 setProjectName('');
-                setDepartment('');
+                setProjectStartDate('');
+                setProjectEndDate('');
+                setProjectStatus('');
+                setTypeOfProject('');
                 setDepartmentId('');
-                setDuration('');
-                setStartDate('');
+                setDepartment('');
+                setTasks([{ taskName: '' }]);
             } else {
                 setErrorWithTimeout('Error in creating project');
             }
@@ -101,7 +132,6 @@ function CreateProject() {
     const handleCloseDialog = () => {
         setShowDialog(false);
     };
-
 
     return (
         <div className='create-project'>
@@ -133,53 +163,86 @@ function CreateProject() {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="department">Department</label>
+                                <label htmlFor="projectStartDate">Start Date</label>
                                 <input
-                                    type="text"
-                                    id="department"
-                                    value={department}
-                                    onChange={handleDepartmentChange}
+                                    type="date"
+                                    id="projectStartDate"
+                                    value={projectStartDate}
+                                    onChange={handleProjectStartDateChange}
                                     required
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="departmentId">Department ID</label>
+                                <label htmlFor="projectEndDate">End Date</label>
                                 <input
-                                    type="text"
-                                    id="departmentId"
-                                    value={departmentId}
-                                    onChange={handleDepartmentIdChange}
-                                    required
+                                    type="date"
+                                    id="projectEndDate"
+                                    value={projectEndDate}
+                                    onChange={handleProjectEndDateChange}
+                                    min={projectStartDate}
                                 />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="form-group">
-                                <label htmlFor="duration">Duration (in months)</label>
+                                <label htmlFor="projectStatus">Project Status</label>
+                                <select
+                                    id="projectStatus"
+                                    value={projectStatus}
+                                    onChange={handleProjectStatusChange}
+                                    required
+                                >
+                                    <option value="">Select Project Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="inprogress">In Progress</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="typeOfProject">Type of Project</label>
                                 <input
                                     type="text"
-                                    id="duration"
-                                    value={duration}
-                                    onChange={handleDurationChange}
-                                    required
+                                    id="typeOfProject"
+                                    value={typeOfProject}
+                                    onChange={handleTypeOfProjectChange}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="startDate">Start Date</label>
+                                <label htmlFor="department">Department</label>
+                                <select
+                                    id="department"
+                                    value={departmentId}
+                                    onChange={handleDepartmentChange}
+                                    required
+                                >
+                                    <option value="">Select Department</option>
+                                    <option value="1">Administration</option>
+                                    <option value="2">Delivery</option>
+                                    <option value="3">Operations</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        {tasks.map((task, index) => (
+                            <div key={index} className="task-input-row">
                                 <input
-                                    type="date"
-                                    id="startDate"
-                                    value={startDate}
-                                    onChange={handleStartDateChange}
+                                    type="text"
+                                    value={task.taskName}
+                                    onChange={(e) => handleTaskChange(index, e)} // Pass index here
+                                    placeholder="Task Name"
                                     required
                                 />
+                                <div>
+                                    <button onClick={() => removeTask(index)}>Remove</button>
+                                    {index === tasks.length - 1 && <button onClick={addTask}>Add</button>}
+                                </div>
                             </div>
-                            {error && <p>{error}</p>}
-                            {showDialog && <DialogBox message="Project created successfully" onClose={handleCloseDialog} />}
-                            <button type="submit">Submit</button>
-                        </div>
-                    </form>
+                        ))}
 
+                        {error && <p>{error}</p>}
+                        {showDialog && <DialogBox message="Project created successfully" onClose={handleCloseDialog} />}
+                        <button type="submit">Submit</button>
+                    </form>
                 </div>
             ) : (
                 <p>You are not permitted to create projects.</p>

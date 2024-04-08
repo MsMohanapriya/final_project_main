@@ -33,19 +33,23 @@ function App() {
       <Router>
 
 
-        <ButtonAppBar />
+        {/* <ButtonAppBar /> */}
         <Routes>
           {/* <Route element={renderLayout()}> */}
-          <Route path="/createuser" element={<CreateUser />} />
+
+          <Route path="/" element={<ButtonAppBar />}>
+            <Route path="/createuser" element={<CreateUser />} />
+            <Route path="/forget-password/email" element={<ForgetPasswordEmailPage />} />
+            <Route path="/changepassword" element={<ChangePasswordPage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/timesheet" element={<AddDeleteTableRows />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="/createproject" element={<CreateProject />} />
+            <Route path="/allocateproject" element={<AllocateProject />} />
+            <Route path="/createFeedbackQuestions" element={<CreateFeedbackQuestions />} />
+            
+          </Route>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/forget-password/email" element={<ForgetPasswordEmailPage />} />
-          <Route path="/changepassword" element={<ChangePasswordPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/timesheet" element={<AddDeleteTableRows />} />
-          <Route path="/feedback" element={<Feedback />} />
-          <Route path="/createproject" element={<CreateProject />} />
-          <Route path="/allocateproject" element={<AllocateProject />} />
-          <Route path="/createFeedbackQuestions" element={<CreateFeedbackQuestions />} />
           {/* <AddDeleteTableRows /> */}
           {/* </Route> */}
         </Routes>

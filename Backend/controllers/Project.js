@@ -4,21 +4,50 @@ const { ProjectModel, ProjectAllocationModel } = require('../models/Admin');
 // const ProjectAllocationModel = ('../models/Admin');
 const { Types: { ObjectId } } = require('mongoose');
 
+const fetchAllProject = async (req, res) => {
+  try {
+    const projects = await ProjectModel.find({});
+    return res.status(200).json({projects:projects})
+
+  } catch (error) {
+    console.error(err);
+    return res.status(400).json({message:err.message})
+  }
+}
+
+const fetchUserProject = async (req, res) => {
+
+  const userId = req.body.userid;
+
+  try {
+    const projects = await ProjectAllocationModel.find({user_id:userId});
+    return res.status(200).json({ projects: projects })
+
+  } catch (error) {
+    console.error(err);
+    return res.status(400).json({ message: err.message })
+  }
+}
+
+
+
 const createProject = async (req, res) => {
     try {
       // Destructure project details from request body
-      const { projectId, projectName, department, departmentId, duration, startDate } = req.body;
+      const { project_id, project_name, project_startDate, project_endDate, project_status, typeOfProject, departmentId, department } = req.body;
       console.log(req.body);
       // Check if user is authorized to create a project
       
         // Create a new project document using the project model
         const newProject = new ProjectModel({
-          projectId: ObjectId(projectId),
-          projectName: projectName,
-          department: department,
+          project_id: project_id,
+          project_name: project_name,
+          project_startDate: project_startDate,
+          project_endDate: project_endDate,
+          project_status: project_status,
+          typeOfProject: typeOfProject,
           departmentId: departmentId,
-          duration: duration,
-          startDate: startDate,
+          department: department,
           created_at: new Date()
         });
   
@@ -37,35 +66,26 @@ const createProject = async (req, res) => {
       res.status(500).json({ message: "Error creating project" });
     }
 };
-  
+
+ 
 const AllocateProject = async (req, res) => {
   try {
     // Destructure project details from request body
-    const { projectId, projectName, employeeId, department } = req.body;
-    console.log(req.body);
-
-    const project = await ProjectModel.find({projectId})
-
-    // Check if the provided projectId is a valid ObjectId
-    // if (!projectCheck) {
-    //   return res.status(400).json({ message: "Invalid projectId" });
-    // }
+    const { projectId, projectName, user_id, userName } = req.body;
 
     // Check if the project with the given projectId exists
-    // const project = await ProjectModel.findById(projectId);
-    console.log(project)
-    if (project.length === 0) {
-      // If project is not found, throw an error
-      return res.status(400).json({message:"No project found with the given projectId"});
-      
+    const project = await ProjectModel.findOne({ projectId });
+
+    if (!project) {
+      return res.status(400).json({ message: "No project found with the given projectId" });
     }
 
     // Create a new project allocation document using the project model
     const allocatedProject = new ProjectAllocationModel({
       projectId: projectId,
       projectName: projectName,
-      employeeId: employeeId,
-      department: department,
+      user_id: user_id,
+      userName: userName,
       created_at: new Date()
     });
 
@@ -78,6 +98,7 @@ const AllocateProject = async (req, res) => {
     res.status(500).json({ message: error.message || "Error allocating project" });
   }
 };
+
 
 
 const createFeedbackQuestions = async (req, res) => {
@@ -115,6 +136,8 @@ const createFeedbackQuestions = async (req, res) => {
   module.exports = {
     createProject,
     AllocateProject,
-    createFeedbackQuestions
+    createFeedbackQuestions,
+    fetchAllProject,
+    fetchUserProject
   };
   

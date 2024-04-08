@@ -12,22 +12,22 @@ const adminListItems = ['Create User', 'Create Project', 'Allocate Project', 'Fe
 
 
 function HomePage() {
-  const [role] = useState(sessionStorage.getItem('role')); // Assume user is not an admin by default
+  const [roles] = useState(sessionStorage.getItem('roles')); // Assume user is not an admin by default
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!role) {
+    if (!roles) {
       // If role is not defined, redirect to the login page
       navigate('/login');
     }
-  }, [navigate, role]);
+  }, [navigate, roles]);
 
   return (
     
     <div>
       {/* <ButtonAppBar title="ADMIN DASHBOARD" listItems={adminListItems} /> */}
   
-      {role === 'admin' && (
+      {roles === 'admin' && (
         
     <div>
         <h1>Welcome to the Home Page</h1>
@@ -41,7 +41,7 @@ function HomePage() {
       </div>
     </div>
   )}
-  {role === 'user' && (
+  {roles === 'user' && (
     <div>
         <h1>Welcome to the Home Page</h1>
       <h2>Hello User!</h2>

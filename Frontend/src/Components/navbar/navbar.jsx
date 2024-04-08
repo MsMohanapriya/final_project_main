@@ -56,6 +56,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import TemporaryDrawer from './sidebar';
+import { Outlet } from 'react-router-dom';
 
 export default function ButtonAppBar({ title }) {
     const [state, setState] = React.useState({
@@ -74,6 +75,8 @@ export default function ButtonAppBar({ title }) {
     };
     const role = sessionStorage.getItem('role');
     return (
+        <>
+        
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar style={{ backgroundColor: '#19105B', color: '#19105B', fontSize: '13px' }}>
@@ -93,6 +96,10 @@ export default function ButtonAppBar({ title }) {
                 </Toolbar>
             </AppBar>
             <TemporaryDrawer state={state} setState={setState} toggleDrawer={toggleDrawer} role={role} />
-        </Box>
+            </Box>
+            
+
+            <Outlet/>
+        </>
     );
 }

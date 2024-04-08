@@ -93,7 +93,7 @@ td{
   justify-content: end;
 }
 .create-button, .update-button {
-  background-color: #FF6196 !important;
+  background-color: #FF6196 ;
   border-radius: 3px !important;
   height: 35px;
   padding: 10px 14px;
@@ -171,4 +171,30 @@ title{
 }
 .p-button-label{
   color: white;
+}
+
+.ml-20 button{
+  background-color: #FF6196 !important;
+  color: white;
+}
+.ml-20 button:hover {
+  background-color: black !important;
+  /* Change to the desired hover color */
+  /* Change to the desired text color */
+}
+/* .submitbutton {
+  position: relative;
+}
+
+.submitbutton button {
+  background-color: #FF6196;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */ 
+
+.black-label {
+  color: black;
 }

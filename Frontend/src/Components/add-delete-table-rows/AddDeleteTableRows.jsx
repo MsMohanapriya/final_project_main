@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import TableRows from "./TableRows"
 import ButtonAppBar from "../navbar/navbar";
-import TableRows2 from "./Tablerows2";
+// import TableRows2 from "./Tablerows2";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import axios from "axios"
 import Duration from "../duration/duration.component";
@@ -10,28 +10,30 @@ import { convertLength } from "@mui/material/styles/cssUtils";
 import DialogBox from "../Login/DIalogBox";
 function AddDeleteTableRows() {
 
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState(new Date());
-    const [error,setError]  = useState()
+    const [error, setError] = useState()
+    const [showDialog, setShowDialog] = useState(false);
     //    this state is for whole table of BAU
     const [rowsData, setRowsData] = useState([{
-        proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: '', start_date: startDate, end_date: endDate, date: '89898'
+       user_id:'', proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: '', start_date: startDate, end_date: endDate
     }]);
 
     //    this state is for whole table of Sales
-    const [rowsData2, setRowsData2] = useState([{
-        proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
-    }]);
-
-    const[proj, setProj]=useState('')
-    const[mon,setMon]=useState('')
-    const[tue,setTue]= useState('')
-    const[wed,setWed]=useState('')
-    const[thur,setThur] = useState('')
-    const[fri,setFri] = useState('')
-    const[sat,setSat] = useState('')
-    const[sun,setSun] = useState('')
-    const[total,setTotal] = useState('')
+    // const [rowsData2, setRowsData2] = useState([{
+    //     proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
+    // }]);
+    const user_id = sessionStorage.getItem('userId')
+    const [proj, setProj] = useState('')
+    const [task, setTasks] = useState('')
+    const [mon, setMon] = useState('')
+    const [tue, setTue] = useState('')
+    const [wed, setWed] = useState('')
+    const [thur, setThur] = useState('')
+    const [fri, setFri] = useState('')
+    const [sat, setSat] = useState('')
+    const [sun, setSun] = useState('')
+    const [total, setTotal] = useState('')
 
     useEffect(() => {
         console.log(startDate, endDate)
@@ -40,7 +42,7 @@ function AddDeleteTableRows() {
     //    Functions for BAU
     const addTableRows = () => {
         const rowsInput = {
-            proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
+             proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
         }
         setRowsData([...rowsData, rowsInput])
 
@@ -68,31 +70,33 @@ function AddDeleteTableRows() {
         console.log(rowsData)
     }
 
-
+    const handleCloseDialog = () => {
+        setShowDialog(false);
+    };
     //    Functions for Sales
-    const addTableRows2 = () => {
-        const rowsInput = {
-            proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
-        }
-        setRowsData2([...rowsData2, rowsInput])
-    }
-    const deleteTableRows2 = (index) => {
-        const rows = [...rowsData2];
-        rows.splice(index, 1);
-        setRowsData2(rows);
-    }
+    // const addTableRows2 = () => {
+    //     const rowsInput = {
+    //         proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
+    //     }
+    //     setRowsData2([...rowsData2, rowsInput])
+    // }
+    // const deleteTableRows2 = (index) => {
+    //     const rows = [...rowsData2];
+    //     rows.splice(index, 1);
+    //     setRowsData2(rows);
+    // }
 
-    const handleChange2 = (index, evnt) => {
-        const { name, value } = evnt.target;
-        const rowsInput = [...rowsData2];
+    // const handleChange2 = (index, evnt) => {
+    //     const { name, value } = evnt.target;
+    //     const rowsInput = [...rowsData2];
 
-        if (value == '' || parseInt(value) <= 24) {
-            rowsInput[index][name] = value;
-            setRowsData2(rowsInput);
-        }
-        rowsInput[index][name] = value;
-        setRowsData2(rowsInput);
-    }
+    //     if (value == '' || parseInt(value) <= 24) {
+    //         rowsInput[index][name] = value;
+    //         setRowsData2(rowsInput);
+    //     }
+    //     rowsInput[index][name] = value;
+    //     setRowsData2(rowsInput);
+    // }
 
     // Calculate total for displaying in last row using reduce function
     let montot = rowsData.reduce((previousValue, currentValue) => {
@@ -100,173 +104,148 @@ function AddDeleteTableRows() {
             return parseInt(previousValue) + parseInt(currentValue.mon)
         else
             return previousValue
-    }, 0)
-        + rowsData2.reduce((previousValue, currentValue) => {
-            if (currentValue.mon !== '')
-                return parseInt(previousValue) + parseInt(currentValue.mon)
-            else
-                return previousValue
-        }, 0);
+    }, 0);
+        // + rowsData2.reduce((previousValue, currentValue) => {
+        //     if (currentValue.mon !== '')
+        //         return parseInt(previousValue) + parseInt(currentValue.mon)
+        //     else
+        //         return previousValue
+        // }, 0);
 
     let tuetot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.tue !== '')
             return parseInt(previousValue) + parseInt(currentValue.tue)
         else
             return previousValue
-    }, 0)
-        + rowsData2.reduce((previousValue, currentValue) => {
-            if (currentValue.tue !== '')
-                return parseInt(previousValue) + parseInt(currentValue.tue)
-            else
-                return previousValue
-        }, 0);
+    }, 0);
+        // + rowsData2.reduce((previousValue, currentValue) => {
+        //     if (currentValue.tue !== '')
+        //         return parseInt(previousValue) + parseInt(currentValue.tue)
+        //     else
+        //         return previousValue
+        // }, 0);
 
     let wedtot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.wed !== '')
             return parseInt(previousValue) + parseInt(currentValue.wed)
         else
             return previousValue
-    }, 0)
-        + rowsData2.reduce((previousValue, currentValue) => {
-            if (currentValue.wed !== '')
-                return parseInt(previousValue) + parseInt(currentValue.wed)
-            else
-                return previousValue
-        }, 0);
+    }, 0);
+        // + rowsData2.reduce((previousValue, currentValue) => {
+        //     if (currentValue.wed !== '')
+        //         return parseInt(previousValue) + parseInt(currentValue.wed)
+        //     else
+        //         return previousValue
+        // }, 0);
 
     let thutot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.thu !== '')
             return parseInt(previousValue) + parseInt(currentValue.thu)
         else
             return previousValue
-    }, 0)
-        + rowsData2.reduce((previousValue, currentValue) => {
-            if (currentValue.thu !== '')
-                return parseInt(previousValue) + parseInt(currentValue.thu)
-            else
-                return previousValue
-        }, 0);
+    }, 0);
+        // + rowsData2.reduce((previousValue, currentValue) => {
+        //     if (currentValue.thu !== '')
+        //         return parseInt(previousValue) + parseInt(currentValue.thu)
+        //     else
+        //         return previousValue
+        // }, 0);
 
     let fritot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.fri !== '')
             return parseInt(previousValue) + parseInt(currentValue.fri)
         else
             return previousValue
-    }, 0)
-        + rowsData2.reduce((previousValue, currentValue) => {
-            if (currentValue.fri !== '')
-                return parseInt(previousValue) + parseInt(currentValue.fri)
-            else
-                return previousValue
-        }, 0);
+    }, 0);
+        // + rowsData2.reduce((previousValue, currentValue) => {
+        //     if (currentValue.fri !== '')
+        //         return parseInt(previousValue) + parseInt(currentValue.fri)
+        //     else
+        //         return previousValue
+        // }, 0);
 
     let sattot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.sat !== '')
             return parseInt(previousValue) + parseInt(currentValue.sat)
         else
             return previousValue
-    }, 0)
-        + rowsData2.reduce((previousValue, currentValue) => {
-            if (currentValue.sat !== '')
-                return parseInt(previousValue) + parseInt(currentValue.sat)
-            else
-                return previousValue
-        }, 0);
+    }, 0);
+        // + rowsData2.reduce((previousValue, currentValue) => {
+        //     if (currentValue.sat !== '')
+        //         return parseInt(previousValue) + parseInt(currentValue.sat)
+        //     else
+        //         return previousValue
+        // }, 0);
     let suntot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.sun !== '')
             return parseInt(previousValue) + parseInt(currentValue.sun)
         else
             return previousValue
     }, 0)
-        + rowsData2.reduce((previousValue, currentValue) => {
-            if (currentValue.sun !== '')
-                return parseInt(previousValue) + parseInt(currentValue.sun)
-            else
-                return previousValue
-        }, 0);
+        // + rowsData2.reduce((previousValue, currentValue) => {
+        //     if (currentValue.sun !== '')
+        //         return parseInt(previousValue) + parseInt(currentValue.sun)
+        //     else
+        //         return previousValue
+        // }, 0);
     var fintot = montot + tuetot + wedtot + thutot + fritot + sattot + suntot;
 
 
     // calculate row total to display in last coloumn of BAU
     const calculateTotal = (index) => {
+        let total = 0;
+        const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-        if (rowsData[index].mon != '')
-            var monn = rowsData[index].mon;
-        else
-            var monn = '0'
-        if (rowsData[index].tue != '')
-            var tuee = rowsData[index].tue;
-        else
-            var tuee = '0'
-        if (rowsData[index].wed != '')
-            var wedd = rowsData[index].wed;
-        else
-            var wedd = '0'
-        if (rowsData[index].thu != '')
-            var thuu = rowsData[index].thu;
-        else
-            var thuu = '0'
-        if (rowsData[index].fri != '')
-            var frii = rowsData[index].fri;
-        else
-            var frii = '0'
-        if (rowsData[index].sat != '')
-            var satt = rowsData[index].sat;
-        else
-            var satt = '0'
-        if (rowsData[index].sun != '')
-            var sunn = rowsData[index].sun;
-        else
-            var sunn = '0'
+        // Loop through each day of the week
+        daysOfWeek.forEach(day => {
+            // If the value is not an empty string, parse and add it to the total
+            if (rowsData[index][day] !== '') {
+                total += parseInt(rowsData[index][day]);
+            }
+        });
 
-        return parseInt(monn) +
-            parseInt(tuee) +
-            parseInt(wedd) +
-            parseInt(thuu) +
-            parseInt(frii) +
-            parseInt(satt) +
-            parseInt(sunn);
+        return total;
     };
 
     // calculate row total to display in last coloumn of Sales
-    const calculateTotal2 = (index) => {
-        if (rowsData2[index].mon !== '')
-            var monn = rowsData2[index].mon;
-        else
-            var monn = '0'
-        if (rowsData2[index].tue !== '')
-            var tuee = rowsData2[index].tue;
-        else
-            var tuee = '0'
-        if (rowsData2[index].wed !== '')
-            var wedd = rowsData2[index].wed;
-        else
-            var wedd = '0'
-        if (rowsData2[index].thu !== '')
-            var thuu = rowsData2[index].thu;
-        else
-            var thuu = '0'
-        if (rowsData2[index].fri !== '')
-            var frii = rowsData2[index].fri;
-        else
-            var frii = '0'
-        if (rowsData2[index].sat !== '')
-            var satt = rowsData2[index].sat;
-        else
-            var satt = '0'
-        if (rowsData2[index].sun !== '')
-            var sunn = rowsData2[index].sun;
-        else
-            var sunn = '0'
+    // const calculateTotal2 = (index) => {
+    //     if (rowsData2[index].mon !== '')
+    //         var monn = rowsData2[index].mon;
+    //     else
+    //         var monn = '0'
+    //     if (rowsData2[index].tue !== '')
+    //         var tuee = rowsData2[index].tue;
+    //     else
+    //         var tuee = '0'
+    //     if (rowsData2[index].wed !== '')
+    //         var wedd = rowsData2[index].wed;
+    //     else
+    //         var wedd = '0'
+    //     if (rowsData2[index].thu !== '')
+    //         var thuu = rowsData2[index].thu;
+    //     else
+    //         var thuu = '0'
+    //     if (rowsData2[index].fri !== '')
+    //         var frii = rowsData2[index].fri;
+    //     else
+    //         var frii = '0'
+    //     if (rowsData2[index].sat !== '')
+    //         var satt = rowsData2[index].sat;
+    //     else
+    //         var satt = '0'
+    //     if (rowsData2[index].sun !== '')
+    //         var sunn = rowsData2[index].sun;
+    //     else
+    //         var sunn = '0'
 
-        return parseInt(monn) +
-            parseInt(tuee) +
-            parseInt(wedd) +
-            parseInt(thuu) +
-            parseInt(frii) +
-            parseInt(satt) +
-            parseInt(sunn);
-    };
+    //     return parseInt(monn) +
+    //         parseInt(tuee) +
+    //         parseInt(wedd) +
+    //         parseInt(thuu) +
+    //         parseInt(frii) +
+    //         parseInt(satt) +
+    //         parseInt(sunn);
+    // };
 
     // const fetchdata = async () => {
 
@@ -314,60 +293,58 @@ function AddDeleteTableRows() {
     // }
 
     const handleSubmit = async (rowsData) => {
-        
         console.log(rowsData)
-        
-            const newTimesheet = {
-                
-                // activity: activity,
-                // comments: comments,
-                // start_period: startdate,
-                // end_period: enddate,
-                pname: proj,
-                mon: mon,
-                tue: tue,
-                wed: wed,
-                thur: thur,
-                fri: fri,
-                sat: sat,
-                sun: sun,
-                total_hrs : total,
-                created_at: new Date()
-            };
+        console.log(user_id)
+        const newTimesheet = {
+            user_id: user_id,
+            pname: proj,
+            task: task,
+            mon: mon,
+            tue: tue,
+            wed: wed,
+            thur: thur,
+            fri: fri,
+            sat: sat,
+            sun: sun,
+            total_hrs: total,
+            start_period: startDate,
+            end_period: endDate,
+            created_at: new Date()
+        };
+         console.log(newTimesheet)
+        const response = await fetch('http://localhost:5000/api/registerTimesheet', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${sessionStorage.getItem("accessToken")}`
+            },
+            body: JSON.stringify(newTimesheet),
+        });
+        console.log("called ", response)
+        const responseData = await response.json();
 
-            const response = await fetch('http://localhost:5000/api/registerTimesheet', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${sessionStorage.getItem("accessToken")}`
-                },
-                body: JSON.stringify(rowsData), 
-            });
-            console.log("called ",response)
-            const responseData = await response.json();
+        if (response.ok) {
+            // Handle success: show dialog and reset form fields
+            setShowDialog(true);
+            // resetFormFields();
+        } else {
+            // Handle failure: set error message
+            setError(responseData.message || 'Error in creating timesheet');
+        }
 
-            if (response.ok) {
-                // Handle success: show dialog and reset form fields
-                setShowDialog(true);
-                resetFormFields();
-            } else {
-                // Handle failure: set error message
-                setError(responseData.message || 'Error in creating timesheet');
-            }
-        
     };
 
 
     useEffect(() => {
         // LOCAL STORAGE
         const data1 = localStorage.getItem("BAU")
-        const data2 = localStorage.getItem("sales")
+        // const data2 = localStorage.getItem("sales")
         if (data1) {
             setRowsData(JSON.parse(data1))
         }
-        if (data2) {
-            setRowsData2(JSON.parse(data2))
-        }
+        // if (data2) {
+        //     setRowsData2(JSON.parse(data2))
+        // }
 
         // fetchdata()
         // fetchdata2()
@@ -376,7 +353,7 @@ function AddDeleteTableRows() {
     const save = () => {
         alert("Saved")
         localStorage.setItem("BAU", JSON.stringify(rowsData))
-        localStorage.setItem("sales", JSON.stringify(rowsData2))
+        // localStorage.setItem("sales", JSON.stringify(rowsData2))
     }
 
     // const submit = () => {
@@ -392,7 +369,7 @@ function AddDeleteTableRows() {
     //         proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
     //     }])
     // }
-   
+
     return (
         <>
             {/* listItems = ['Dashboard', 'Timesheet', 'Leave', 'Work From Home', 'Feedback', 'Survey', 'Service Desks', 'Forms', 'Travel', 'Expenses', 'Resourcesing'] */}
@@ -438,7 +415,7 @@ function AddDeleteTableRows() {
                             {/* This is the component for individual rows of BAU */}
                             <TableRows rowsData={rowsData} deleteTableRows={deleteTableRows} handleChange={handleChange} calculateTotal={calculateTotal} addTableRows={addTableRows} />
                             {/* This is the component for individual rows of Sales */}
-                            <TableRows2 rowsData2={rowsData2} deleteTableRows2={deleteTableRows2} handleChange2={handleChange2} calculateTotal2={calculateTotal2} addTableRows2={addTableRows2} />
+                            {/* <TableRows2 rowsData2={rowsData2} deleteTableRows2={deleteTableRows2} handleChange2={handleChange2} calculateTotal2={calculateTotal2} addTableRows2={addTableRows2} /> */}
                             <tr>
                                 <td>Total Hours:</td>
                                 <td></td>
@@ -456,11 +433,11 @@ function AddDeleteTableRows() {
                             </tr>
                             <tr>
                                 <td>Machine Hours</td>
-                              
+
                             </tr>
                             <tr>
                                 <td>Break Hours</td>
-                               
+
                             </tr>
                         </tbody>
                     </table>
@@ -474,7 +451,9 @@ function AddDeleteTableRows() {
                         </button>
                     </div>
                     <div className="ml-20">
-                        <button type="submit" className="p-button p-component create-button"  onClick={()=>handleSubmit(rowsData)}>
+                        {error && <p>{error}</p>}
+                        {showDialog && <DialogBox message="Project created successfully" onClose={handleCloseDialog} />}
+                        <button type="submit" className="p-button p-component create-button" onClick={() => handleSubmit(rowsData)}>
                             <span className="p-button-icon p-c p-button-icon-right pi pi-arrow-right">
                             </span>
                             <span className="p-button-label p-c">
@@ -484,10 +463,10 @@ function AddDeleteTableRows() {
                     </div>
                 </div>
             </main>
-            
+
         </>
 
     )
 
 }
-export default AddDeleteTableRows
+export default AddDeleteTableRows;

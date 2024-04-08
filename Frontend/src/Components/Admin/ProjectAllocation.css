@@ -55,3 +55,23 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #a308eb;
 }
+
+
+.question-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.question-icons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.question-icons button:hover {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+}

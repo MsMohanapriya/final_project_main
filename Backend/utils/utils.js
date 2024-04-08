@@ -55,7 +55,9 @@ const transporter = nodemailer.createTransport({
  
 const authenticateJWT = (req, res, next) => {
   const authHeader = req.headers.authorization;
- 
+  console.log(req.headers)
+  
+  console.log(authHeader, authHeader && authHeader.startsWith('Bearer '))
   if (authHeader && authHeader.startsWith('Bearer ')) {
     const token = authHeader.split(' ')[1];
  
@@ -64,10 +66,12 @@ const authenticateJWT = (req, res, next) => {
         res.status(401).send('Invalid token');
       } else {
         req.user = decoded; // Attach decoded user data to the request
+        console.log("Googin to next middleware")
         next();
       }
     });
   } else {
+    console.log("error")
     res.status(401).send('Unauthorized');
   }
 };
