@@ -52,7 +52,9 @@ const FeedbackForm = ({ userId, startDate, endDate }) => {
     };
 
     return (
+        
         <div className="feedback-form">
+            <ButtonAppBar />
             <h2>Feedback Form</h2>
             <form onSubmit={handleSubmit}>
                 <div className="rating-questions">

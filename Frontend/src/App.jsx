@@ -37,7 +37,7 @@ function App() {
         <Routes>
           {/* <Route element={renderLayout()}> */}
 
-          <Route path="/" element={<ButtonAppBar />}>
+          {/* <Route path="/" element={<ButtonAppBar />}> */}
             <Route path="/createuser" element={<CreateUser />} />
             <Route path="/forget-password/email" element={<ForgetPasswordEmailPage />} />
             <Route path="/changepassword" element={<ChangePasswordPage />} />
@@ -48,7 +48,7 @@ function App() {
             <Route path="/allocateproject" element={<AllocateProject />} />
             <Route path="/createFeedbackQuestions" element={<CreateFeedbackQuestions />} />
             
-          </Route>
+          {/* </Route> */}
           <Route path="/login" element={<LoginPage />} />
           {/* <AddDeleteTableRows /> */}
           {/* </Route> */}

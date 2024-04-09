@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProjectAllocation.css';
 import DialogBox from '../Login/DIalogBox';
-
+import ButtonAppBar from '../navbar/navbar';
 
 
 function AllocateProject() {
@@ -110,9 +110,10 @@ function AllocateProject() {
                 }),
             });
             const res = await response.json();
-
+            console.log("allotedproject", res);
             if (res.message === "Projects allocated successfully") {
                 setShowDialog(true);
+                console.log('Dialog should be shown');
                 setProjectId([]);
                 setProjectName('');
                 setUserId([]);
@@ -130,7 +131,11 @@ function AllocateProject() {
     };
 
     return (
+        <div>
+           
+            <ButtonAppBar className='navbar' />
         <div className='allocate-project'>
+            
             <div className="container">
                 <div className="title-bar">
                     <h1>Allocate Projects</h1>
@@ -173,7 +178,7 @@ function AllocateProject() {
                             </select>
                         </div>
 
-                        {error && <p>{error}</p>}
+                        {/* {error && <p>{error}</p>} */}
                         {showDialog && <DialogBox message="Project alloted successfully" onClose={handleCloseDialog} />}
 
                         <div className="col-md-12">
@@ -182,6 +187,7 @@ function AllocateProject() {
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     );
 }

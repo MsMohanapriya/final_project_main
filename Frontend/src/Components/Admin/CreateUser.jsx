@@ -117,7 +117,7 @@
 //           </div>
           
 //           <form onSubmit={handleSubmit} className="row">
-//             <div className="col-md-6">
+//             <div className="col-md-4">
 //               <div className="form-group">
 //                 <label htmlFor="employeeId">Employee ID</label>
 //                 <input
@@ -169,7 +169,7 @@
 //                 />
 //               </div>
 //             </div>
-//             <div className="col-md-6">
+//             <div className="col-md-4">
 //               <div className="form-group">
 //                 <label htmlFor="role">Role</label>
 //                 <select
@@ -231,7 +231,7 @@
 import React, { useState, useEffect } from 'react';
 import './CreateUser.css';
 import DialogBox from '../Login/DIalogBox';
-
+import ButtonAppBar from '../navbar/navbar';
 function CreateUser() {
   const [user_id, setUser_id] = useState('');
   const [userName, setUserName] = useState('');
@@ -381,14 +381,18 @@ function CreateUser() {
   };
 
   return (
+    <div>
+
+      <ButtonAppBar className='navbar'/>
     <div className='create-user'>
+     
       {userRole === 'admin' ? (
         <div className="container">
           <div className="title-bar">
             <h1>Register New User</h1>
           </div>
           <form onSubmit={handleSubmit} className="row">
-            <div className="col-md-6">
+            <div className="col-md-4">
               <div className="form-group">
                 <label htmlFor="user_id">User ID</label>
                 <input
@@ -440,7 +444,7 @@ function CreateUser() {
                 />
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-4">
               <div className="form-group">
                 <label htmlFor="city">City</label>
                 <input
@@ -495,7 +499,7 @@ function CreateUser() {
                 </select>
               </div>
             </div>
-            <div className="col-md-12">
+            <div className="col-md-4">
               <div className="form-group">
                 <label htmlFor="reportingUserId">Reporting User ID</label>
                 <input
@@ -550,7 +554,11 @@ function CreateUser() {
                   <option value="10">Solution Enabler</option>
                   <option value="11">Senior Software Engineer</option>
                 </select>
-              </div>
+                </div>
+                {/* <div className="col-md-4">
+
+                  
+                </div> */}
               <div className="form-group">
                 <label htmlFor="department">Department</label>
                 <select
@@ -596,6 +604,7 @@ function CreateUser() {
       ) : (
         <p>You are not permitted to register new users.</p>
       )}
+    </div>
     </div>
 
   );

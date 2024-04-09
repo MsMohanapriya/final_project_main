@@ -114,7 +114,7 @@ import React, { useState, useEffect } from 'react';
 import './ProjectAllocation.css'; // Update the CSS file path accordingly
 import DialogBox from '../Login/DIalogBox'; // Assuming this component is used for displaying dialog boxes
 import { AddCircleOutline, Edit, Delete } from '@mui/icons-material'; // Import icons from Material-UI
-
+import ButtonAppBar from '../navbar/navbar';
 function CreateFeedbackQuestions() {
     const [projects, setProjects] = useState([]);
     const [projectId, setProjectId] = useState('');
@@ -200,6 +200,7 @@ function CreateFeedbackQuestions() {
 
     return (
         <div className='create-feedback-questions'>
+            <ButtonAppBar />
             <h1>Create Feedback Questions</h1>
             <form onSubmit={handleSubmit}>
                 <div>

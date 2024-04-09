@@ -1,10 +1,10 @@
 .create-user {
   background: linear-gradient(#19105b, #472067, #7c3375, #FF6196);
-  padding: 20px 0;
+  padding-top: 20px ;
   display: flex;
   justify-content: center; /* Horizontally center */
   align-items: center; /* Vertically center */
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 /* 
 body {
@@ -17,7 +17,7 @@ body {
 .container {
   width: 100%;
   margin: 0px auto;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .title-bar{
@@ -59,4 +59,18 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #a308eb;
+}
+
+.navbar {
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; */
+ 
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+ 
+  /* Ensure navbar appears above other content */
 }

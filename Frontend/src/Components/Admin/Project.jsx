@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Project.css';
 import DialogBox from '../Login/DIalogBox';
-
+import ButtonAppBar from '../navbar/navbar';
 function CreateProject() {
     const [projectId, setProjectId] = useState('');
     const [projectName, setProjectName] = useState('');
@@ -134,7 +134,11 @@ function CreateProject() {
     };
 
     return (
+        <div>
+            <ButtonAppBar className='navbar' />
+
         <div className='create-project'>
+          
             {userRole === 'admin' ? (
                 <div className="container">
                     <div className="title-bar">
@@ -247,6 +251,7 @@ function CreateProject() {
             ) : (
                 <p>You are not permitted to create projects.</p>
             )}
+        </div>
         </div>
     );
 }

@@ -15,16 +15,17 @@ export default function TemporaryDrawer({ state, setstate, toggleDrawer }) {
   const [showing, setShowing] = useState([]);
   useEffect(() => {
     // Side effect code here
-    const role = sessionStorage.getItem('role');
-    if (role === "admin")
+    const roles = sessionStorage.getItem('roles');
+    const user = ['Dashboard', 'Timesheet', 'Feedback', 'Logout'];
+    const admin = ['Dashboard', 'Timesheet', 'CreateUser', 'CreateProject', 'AllocateProject', 'CreateFeedback', 'Logout'];
+    if (roles === "admin")
       setShowing(admin);
     else
       setShowing(user);
   }, []);
 
-  const user = ['Dashboard', 'Timesheet', 'Feedback', 'Logout'];
-  const admin = ['Dashboard', 'Timesheet', 'CreateUser', 'CreateProject', 'AllocateProject', 'CreateFeedback', 'Logout'];
-  const [firstName, setFirstName] = useState(sessionStorage.getItem('firstName'));
+ 
+  // const [firstName, setFirstName] = useState(sessionStorage.getItem('firstName'));
 
   const list = (anchor) => (
     <div className='sidebar'>
