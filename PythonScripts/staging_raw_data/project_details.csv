@@ -1,0 +1,361 @@
+_id,project_id,project_name,project_startDate,project_endDate,project_status,typeOfProject,departmentId,department
+66154942efd9a45992622edb,PROJ21120,Yates-Jacobs,01/01/2024,06/07/2025,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622edc,PROJ42282,Harrison PLC,30/05/2023,14/10/2024,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622edd,PROJ53767,"Fernandez, Harris and Reed",08/09/2022,16/02/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ede,PROJ34633,Smith-Lewis,01/07/2023,09/08/2024,active,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622edf,PROJ17016,Wright-Vargas,17/03/2023,25/09/2024,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ee0,PROJ91431,"Rowland, Johnson and Stephenson",01/12/2022,19/03/2023,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ee1,PROJ16775,Jones Ltd,16/01/2023,17/11/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ee2,PROJ77549,Sanders-Collins,06/09/2023,25/08/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ee3,PROJ51219,Rice and Sons,07/04/2023,04/08/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ee4,PROJ42482,Campbell-Weaver,15/12/2022,25/06/2024,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ee5,PROJ63023,Jones Inc,26/08/2023,16/11/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ee6,PROJ28645,"Kennedy, Thompson and Potter",20/10/2023,01/10/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ee7,PROJ34843,Johnson-Olson,14/06/2023,14/01/2024,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ee8,PROJ27189,Miles-Lopez,28/04/2022,29/01/2024,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622ee9,PROJ89311,Mcconnell and Sons,13/09/2023,12/12/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622eea,PROJ31428,Chapman Group,03/12/2022,29/03/2024,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622eeb,PROJ45282,Hinton PLC,16/02/2023,17/03/2024,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622eec,PROJ41414,Smith PLC,25/11/2022,28/09/2024,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622eed,PROJ14437,Benton-Barnes,08/09/2022,19/10/2023,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622eee,PROJ37616,Knapp-Torres,04/09/2023,06/08/2024,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622eef,PROJ86780,Grant-Greer,05/09/2022,27/06/2023,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ef0,PROJ69591,"Valentine, Dean and Roberts",19/04/2023,09/01/2024,completed,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622ef1,PROJ80835,Burch Inc,14/04/2023,19/08/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ef2,PROJ45756,Rodriguez PLC,06/06/2022,28/04/2023,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ef3,PROJ79873,"Johnson, Cole and Garcia",05/10/2022,25/02/2023,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ef4,PROJ48317,"Brown, Morales and Ponce",30/10/2023,30/03/2024,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622ef5,PROJ22878,Erickson Ltd,26/12/2022,29/05/2023,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ef6,PROJ99350,Keller-Bauer,26/08/2022,01/05/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622ef7,PROJ76870,Guzman-Barrett,30/12/2023,28/04/2024,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622ef8,PROJ62354,Braun Group,04/05/2022,08/04/2023,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622ef9,PROJ95270,Smith PLC,26/07/2022,08/12/2022,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622efa,PROJ18973,Cook Ltd,13/04/2022,20/03/2023,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622efb,PROJ98201,"Cole, Roman and Dean",19/06/2023,29/09/2023,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622efc,PROJ77840,Moore-Hughes,20/08/2023,01/04/2024,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622efd,PROJ96139,Torres Inc,08/08/2023,21/01/2024,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622efe,PROJ62053,Parsons LLC,09/02/2023,17/01/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622eff,PROJ90954,"Glass, Stewart and Scott",27/08/2022,30/05/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f00,PROJ57160,"Young, Wilson and Wilson",24/04/2022,05/02/2023,in progress,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f01,PROJ85723,Rodriguez-Smith,21/12/2022,05/05/2023,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f02,PROJ24647,"Sanchez, Williamson and Johnson",15/10/2023,15/08/2025,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f03,PROJ66166,"Wyatt, Mcpherson and Zimmerman",15/02/2023,29/08/2024,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f04,PROJ14180,Shannon-Harvey,10/11/2023,15/03/2025,in progress,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f05,PROJ12276,Winters and Sons,16/06/2023,09/05/2025,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f06,PROJ35558,"Contreras, Garcia and Love",28/10/2022,25/06/2023,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f07,PROJ84701,"Chen, Ramos and Welch",05/04/2023,29/09/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f08,PROJ91624,"Espinoza, Cruz and Whitaker",04/02/2023,01/08/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f09,PROJ18622,"Padilla, Perez and Wood",30/05/2022,04/03/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f0a,PROJ23374,Hensley-Mitchell,06/08/2023,14/07/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f0b,PROJ26967,Ferguson PLC,22/04/2022,28/08/2023,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f0c,PROJ50489,Hernandez-Coleman,17/06/2023,03/01/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f0d,PROJ41487,"Oconnor, Wilson and Hamilton",14/12/2022,16/01/2024,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f0e,PROJ52826,"Blackburn, Simmons and Hall",12/06/2022,29/08/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f0f,PROJ31367,Peters PLC,23/06/2022,25/04/2024,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f10,PROJ57464,Schultz-Benton,05/06/2023,06/04/2025,in progress,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f11,PROJ70645,"Cervantes, Casey and Barnes",29/05/2022,18/09/2022,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f12,PROJ44798,Lucas PLC,09/11/2023,28/08/2025,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f13,PROJ28657,Peterson LLC,07/11/2022,19/05/2023,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f14,PROJ90324,Burns-Giles,27/04/2022,10/10/2022,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f15,PROJ58253,Owens-Stanley,30/03/2023,18/10/2024,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f16,PROJ65675,"Wright, Parrish and Robertson",15/11/2022,11/02/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f17,PROJ30200,Ross and Sons,29/04/2023,29/02/2024,in progress,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f18,PROJ67052,Graves Group,29/11/2023,16/06/2024,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f19,PROJ12626,Green Inc,04/02/2023,11/07/2023,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f1a,PROJ93867,Phillips Inc,09/06/2022,11/02/2023,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f1b,PROJ48664,Smith Inc,19/05/2022,10/03/2024,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f1c,PROJ88967,"Sutton, Malone and Lyons",22/04/2023,13/06/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f1d,PROJ92349,Williams Group,09/05/2023,15/09/2023,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f1e,PROJ16924,"Castillo, Schaefer and Cox",15/12/2022,11/12/2023,in progress,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f1f,PROJ87055,Allen-Gonzales,05/08/2023,19/11/2024,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f20,PROJ19780,Beck Inc,29/05/2023,13/12/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f21,PROJ71315,Klein-Smith,29/09/2023,20/04/2025,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f22,PROJ94534,"Daniels, Mills and Miller",04/01/2023,22/07/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f23,PROJ12436,Lam-Armstrong,21/06/2023,11/10/2023,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f24,PROJ98733,Rollins-Rojas,12/07/2023,24/05/2025,active,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f25,PROJ18760,"Johnson, Lindsey and Phelps",18/07/2023,04/02/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f26,PROJ92851,Kim-Nguyen,15/05/2023,02/09/2024,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f27,PROJ92441,Clark PLC,20/05/2022,12/10/2023,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f28,PROJ78351,Ross Group,14/11/2022,02/08/2023,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f29,PROJ96577,"Costa, Trujillo and Melton",17/12/2022,25/12/2023,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f2a,PROJ78342,Davis-Garrett,15/10/2022,23/03/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f2b,PROJ45084,Taylor-Edwards,06/12/2023,23/11/2025,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f2c,PROJ38564,Hamilton and Sons,08/04/2023,21/03/2024,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f2d,PROJ54018,Smith-Wong,17/11/2022,17/05/2023,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f2e,PROJ71693,Rogers LLC,22/10/2023,20/07/2024,completed,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f2f,PROJ21022,Scott-Campbell,01/07/2023,02/04/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f30,PROJ40862,Bradley Inc,18/03/2023,24/09/2024,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f31,PROJ21755,Robles and Sons,24/05/2022,11/01/2024,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f32,PROJ51051,Brown-Peterson,19/03/2023,29/03/2024,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f33,PROJ45399,Shaw Group,24/01/2023,22/07/2024,in progress,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f34,PROJ24873,Allen-Harrington,20/07/2023,17/08/2024,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f35,PROJ92678,Blake-Garcia,13/07/2022,23/05/2023,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f36,PROJ55873,Wilson-Marshall,12/02/2023,23/03/2024,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f37,PROJ82628,Parker Ltd,23/09/2023,27/12/2024,in progress,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f38,PROJ67952,Mueller Ltd,05/07/2022,26/12/2023,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f39,PROJ97762,Gill-Evans,07/07/2022,26/12/2023,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f3a,PROJ34548,"Allen, Frazier and Jefferson",06/05/2022,10/05/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f3b,PROJ62292,Baker-Levine,20/07/2023,06/01/2025,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f3c,PROJ80178,"Burke, Johnson and Berry",23/12/2022,09/04/2024,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f3d,PROJ51477,"Shea, Salazar and Bennett",26/06/2022,25/03/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f3e,PROJ81253,Arias-Clayton,24/08/2022,13/10/2023,in progress,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f3f,PROJ75213,Baldwin and Sons,01/10/2022,02/05/2023,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f40,PROJ59753,Martinez-Ward,21/05/2022,14/01/2023,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f41,PROJ43743,"Jensen, Thomas and Miles",19/03/2023,05/06/2024,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f42,PROJ69052,Underwood-Martin,29/09/2022,19/12/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f43,PROJ51986,Brown-Dillon,09/06/2023,07/11/2023,in progress,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f44,PROJ65221,"Morrow, Parks and Miller",05/08/2023,27/08/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f45,PROJ23415,"Baxter, Stewart and Blanchard",13/08/2023,12/01/2025,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f46,PROJ17750,"Johnson, Brown and Phillips",29/09/2022,28/01/2023,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f47,PROJ81762,"Short, Cuevas and Hernandez",06/07/2022,03/08/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f48,PROJ29219,Smith and Sons,21/06/2022,22/02/2023,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f49,PROJ90277,"Cochran, Brown and Lee",02/10/2023,11/07/2025,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f4a,PROJ48701,Davidson LLC,10/05/2022,21/01/2023,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f4b,PROJ46796,Kelly-Hendrix,15/05/2023,04/09/2024,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f4c,PROJ36514,"Taylor, Wade and Dickerson",30/01/2023,31/07/2024,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f4d,PROJ48132,Simmons-Wells,15/07/2023,05/02/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f4e,PROJ30823,Henderson Group,23/11/2023,19/10/2025,in progress,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66154942efd9a45992622f4f,PROJ81077,Mccormick-Wallace,24/09/2023,13/05/2025,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f50,PROJ25155,"Hall, Stanton and Orozco",02/08/2022,12/12/2022,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66154942efd9a45992622f51,PROJ93481,Flores LLC,15/03/2023,21/02/2025,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66154942efd9a45992622f52,PROJ78993,Willis-Bishop,08/07/2023,10/02/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685c1,PROJ21120,Yates-Jacobs,01/01/2024,06/07/2025,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685c2,PROJ42282,Harrison PLC,30/05/2023,14/10/2024,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685c3,PROJ53767,"Fernandez, Harris and Reed",08/09/2022,16/02/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685c4,PROJ34633,Smith-Lewis,01/07/2023,09/08/2024,active,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685c5,PROJ17016,Wright-Vargas,17/03/2023,25/09/2024,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685c6,PROJ91431,"Rowland, Johnson and Stephenson",01/12/2022,19/03/2023,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685c7,PROJ16775,Jones Ltd,16/01/2023,17/11/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685c8,PROJ77549,Sanders-Collins,06/09/2023,25/08/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685c9,PROJ51219,Rice and Sons,07/04/2023,04/08/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685ca,PROJ42482,Campbell-Weaver,15/12/2022,25/06/2024,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685cb,PROJ63023,Jones Inc,26/08/2023,16/11/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685cc,PROJ28645,"Kennedy, Thompson and Potter",20/10/2023,01/10/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685cd,PROJ34843,Johnson-Olson,14/06/2023,14/01/2024,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685ce,PROJ27189,Miles-Lopez,28/04/2022,29/01/2024,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685cf,PROJ89311,Mcconnell and Sons,13/09/2023,12/12/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685d0,PROJ31428,Chapman Group,03/12/2022,29/03/2024,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685d1,PROJ45282,Hinton PLC,16/02/2023,17/03/2024,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685d2,PROJ41414,Smith PLC,25/11/2022,28/09/2024,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685d3,PROJ14437,Benton-Barnes,08/09/2022,19/10/2023,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685d4,PROJ37616,Knapp-Torres,04/09/2023,06/08/2024,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685d5,PROJ86780,Grant-Greer,05/09/2022,27/06/2023,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685d6,PROJ69591,"Valentine, Dean and Roberts",19/04/2023,09/01/2024,completed,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685d7,PROJ80835,Burch Inc,14/04/2023,19/08/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685d8,PROJ45756,Rodriguez PLC,06/06/2022,28/04/2023,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685d9,PROJ79873,"Johnson, Cole and Garcia",05/10/2022,25/02/2023,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685da,PROJ48317,"Brown, Morales and Ponce",30/10/2023,30/03/2024,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685db,PROJ22878,Erickson Ltd,26/12/2022,29/05/2023,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685dc,PROJ99350,Keller-Bauer,26/08/2022,01/05/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685dd,PROJ76870,Guzman-Barrett,30/12/2023,28/04/2024,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685de,PROJ62354,Braun Group,04/05/2022,08/04/2023,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685df,PROJ95270,Smith PLC,26/07/2022,08/12/2022,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685e0,PROJ18973,Cook Ltd,13/04/2022,20/03/2023,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685e1,PROJ98201,"Cole, Roman and Dean",19/06/2023,29/09/2023,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685e2,PROJ77840,Moore-Hughes,20/08/2023,01/04/2024,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685e3,PROJ96139,Torres Inc,08/08/2023,21/01/2024,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685e4,PROJ62053,Parsons LLC,09/02/2023,17/01/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685e5,PROJ90954,"Glass, Stewart and Scott",27/08/2022,30/05/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685e6,PROJ57160,"Young, Wilson and Wilson",24/04/2022,05/02/2023,in progress,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685e7,PROJ85723,Rodriguez-Smith,21/12/2022,05/05/2023,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685e8,PROJ24647,"Sanchez, Williamson and Johnson",15/10/2023,15/08/2025,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685e9,PROJ66166,"Wyatt, Mcpherson and Zimmerman",15/02/2023,29/08/2024,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685ea,PROJ14180,Shannon-Harvey,10/11/2023,15/03/2025,in progress,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685eb,PROJ12276,Winters and Sons,16/06/2023,09/05/2025,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685ec,PROJ35558,"Contreras, Garcia and Love",28/10/2022,25/06/2023,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685ed,PROJ84701,"Chen, Ramos and Welch",05/04/2023,29/09/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685ee,PROJ91624,"Espinoza, Cruz and Whitaker",04/02/2023,01/08/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685ef,PROJ18622,"Padilla, Perez and Wood",30/05/2022,04/03/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685f0,PROJ23374,Hensley-Mitchell,06/08/2023,14/07/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685f1,PROJ26967,Ferguson PLC,22/04/2022,28/08/2023,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685f2,PROJ50489,Hernandez-Coleman,17/06/2023,03/01/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685f3,PROJ41487,"Oconnor, Wilson and Hamilton",14/12/2022,16/01/2024,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685f4,PROJ52826,"Blackburn, Simmons and Hall",12/06/2022,29/08/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685f5,PROJ31367,Peters PLC,23/06/2022,25/04/2024,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685f6,PROJ57464,Schultz-Benton,05/06/2023,06/04/2025,in progress,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685f7,PROJ70645,"Cervantes, Casey and Barnes",29/05/2022,18/09/2022,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685f8,PROJ44798,Lucas PLC,09/11/2023,28/08/2025,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685f9,PROJ28657,Peterson LLC,07/11/2022,19/05/2023,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685fa,PROJ90324,Burns-Giles,27/04/2022,10/10/2022,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685fb,PROJ58253,Owens-Stanley,30/03/2023,18/10/2024,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685fc,PROJ65675,"Wright, Parrish and Robertson",15/11/2022,11/02/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a685fd,PROJ30200,Ross and Sons,29/04/2023,29/02/2024,in progress,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a685fe,PROJ67052,Graves Group,29/11/2023,16/06/2024,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a685ff,PROJ12626,Green Inc,04/02/2023,11/07/2023,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68600,PROJ93867,Phillips Inc,09/06/2022,11/02/2023,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68601,PROJ48664,Smith Inc,19/05/2022,10/03/2024,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68602,PROJ88967,"Sutton, Malone and Lyons",22/04/2023,13/06/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68603,PROJ92349,Williams Group,09/05/2023,15/09/2023,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68604,PROJ16924,"Castillo, Schaefer and Cox",15/12/2022,11/12/2023,in progress,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68605,PROJ87055,Allen-Gonzales,05/08/2023,19/11/2024,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68606,PROJ19780,Beck Inc,29/05/2023,13/12/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68607,PROJ71315,Klein-Smith,29/09/2023,20/04/2025,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68608,PROJ94534,"Daniels, Mills and Miller",04/01/2023,22/07/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68609,PROJ12436,Lam-Armstrong,21/06/2023,11/10/2023,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a6860a,PROJ98733,Rollins-Rojas,12/07/2023,24/05/2025,active,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a6860b,PROJ18760,"Johnson, Lindsey and Phelps",18/07/2023,04/02/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a6860c,PROJ92851,Kim-Nguyen,15/05/2023,02/09/2024,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a6860d,PROJ92441,Clark PLC,20/05/2022,12/10/2023,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a6860e,PROJ78351,Ross Group,14/11/2022,02/08/2023,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a6860f,PROJ96577,"Costa, Trujillo and Melton",17/12/2022,25/12/2023,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68610,PROJ78342,Davis-Garrett,15/10/2022,23/03/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68611,PROJ45084,Taylor-Edwards,06/12/2023,23/11/2025,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68612,PROJ38564,Hamilton and Sons,08/04/2023,21/03/2024,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68613,PROJ54018,Smith-Wong,17/11/2022,17/05/2023,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68614,PROJ71693,Rogers LLC,22/10/2023,20/07/2024,completed,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68615,PROJ21022,Scott-Campbell,01/07/2023,02/04/2024,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68616,PROJ40862,Bradley Inc,18/03/2023,24/09/2024,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68617,PROJ21755,Robles and Sons,24/05/2022,11/01/2024,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68618,PROJ51051,Brown-Peterson,19/03/2023,29/03/2024,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68619,PROJ45399,Shaw Group,24/01/2023,22/07/2024,in progress,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a6861a,PROJ24873,Allen-Harrington,20/07/2023,17/08/2024,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a6861b,PROJ92678,Blake-Garcia,13/07/2022,23/05/2023,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a6861c,PROJ55873,Wilson-Marshall,12/02/2023,23/03/2024,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a6861d,PROJ82628,Parker Ltd,23/09/2023,27/12/2024,in progress,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a6861e,PROJ67952,Mueller Ltd,05/07/2022,26/12/2023,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a6861f,PROJ97762,Gill-Evans,07/07/2022,26/12/2023,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68620,PROJ34548,"Allen, Frazier and Jefferson",06/05/2022,10/05/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68621,PROJ62292,Baker-Levine,20/07/2023,06/01/2025,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68622,PROJ80178,"Burke, Johnson and Berry",23/12/2022,09/04/2024,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68623,PROJ51477,"Shea, Salazar and Bennett",26/06/2022,25/03/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68624,PROJ81253,Arias-Clayton,24/08/2022,13/10/2023,in progress,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68625,PROJ75213,Baldwin and Sons,01/10/2022,02/05/2023,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68626,PROJ59753,Martinez-Ward,21/05/2022,14/01/2023,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68627,PROJ43743,"Jensen, Thomas and Miles",19/03/2023,05/06/2024,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68628,PROJ69052,Underwood-Martin,29/09/2022,19/12/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68629,PROJ51986,Brown-Dillon,09/06/2023,07/11/2023,in progress,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a6862a,PROJ65221,"Morrow, Parks and Miller",05/08/2023,27/08/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a6862b,PROJ23415,"Baxter, Stewart and Blanchard",13/08/2023,12/01/2025,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a6862c,PROJ17750,"Johnson, Brown and Phillips",29/09/2022,28/01/2023,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a6862d,PROJ81762,"Short, Cuevas and Hernandez",06/07/2022,03/08/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a6862e,PROJ29219,Smith and Sons,21/06/2022,22/02/2023,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a6862f,PROJ90277,"Cochran, Brown and Lee",02/10/2023,11/07/2025,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68630,PROJ48701,Davidson LLC,10/05/2022,21/01/2023,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68631,PROJ46796,Kelly-Hendrix,15/05/2023,04/09/2024,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68632,PROJ36514,"Taylor, Wade and Dickerson",30/01/2023,31/07/2024,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68633,PROJ48132,Simmons-Wells,15/07/2023,05/02/2024,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68634,PROJ30823,Henderson Group,23/11/2023,19/10/2025,in progress,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+66162037fe12f30012a68635,PROJ81077,Mccormick-Wallace,24/09/2023,13/05/2025,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68636,PROJ25155,"Hall, Stanton and Orozco",02/08/2022,12/12/2022,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+66162037fe12f30012a68637,PROJ93481,Flores LLC,15/03/2023,21/02/2025,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+66162037fe12f30012a68638,PROJ78993,Willis-Bishop,08/07/2023,10/02/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66a2,PROJ21398,Walker and Sons,29/10/2023,20/03/2025,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66a3,PROJ55014,Martinez Inc,21/01/2023,02/08/2024,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66a4,PROJ52997,"Russell, Ramirez and Watts",05/04/2023,29/09/2023,in progress,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66a5,PROJ79306,"Doyle, Leonard and Mann",01/08/2022,08/12/2022,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66a6,PROJ63301,Thompson-Greer,17/08/2022,02/07/2024,in progress,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66a7,PROJ35653,"Cruz, Huff and Ward",10/02/2023,26/09/2024,in progress,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66a8,PROJ74533,Dean-Williams,15/02/2023,17/09/2023,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66a9,PROJ34638,Johnson Inc,05/06/2023,20/03/2024,in progress,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66aa,PROJ23254,"Collins, Beard and Harris",27/05/2023,04/09/2024,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66ab,PROJ37409,Fisher LLC,05/11/2022,10/10/2024,active,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66ac,PROJ39671,Butler-Baker,23/10/2023,14/10/2025,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66ad,PROJ47852,"Mahoney, Jones and Cunningham",21/10/2022,12/05/2023,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66ae,PROJ11183,Scott and Sons,17/04/2023,27/01/2025,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66af,PROJ51998,"Martin, Sullivan and Martinez",03/03/2023,11/12/2024,in progress,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66b0,PROJ45076,Cook-Fuller,01/08/2023,03/05/2025,in progress,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66b1,PROJ16226,Malone Inc,12/10/2022,12/10/2023,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66b2,PROJ32405,"Mcguire, Chang and Clark",09/01/2023,02/11/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66b3,PROJ26097,Price-Compton,03/08/2023,01/11/2023,active,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66b4,PROJ35249,"Hill, Smith and Alvarez",01/10/2023,15/03/2024,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66b5,PROJ13614,"Valdez, Clarke and Rodriguez",13/12/2023,12/09/2024,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66b6,PROJ14932,"Rice, Dyer and Pace",12/10/2023,10/04/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66b7,PROJ73944,Rosario-Davidson,15/06/2023,13/07/2024,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66b8,PROJ26587,Conner Ltd,30/08/2022,01/02/2024,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66b9,PROJ55471,"Gibson, Ortega and Patel",15/09/2022,14/08/2023,in progress,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66ba,PROJ78722,"Hunt, Case and Garcia",05/01/2024,04/04/2025,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66bb,PROJ88273,"Owen, Short and Stewart",18/08/2023,03/03/2024,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66bc,PROJ78906,Hebert-Stephens,03/06/2023,28/06/2024,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66bd,PROJ14862,Dawson-Zimmerman,21/08/2022,10/05/2024,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66be,PROJ29040,"Crosby, Bowen and Harris",19/09/2022,16/04/2024,completed,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66bf,PROJ52938,Jones and Sons,26/07/2022,10/09/2023,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66c0,PROJ59291,Ruiz-Anderson,08/11/2022,02/12/2023,in progress,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66c1,PROJ83640,"Cherry, Baker and Mccormick",15/07/2022,20/11/2023,in progress,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66c2,PROJ39113,Barron-Quinn,16/07/2023,30/10/2024,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66c3,PROJ99589,"Thompson, Kramer and Gonzalez",30/06/2022,05/05/2024,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66c4,PROJ51223,Austin Ltd,06/01/2024,01/01/2026,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66c5,PROJ16511,Montgomery Inc,12/12/2022,19/02/2024,active,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66c6,PROJ48492,"Reed, Baldwin and Mendez",12/11/2023,31/05/2024,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66c7,PROJ19423,Gentry Inc,23/06/2023,28/09/2023,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66c8,PROJ82332,"Hickman, Gordon and Acosta",21/06/2023,28/12/2024,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66c9,PROJ79822,Shields-Chambers,02/12/2022,12/09/2023,active,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66ca,PROJ30732,Pierce LLC,14/12/2023,16/06/2025,in progress,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66cb,PROJ80102,Smith PLC,24/05/2023,18/04/2024,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66cc,PROJ22352,Hess LLC,03/02/2023,08/11/2023,completed,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66cd,PROJ20383,"Flores, Potter and Collins",25/10/2023,31/10/2024,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66ce,PROJ13770,Stewart-Garcia,31/12/2022,29/04/2024,completed,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66cf,PROJ21554,Hodges-Mueller,18/12/2022,11/10/2023,active,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66d0,PROJ51858,"Yang, Frazier and Preston",20/11/2022,25/05/2023,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66d1,PROJ87051,Weeks-Alvarez,22/10/2022,29/06/2024,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66d2,PROJ65808,Yu and Sons,03/07/2022,02/09/2023,completed,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66d3,PROJ62349,"Clark, Myers and Perez",27/10/2022,27/08/2024,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66d4,PROJ70577,Smith and Sons,03/07/2022,08/11/2022,active,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66d5,PROJ29092,"Hayes, Knight and Chapman",24/10/2023,01/03/2025,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66d6,PROJ53314,"Rodgers, Johnson and Carey",02/02/2023,23/09/2023,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66d7,PROJ11449,"Hernandez, Hanson and Li",13/02/2023,05/12/2024,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66d8,PROJ19876,"Parsons, Fletcher and Harris",16/07/2022,13/02/2024,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66d9,PROJ25616,Austin PLC,30/06/2023,23/07/2024,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66da,PROJ14696,Scott Ltd,06/07/2023,29/10/2023,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66db,PROJ97433,Reid-Moore,10/10/2022,12/07/2023,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66dc,PROJ41422,"Turner, Hunter and Ponce",19/09/2022,10/09/2023,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66dd,PROJ20366,"Garcia, Harris and Fuentes",11/07/2022,30/09/2023,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66de,PROJ15890,Gutierrez-Schultz,17/07/2023,30/06/2025,in progress,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66df,PROJ12451,Fletcher-Lowery,02/07/2023,25/05/2024,active,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66e0,PROJ18078,"Garcia, Kramer and Johnston",10/09/2023,14/01/2025,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66e1,PROJ54713,"Eaton, Edwards and Payne",28/06/2023,28/02/2024,in progress,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66e2,PROJ24719,Smith and Sons,16/10/2022,30/03/2024,completed,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66e3,PROJ79596,Cooper and Sons,09/03/2023,12/07/2023,active,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66e4,PROJ37880,Harris and Sons,18/10/2022,17/03/2024,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66e5,PROJ48565,Campos LLC,05/11/2022,29/10/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66e6,PROJ69544,Reed and Sons,30/05/2023,16/07/2024,completed,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66e7,PROJ61887,"Burch, Flores and Lewis",04/03/2023,03/01/2025,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66e8,PROJ70658,Morgan Group,27/07/2023,16/05/2024,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66e9,PROJ46055,"Campos, Stephens and Martin",07/12/2022,22/06/2024,completed,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66ea,PROJ60552,Sweeney and Sons,29/04/2023,15/01/2025,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66eb,PROJ70014,Nichols-Whitehead,09/11/2023,10/09/2025,active,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66ec,PROJ61909,"Montgomery, Berry and Miller",10/01/2024,28/09/2025,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66ed,PROJ27182,"Hill, Martin and Roberson",22/09/2023,08/09/2024,active,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66ee,PROJ82249,Brown-Henry,19/01/2023,02/07/2023,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66ef,PROJ37584,Berg-Moore,24/11/2022,16/03/2024,completed,data engineering,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66f0,PROJ53587,"Duran, Mckay and Ferguson",16/05/2023,01/06/2024,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66f1,PROJ71399,Vargas-Burton,01/05/2023,24/05/2024,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66f2,PROJ65546,Baker-Villegas,13/05/2023,13/08/2024,active,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66f3,PROJ51849,"Gonzalez, Ho and Taylor",13/11/2023,22/02/2025,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66f4,PROJ95160,"Walker, Green and Gray",12/10/2022,20/07/2023,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66f5,PROJ41737,Mason-Allison,09/09/2022,08/02/2023,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66f6,PROJ75126,"Nash, Brown and Jones",16/05/2022,02/02/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66f7,PROJ37626,Chapman-Martin,26/08/2022,28/05/2023,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66f8,PROJ98377,Freeman Group,10/11/2022,26/12/2023,in progress,data engineering,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66f9,PROJ59036,Chen-Craig,15/12/2022,16/05/2024,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66fa,PROJ69161,"Jones, Dominguez and Martin",28/03/2023,28/12/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a66fb,PROJ71914,Jones Inc,29/10/2023,25/06/2025,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66fc,PROJ80623,Macdonald-Hamilton,18/05/2022,18/08/2023,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66fd,PROJ90580,Rodriguez PLC,22/03/2023,02/09/2023,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a66fe,PROJ46115,Thompson Inc,06/01/2024,26/06/2024,completed,web development,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a66ff,PROJ27248,"Wagner, Brown and Romero",17/02/2023,08/01/2025,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6700,PROJ78282,"Brown, Velasquez and Graham",02/11/2022,02/12/2023,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a6701,PROJ12538,Joseph-Ballard,09/11/2023,12/07/2025,active,data science,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6702,PROJ42948,"Guerra, Stewart and Jones",31/12/2023,05/02/2025,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6703,PROJ69251,Neal-Rivera,13/04/2022,08/12/2022,in progress,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a6704,PROJ38309,Hood Inc,08/06/2022,19/01/2023,in progress,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a6705,PROJ13206,Lopez Ltd,14/08/2022,17/03/2024,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6706,PROJ56026,Wilkinson LLC,19/12/2022,13/09/2023,in progress,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6707,PROJ20962,Hawkins-Hall,20/04/2022,19/10/2023,completed,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a6708,PROJ40959,"Harris, Marshall and Hernandez",21/01/2023,14/12/2023,completed,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6709,PROJ91186,Barnes-Acosta,15/11/2022,22/10/2024,active,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a670a,PROJ76833,Weeks-Russo,13/09/2023,19/06/2024,active,full stack,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a670b,PROJ34356,Solomon LLC,15/12/2022,23/07/2024,in progress,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a670c,PROJ16427,"Hansen, Davis and Mcdowell",30/08/2023,24/08/2025,active,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a670d,PROJ58107,Mathews-King,31/01/2023,29/07/2023,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a670e,PROJ61075,Hanna and Sons,07/03/2023,03/02/2024,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a670f,PROJ33152,Smith Group,04/07/2023,29/03/2025,completed,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a6710,PROJ64983,Collins Group,08/10/2022,30/01/2023,in progress,data engineering,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6711,PROJ42339,"Jones, Wallace and Clark",15/04/2023,23/07/2024,active,data science,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a6712,PROJ79446,Olsen Ltd,27/07/2022,03/06/2024,completed,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6713,PROJ41299,"Hubbard, Williams and Mcmahon",12/01/2023,03/10/2024,active,full stack,9ca17918-0e85-4e94-b2ba-298f26eaf27e,Administration
+6616368ad969750d958a6714,PROJ18057,Ponce Ltd,11/10/2023,22/07/2025,active,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a6715,PROJ65201,"Blackburn, Carpenter and Mccall",30/04/2022,25/07/2023,completed,data science,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a6716,PROJ29331,"Ward, Hernandez and Thomas",14/07/2023,01/05/2025,in progress,web development,5e79cd96-279f-45cf-9984-5d822a2632e1,Operations
+6616368ad969750d958a6717,PROJ65907,Fuentes Group,19/02/2023,22/08/2024,completed,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a6718,PROJ27004,Mcgrath PLC,02/07/2022,17/05/2024,in progress,web development,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
+6616368ad969750d958a6719,PROJ32802,Turner-Gonzalez,21/11/2022,09/07/2023,completed,full stack,b738be0a-f6bb-4c02-882a-c7ac1cabdb01,Delivery
