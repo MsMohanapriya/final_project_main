@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './ProjectAllocation.css';
 import DialogBox from '../Login/DIalogBox';
 import ButtonAppBar from '../navbar/navbar';
-
-
+import Dashboard from '../Dashboard/Dashboard';
+import Box from '@mui/material/Box';
 function AllocateProject() {
     const [projects, setProjects] = useState([]);
     const [users, setUsers] = useState([]);
@@ -44,7 +44,7 @@ function AllocateProject() {
             const response = await fetch('http://localhost:5000/api/projects');
             const data = await response.json();
             setProjects(data.projects);
-            console.log("projects data:",data.projects)
+            console.log("projects data:", data.projects)
         } catch (error) {
             console.error('Error fetching projects:', error);
         }
@@ -93,7 +93,7 @@ function AllocateProject() {
 
         try {
             const roles = sessionStorage.getItem('roles');
-            if (roles!== 'admin') {
+            if (roles !== 'admin') {
                 throw new Error('Only admins can allocate projects');
             }
             const response = await fetch('http://localhost:5000/api/allocateProject', {
@@ -132,62 +132,65 @@ function AllocateProject() {
 
     return (
         <div>
-           
-            <ButtonAppBar className='navbar' />
-        <div className='allocate-project'>
-            
-            <div className="container">
-                <div className="title-bar">
-                    <h1>Allocate Projects</h1>
-                </div>
-                <form onSubmit={handleSubmit} className="row">
-                    <div className="col-md-6" style={{ width: '100%' }}>
-                        <div className="form-group">
-                            <label htmlFor="projectId">Select Project</label>
-                            <select
-                                
-                                id="projectId"
-                                value={projectId}
-                                onChange={handleProjectChange}
-                                // multiple
-                                required
-                            >
-                                <option key="" value="">Select Project</option>
-                                {projects.map(project => (
-                                    <option key={project.projectId} value={project.projectId}>
-                                        {project.projectName}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="user_id">Select User</label>
-                            <select
-                                id="userId"
-                                value={user_id}
-                                onChange={handleUserChange}
-                                // multiple
-                                required
-                            >
-                                <option key="" value="">Select User</option>
-                                {users.map(user => (
-                                    <option key={user.userId} value={user.user_id}>
-                                        {user.userName}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
 
-                        {/* {error && <p>{error}</p>} */}
-                        {showDialog && <DialogBox message="Project alloted successfully" onClose={handleCloseDialog} />}
+            {/* <ButtonAppBar className='navbar' /> */}
+            <Dashboard className='navbar' />
+            <Box component="main" sx={{ flexGrow: 2, paddingLeft: 10, paddingRight: 2, paddingTop: 6 }}>
+                <div className='allocate-project'>
 
-                        <div className="col-md-12">
-                            <button type="submit">Submit</button>
+                    <div className="container">
+                        <div className="title-bar black-text">
+                            <h1>Allocate Projects</h1>
                         </div>
+                        <form onSubmit={handleSubmit} className="row">
+                            <div className="col-md-6" style={{ width: '100%' }}>
+                                <div className="form-group">
+                                    <label htmlFor="projectId">Select Project</label>
+                                    <select
+
+                                        id="projectId"
+                                        value={projectId}
+                                        onChange={handleProjectChange}
+                                        // multiple
+                                        required
+                                    >
+                                        <option key="" value="">Select Project</option>
+                                        {projects.map(project => (
+                                            <option key={project.projectId} value={project.projectId}>
+                                                {project.projectName}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="user_id">Select User</label>
+                                    <select
+                                        id="userId"
+                                        value={user_id}
+                                        onChange={handleUserChange}
+                                        // multiple
+                                        required
+                                    >
+                                        <option key="" value="">Select User</option>
+                                        {users.map(user => (
+                                            <option key={user.userId} value={user.user_id}>
+                                                {user.userName}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                {/* {error && <p>{error}</p>} */}
+                                {showDialog && <DialogBox message="Project alloted successfully" onClose={handleCloseDialog} />}
+
+                                <div className="col-md-12">
+                                    <button type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-        </div>
+                </div>
+                </Box>
         </div>
     );
 }

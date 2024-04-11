@@ -110,12 +110,12 @@
 //   return (
 //     <div className='create-user'>
 //       {userRole === 'admin' ? (
-       
+
 //         <div className="container">
 //           <div className="title-bar">
 //           <h1>Register New User</h1>
 //           </div>
-          
+
 //           <form onSubmit={handleSubmit} className="row">
 //             <div className="col-md-4">
 //               <div className="form-group">
@@ -232,6 +232,8 @@ import React, { useState, useEffect } from 'react';
 import './CreateUser.css';
 import DialogBox from '../Login/DIalogBox';
 import ButtonAppBar from '../navbar/navbar';
+import Box from '@mui/material/Box';
+import Dashboard from '../Dashboard/Dashboard';
 function CreateUser() {
   const [user_id, setUser_id] = useState('');
   const [userName, setUserName] = useState('');
@@ -381,232 +383,240 @@ function CreateUser() {
   };
 
   return (
-    <div>
+    
+      <>
+        {/* <ButtonAppBar className='navbar'/> */}
+        <Dashboard className='navbar' />
 
-      <ButtonAppBar className='navbar'/>
-    <div className='create-user'>
-     
-      {userRole === 'admin' ? (
-        <div className="container">
-          <div className="title-bar">
-            <h1>Register New User</h1>
-          </div>
-          <form onSubmit={handleSubmit} className="row">
-            <div className="col-md-4">
-              <div className="form-group">
-                <label htmlFor="user_id">User ID</label>
-                <input
-                  type="text"
-                  id="user_id"
-                  value={user_id}
-                  onChange={(e) => setUser_id(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="userName">User Name</label>
-                <input
-                  type="text"
-                  id="userName"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="dateOfJoin">Date of Join</label>
-                <input
-                  type="date"
-                  id="dateOfJoin"
-                  value={dateOfJoin}
-                  onChange={(e) => setDateOfJoin(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="mobileNumber">Mobile Number</label>
-                <input
-                  type="text"
-                  id="mobileNumber"
-                  value={mobileNumber}
-                  onChange={(e) => setMobileNumber(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="form-group">
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  id="city"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="state">State</label>
-                <input
-                  type="text"
-                  id="state"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="pin">PIN</label>
-                <input
-                  type="text"
-                  id="pin"
-                  value={pin}
-                  onChange={(e) => setPin(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="dateOfBirth">Date of Birth</label>
-                <input
-                  type="date"
-                  id="dateOfBirth"
-                  value={dateOfBirth}
-                  onChange={(e) => setDateOfBirth(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="gender">Gender</label>
-                <select
-                  id="gender"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                  required
-                >
-                  <option value="">Select Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="form-group">
-                <label htmlFor="reportingUserId">Reporting User ID</label>
-                <input
-                  type="text"
-                  id="reportingUserId"
-                  value={reportingUserId}
-                  onChange={(e) => setReportingUserId(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="reporterName">Reporter Name</label>
-                <input
-                  type="text"
-                  id="reporterName"
-                  value={reporterName}
-                  onChange={(e) => setReporterName(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="roles">Roles</label>
-                <select
-                  id="roles"
-                  value={roles}
-                  onChange={(e) => setRoles(e.target.value)}
-                  required
-                >
-                  <option value="">Select Role</option>
-                  <option value="user">User</option>
-                  <option value="admin">Admin</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="designation">Designation</label>
-                <select
-                  id="designation"
-                  value={designationId}
-                  onChange={handleDesignationChange}
-                  required
-                >
-                  <option value="">Select Designation</option>
-                  <option value="1">Business Administrator</option>
-                  <option value="2">CEO</option>
-                  <option value="3">Consultant</option>
-                  <option value="4">Intern</option>
-                  <option value="5">Manager</option>
-                  <option value="6">Senior Associate Consultant</option>
-                  <option value="7">Senior Consultant</option>
-                  <option value="8">Solutions Consultant</option>
-                  <option value="9">Software Engineer</option>
-                  <option value="10">Solution Enabler</option>
-                  <option value="11">Senior Software Engineer</option>
-                </select>
+
+      <Box component="main" sx={{ flexGrow: 2, paddingLeft: 10, paddingRight: 2, paddingTop: 6 }}>
+          <div className='create-user'>
+
+            {userRole === 'admin' ? (
+              <div className="container">
+                <div className="title-bar black-text">
+                  <h1>Register New User</h1>
                 </div>
-                {/* <div className="col-md-4">
+                <form onSubmit={handleSubmit} className="row">
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      <label htmlFor="user_id">User ID</label>
+                      <input
+                        type="text"
+                        id="user_id"
+                        value={user_id}
+                        onChange={(e) => setUser_id(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="userName">User Name</label>
+                      <input
+                        type="text"
+                        id="userName"
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="dateOfJoin">Date of Join</label>
+                      <input
+                        type="date"
+                        id="dateOfJoin"
+                        value={dateOfJoin}
+                        onChange={(e) => setDateOfJoin(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="mobileNumber">Mobile Number</label>
+                      <input
+                        type="text"
+                        id="mobileNumber"
+                        value={mobileNumber}
+                        onChange={(e) => setMobileNumber(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="email">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      <label htmlFor="city">City</label>
+                      <input
+                        type="text"
+                        id="city"
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="state">State</label>
+                      <input
+                        type="text"
+                        id="state"
+                        value={state}
+                        onChange={(e) => setState(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="pin">PIN</label>
+                      <input
+                        type="text"
+                        id="pin"
+                        value={pin}
+                        onChange={(e) => setPin(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="dateOfBirth">Date of Birth</label>
+                      <input
+                        type="date"
+                        id="dateOfBirth"
+                        value={dateOfBirth}
+                        onChange={(e) => setDateOfBirth(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="gender">Gender</label>
+                      <select
+                        id="gender"
+                        value={gender}
+                        onChange={(e) => setGender(e.target.value)}
+                        required
+                      >
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      <label htmlFor="reportingUserId">Reporting User ID</label>
+                      <input
+                        type="text"
+                        id="reportingUserId"
+                        value={reportingUserId}
+                        onChange={(e) => setReportingUserId(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="reporterName">Reporter Name</label>
+                      <input
+                        type="text"
+                        id="reporterName"
+                        value={reporterName}
+                        onChange={(e) => setReporterName(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="roles">Roles</label>
+                      <select
+                        id="roles"
+                        value={roles}
+                        onChange={(e) => setRoles(e.target.value)}
+                        required
+                      >
+                        <option value="">Select Role</option>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="designation">Designation</label>
+                      <select
+                        id="designation"
+                        value={designationId}
+                        onChange={handleDesignationChange}
+                        required
+                      >
+                        <option value="">Select Designation</option>
+                        <option value="1">Business Administrator</option>
+                        <option value="2">CEO</option>
+                        <option value="3">Consultant</option>
+                        <option value="4">Intern</option>
+                        <option value="5">Manager</option>
+                        <option value="6">Senior Associate Consultant</option>
+                        <option value="7">Senior Consultant</option>
+                        <option value="8">Solutions Consultant</option>
+                        <option value="9">Software Engineer</option>
+                        <option value="10">Solution Enabler</option>
+                        <option value="11">Senior Software Engineer</option>
+                      </select>
+                    </div>
+                    {/* <div className="col-md-4">
 
-                  
+
                 </div> */}
-              <div className="form-group">
-                <label htmlFor="department">Department</label>
-                <select
-                  id="department"
-                  value={departmentId}
-                  onChange={handleDepartmentChange}
-                  required
-                >
-                  <option value="">Select Department</option>
-                  <option value="1">Administration</option>
-                  <option value="2">Delivery</option>
-                  <option value="3">Operations</option>
-                </select>
+                    <div className="form-group">
+                      <label htmlFor="department">Department</label>
+                      <select
+                        id="department"
+                        value={departmentId}
+                        onChange={handleDepartmentChange}
+                        required
+                      >
+                        <option value="">Select Department</option>
+                        <option value="1">Administration</option>
+                        <option value="2">Delivery</option>
+                        <option value="3">Operations</option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="user_status">User Status</label>
+                      <select
+                        id="user_status"
+                        value={user_status}
+                        onChange={(e) => setUser_status(e.target.value)}
+                        required
+                      >
+                        <option value="active">Active</option>
+                        <option value="left">Left</option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password">Password</label>
+                      <input
+                        type="password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                    </div>
+                    {error && <p>{error}</p>}
+                    {showDialog && <DialogBox message="User created successfully" onClose={handleCloseDialog} />}
+                    <button type="submit" className="submit-button">Submit</button>
+                  </div>
+                </form>
               </div>
-              <div className="form-group">
-                <label htmlFor="user_status">User Status</label>
-                <select
-                  id="user_status"
-                  value={user_status}
-                  onChange={(e) => setUser_status(e.target.value)}
-                  required
-                >
-                  <option value="active">Active</option>
-                  <option value="left">Left</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              {error && <p>{error}</p>}
-              {showDialog && <DialogBox message="User created successfully" onClose={handleCloseDialog} />}
-              <button type="submit" className="submit-button">Submit</button>
-            </div>
-          </form>
-        </div>
-      ) : (
-        <p>You are not permitted to register new users.</p>
-      )}
-    </div>
-    </div>
-
+            ) : (
+              <p>You are not permitted to register new users.</p>
+            )}
+          </div>
+      
+    
+  
+      
+    </Box >
+  </>
   );
 }
 

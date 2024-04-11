@@ -1,5 +1,5 @@
 .create-project {
-    background: linear-gradient(#19105b, #472067, #7c3375, #FF6196);
+    /* background: linear-gradient(#19105b, #472067, #7c3375, #FF6196); */
     padding: 20px 0;
     display: flex;
     justify-content: center;
@@ -16,12 +16,15 @@
   .title-bar {
     color: beige;
   }
+  .black-text h1 {
+      color: black;
+    }
   
-  h1 {
+  /* h1 {
     color: #fff;
     text-align: center;
     margin-bottom: 30px;
-  }
+  } */
   
   .form-group {
     margin-bottom: 20px;

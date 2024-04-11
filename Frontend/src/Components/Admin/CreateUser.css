@@ -1,5 +1,5 @@
 .create-user {
-  background: linear-gradient(#19105b, #472067, #7c3375, #FF6196);
+  /* background: linear-gradient(#19105b, #472067, #7c3375, #FF6196); */
   padding-top: 20px ;
   display: flex;
   justify-content: center; /* Horizontally center */
@@ -21,15 +21,18 @@ body {
 }
 
 .title-bar{
-  color: beige;
+  color: rgb(0, 0, 0);
 }
-h1 {
+.black-text h1 {
+  color: black;
+  
+}
+/* h1 {
   /* text-decoration-color: aliceblue; */
-  color: #fff;
+  /* color: #070707;
   text-align: center;
-  margin-bottom: 30px;
-}
-
+  margin-bottom: 30px; */
+/* } */ 
 .form-group {
   margin-bottom: 20px;
 }

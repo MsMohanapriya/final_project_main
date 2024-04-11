@@ -167,7 +167,7 @@ overflow-y: auto;
 }
 
 title{
-  color: aliceblue;
+  color: rgb(255, 246, 246);
 }
 .p-button-label{
   color: white;
@@ -197,4 +197,11 @@ title{
 
 .black-label {
   color: black;
+}
+
+.title-bar{
+  color: black;
+}
+.h1{
+  color: #19105B;
 }

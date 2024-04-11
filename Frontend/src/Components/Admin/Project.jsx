@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './Project.css';
 import DialogBox from '../Login/DIalogBox';
 import ButtonAppBar from '../navbar/navbar';
+import Dashboard from '../Dashboard/Dashboard';
+import Box from '@mui/material/Box';
+
+
 function CreateProject() {
     const [projectId, setProjectId] = useState('');
     const [projectName, setProjectName] = useState('');
@@ -135,123 +139,125 @@ function CreateProject() {
 
     return (
         <div>
-            <ButtonAppBar className='navbar' />
+            {/* <ButtonAppBar className='navbar' /> */}
+            <Dashboard className='navbar' />
+            <Box component="main" sx={{ flexGrow: 2, paddingLeft: 10, paddingRight: 2, paddingTop: 6 }}>
+                <div className='create-project'>
 
-        <div className='create-project'>
-          
-            {userRole === 'admin' ? (
-                <div className="container">
-                    <div className="title-bar">
-                        <h1>Create New Project</h1>
-                    </div>
-                    <form onSubmit={handleSubmit} className="row">
-                        <div className="col-md-6">
-                            <div className="form-group">
-                                <label htmlFor="projectId">Project ID</label>
-                                <input
-                                    type="text"
-                                    id="projectId"
-                                    value={projectId}
-                                    onChange={handleProjectIdChange}
-                                    required
-                                />
+                    {userRole === 'admin' ? (
+                        <div className="container">
+                            <div className="title-bar black-text">
+                                <h1>Create New Project</h1>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="projectName">Project Name</label>
-                                <input
-                                    type="text"
-                                    id="projectName"
-                                    value={projectName}
-                                    onChange={handleProjectNameChange}
-                                    required
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="projectStartDate">Start Date</label>
-                                <input
-                                    type="date"
-                                    id="projectStartDate"
-                                    value={projectStartDate}
-                                    onChange={handleProjectStartDateChange}
-                                    required
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="projectEndDate">End Date</label>
-                                <input
-                                    type="date"
-                                    id="projectEndDate"
-                                    value={projectEndDate}
-                                    onChange={handleProjectEndDateChange}
-                                    min={projectStartDate}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="form-group">
-                                <label htmlFor="projectStatus">Project Status</label>
-                                <select
-                                    id="projectStatus"
-                                    value={projectStatus}
-                                    onChange={handleProjectStatusChange}
-                                    required
-                                >
-                                    <option value="">Select Project Status</option>
-                                    <option value="active">Active</option>
-                                    <option value="inprogress">In Progress</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="typeOfProject">Type of Project</label>
-                                <input
-                                    type="text"
-                                    id="typeOfProject"
-                                    value={typeOfProject}
-                                    onChange={handleTypeOfProjectChange}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="department">Department</label>
-                                <select
-                                    id="department"
-                                    value={departmentId}
-                                    onChange={handleDepartmentChange}
-                                    required
-                                >
-                                    <option value="">Select Department</option>
-                                    <option value="1">Administration</option>
-                                    <option value="2">Delivery</option>
-                                    <option value="3">Operations</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        {tasks.map((task, index) => (
-                            <div key={index} className="task-input-row">
-                                <input
-                                    type="text"
-                                    value={task.taskName}
-                                    onChange={(e) => handleTaskChange(index, e)} // Pass index here
-                                    placeholder="Task Name"
-                                    required
-                                />
-                                <div>
-                                    <button onClick={() => removeTask(index)}>Remove</button>
-                                    {index === tasks.length - 1 && <button onClick={addTask}>Add</button>}
+                            <form onSubmit={handleSubmit} className="row">
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label htmlFor="projectId">Project ID</label>
+                                        <input
+                                            type="text"
+                                            id="projectId"
+                                            value={projectId}
+                                            onChange={handleProjectIdChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="projectName">Project Name</label>
+                                        <input
+                                            type="text"
+                                            id="projectName"
+                                            value={projectName}
+                                            onChange={handleProjectNameChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="projectStartDate">Start Date</label>
+                                        <input
+                                            type="date"
+                                            id="projectStartDate"
+                                            value={projectStartDate}
+                                            onChange={handleProjectStartDateChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="projectEndDate">End Date</label>
+                                        <input
+                                            type="date"
+                                            id="projectEndDate"
+                                            value={projectEndDate}
+                                            onChange={handleProjectEndDateChange}
+                                            min={projectStartDate}
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label htmlFor="projectStatus">Project Status</label>
+                                        <select
+                                            id="projectStatus"
+                                            value={projectStatus}
+                                            onChange={handleProjectStatusChange}
+                                            required
+                                        >
+                                            <option value="">Select Project Status</option>
+                                            <option value="active">Active</option>
+                                            <option value="inprogress">In Progress</option>
+                                            <option value="completed">Completed</option>
+                                        </select>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="typeOfProject">Type of Project</label>
+                                        <input
+                                            type="text"
+                                            id="typeOfProject"
+                                            value={typeOfProject}
+                                            onChange={handleTypeOfProjectChange}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="department">Department</label>
+                                        <select
+                                            id="department"
+                                            value={departmentId}
+                                            onChange={handleDepartmentChange}
+                                            required
+                                        >
+                                            <option value="">Select Department</option>
+                                            <option value="1">Administration</option>
+                                            <option value="2">Delivery</option>
+                                            <option value="3">Operations</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                        {error && <p>{error}</p>}
-                        {showDialog && <DialogBox message="Project created successfully" onClose={handleCloseDialog} />}
-                        <button type="submit">Submit</button>
-                    </form>
+                                {tasks.map((task, index) => (
+                                    <div key={index} className="task-input-row">
+                                        <input
+                                            type="text"
+                                            value={task.taskName}
+                                            onChange={(e) => handleTaskChange(index, e)} // Pass index here
+                                            placeholder="Task Name"
+                                            required
+                                        />
+                                        <div>
+                                            <button onClick={() => removeTask(index)}>Remove</button>
+                                            {index === tasks.length - 1 && <button onClick={addTask}>Add</button>}
+                                        </div>
+                                    </div>
+                                ))}
+
+                                {error && <p>{error}</p>}
+                                {showDialog && <DialogBox message="Project created successfully" onClose={handleCloseDialog} />}
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    ) : (
+                        <p>You are not permitted to create projects.</p>
+                    )}
                 </div>
-            ) : (
-                <p>You are not permitted to create projects.</p>
-            )}
-        </div>
+                </Box>
         </div>
     );
 }
