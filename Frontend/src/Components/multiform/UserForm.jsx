@@ -331,12 +331,20 @@ import Confirm from './Confirm';
 import Success from './Success';
 import Dashboard from '../Dashboard/Dashboard';
 import Box from '@mui/material/Box';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const UserForm = () => {
     const [userRole, setUserRole] = useState('');
     useEffect(() => {
         setUserRole(sessionStorage.getItem('roles'));
     }, []);
+    useEffect(() => {
+        if (!sessionStorage.getItem('accessToken')) {
+            navigate('/login');
+        }
+    }, [])
 
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
@@ -403,8 +411,9 @@ const UserForm = () => {
         <>
             <Dashboard className='navbar' />
             <Box component="main" sx={{
-                flexGrow: 2, paddingLeft: 20, paddingRight: 20, paddingTop: 15, margin: 'auto', // Center horizontally
-                maxWidth: 600
+                flexGrow: 2, paddingLeft: 15, paddingRight: 15, paddingTop: 20, margin: 'auto', // Center horizontally
+                fullWidth:100,
+                        maxWidth: 'sm'
             }}>
 
             
@@ -432,6 +441,7 @@ const UserForm = () => {
                     />
                 )}
                 {step === 4 && (
+                    // < showDialog && <DialogBox message="User created successfully" onClose={handleCloseDialog} />/>
                     <Success />
                     // Or return a Success component if you have one
                 )}

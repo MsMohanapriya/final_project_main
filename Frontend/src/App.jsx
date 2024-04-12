@@ -16,7 +16,6 @@ import FeedbackQuestionsPage from './Components/Admin/FeedbackQues';
 {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link> */}
 import UserForm from './Components/multiform/UserForm';
-import CreateFeedbackQuestions from './Components/Admin/CreateFeedbackQuestions';
 import Dashboard from './Components/Dashboard/Dashboard';
 // import CreateTaskMultiStepFormContainer from './Components/Login/rrform';
 
@@ -48,8 +47,8 @@ function App() {
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/createproject" element={<CreateProject />} />
             <Route path="/allocateproject" element={<AllocateProject />} />
-            <Route path="/createFeedbackQuestions" element={<CreateFeedbackQuestions />} />
-            <Route path="/FeedbackQues" element={<FeedbackQuestionsPage />} />
+            {/* <Route path="/createFeedbackQuestions" element={<CreateFeedbackQuestions />} /> */}
+          <Route path="/createFeedback" element={<FeedbackQuestionsPage />} />
           {/* <Route path="/CreateTaskMultiStepFormContainer" element={<CreateTaskMultiStepFormContainer/>}/> */}
           <Route path="/userform" element={<UserForm/>}/>
           {/* </Route> */}

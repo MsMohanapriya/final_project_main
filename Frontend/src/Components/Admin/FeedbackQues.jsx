@@ -13,6 +13,11 @@ function FeedbackQuestionsPage() {
     useEffect(() => {
         fetchProjects();
     }, []);
+    useEffect(() => {
+        if (!sessionStorage.getItem('accessToken')) {
+            navigate('/login');
+        }
+    }, [])
 
     const fetchProjects = async () => {
         try {
@@ -57,6 +62,10 @@ function FeedbackQuestionsPage() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            const roles = sessionStorage.getItem('roles');
+            if (roles !== 'admin') {
+                throw new Error('Only admins can allocate projects');
+            }
             const response = await fetch('http://localhost:5000/api/createFeedbackQuestions', {
                 method: 'POST',
                 headers: {

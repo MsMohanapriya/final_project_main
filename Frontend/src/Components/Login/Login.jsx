@@ -53,7 +53,7 @@ function LoginPage() {
           navigate('/changepassword'); // Navigate to change password page
         } else {
           console.log("login sucess");
-          navigate('/home'); // Navigate to home page
+          navigate('/dashboard'); // Navigate to home page
         }
         // if (requirePasswordChange) {
         //   // Set isFirstLogin to true if it's the user's first login

@@ -69,10 +69,11 @@ const createProject = async (req, res) => {
 
  
 const AllocateProject = async (req, res) => {
+  console.log("in allct proj")
   try {
     // Destructure project details from request body
     const { projectId, projectName, user_id, userName } = req.body;
-
+    console.log("all proj body", req.body);
     // Check if the project with the given projectId exists
     const project = await ProjectModel.findOne({ projectId });
 
@@ -83,7 +84,7 @@ const AllocateProject = async (req, res) => {
     // Create a new project allocation document using the project model
     const allocatedProject = new ProjectAllocationModel({
       projectId: projectId,
-      projectName: projectName,
+      // projectName: projectName,
       user_id: user_id,
       userName: userName,
       created_at: new Date()
@@ -91,7 +92,7 @@ const AllocateProject = async (req, res) => {
 
     // Save the new project allocation document to the database
     const result = await allocatedProject.save();
-    console.log(result);
+    console.log("projresult", allocatedProject);
     res.status(201).json({ message: "Project allocated successfully", project_alloted: result });
   } catch (error) {
     console.error('Error allocating project', error);

@@ -71,6 +71,7 @@ export const FormPersonalDetails = (props) => {
                         maxWidth='sm'
                     > */}
                         <AppBar title="Enter Personal Details" />
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="gender"
                             select
@@ -84,7 +85,8 @@ export const FormPersonalDetails = (props) => {
                             <MenuItem value="male">Male</MenuItem>
                             <MenuItem value="female">Female</MenuItem>
                         </TextField>
-                        <br />
+                    </div>
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="reportingUserId"
                             label="Reporting User ID"
@@ -94,7 +96,8 @@ export const FormPersonalDetails = (props) => {
                             fullWidth
                             required
                         />
-                        <br />
+                    </div>
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="reporterName"
                             label="Reporter Name"
@@ -104,7 +107,8 @@ export const FormPersonalDetails = (props) => {
                             fullWidth
                             required
                         />
-                        <br />
+                    </div>
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="roles"
                             select
@@ -118,7 +122,8 @@ export const FormPersonalDetails = (props) => {
                             <MenuItem value="user">User</MenuItem>
                             <MenuItem value="admin">Admin</MenuItem>
                         </TextField>
-                        <br />
+                    </div>
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="designation"
                             select
@@ -141,7 +146,8 @@ export const FormPersonalDetails = (props) => {
                             <MenuItem value="10">Solution Enabler</MenuItem>
                             <MenuItem value="11">Senior Software Engineer</MenuItem>
                         </TextField>
-                        <br />
+                    </div>
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="department"
                             select
@@ -156,7 +162,8 @@ export const FormPersonalDetails = (props) => {
                             <MenuItem value="2">Delivery</MenuItem>
                             <MenuItem value="3">Operations</MenuItem>
                         </TextField>
-                        <br />
+                    </div>
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="user_status"
                             select
@@ -169,7 +176,8 @@ export const FormPersonalDetails = (props) => {
                             <MenuItem value="active">Active</MenuItem>
                             <MenuItem value="left">Left</MenuItem>
                         </TextField>
-                        <br />
+                    </div>
+                    <div style={{ marginBottom: '20px' }}>
                         <TextField
                             id="password"
                             label="Password"
@@ -180,20 +188,22 @@ export const FormPersonalDetails = (props) => {
                             fullWidth
                             required
                         />
-                        <br />
-
-                        <Button
-                            color="secondary"
-                            variant="contained"
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+                    <Button
+                        color="secondary"
+                        variant="contained"
                             onClick={backStep}
-                        >Back</Button>
-
-                        <Button
-                            color="primary"
-                            variant="contained"
+                            style={{ height: '45%' }}
+                    >Back</Button>
+                    <Button
+                        color="primary"
+                        variant="contained"
                             onClick={continueStep}
-                        >Continue</Button>
+                            style={{ height: '45%' }}
+                    >Continue</Button>
                     {/* </Dialog> */}
+                    </div>
                 </>
             </MuiThemeProvider>
         );

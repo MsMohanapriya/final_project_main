@@ -261,6 +261,11 @@ function CreateUser() {
   useEffect(() => {
     setUserRole(sessionStorage.getItem('roles'));
   }, []);
+  useEffect(() => {
+    if (!sessionStorage.getItem('accessToken')) {
+      navigate('/login');
+    }
+  }, [])
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);

@@ -197,11 +197,12 @@ const change_password = async (req, res) => {
 const fetchAllUsers = async (req, res) => {
     try {
         const users = await UserModel.find({});
-        return res.status(200).json({ users: users })
-
+        console.log("Users fetched successfully:", users);
+        return res.status(200).json({ users: users });
+        
     } catch (error) {
         console.error(err);
-        return res.status(400).json({ message: err.message })
+        return res.status(400).json({ message: err.message });
     }
 
 }

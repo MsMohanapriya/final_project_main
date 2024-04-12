@@ -44,6 +44,11 @@ function TimeSheet() {
     useEffect(() => {
         console.log(startDate, endDate)
     }, [startDate, endDate]);
+    useEffect(() => {
+        if (!sessionStorage.getItem('accessToken')) {
+            navigate('/login');
+        }
+    }, [])
 
     //    Functions for BAU
     const addTableRows = () => {
@@ -464,7 +469,7 @@ function TimeSheet() {
                         </div>
                         <div className="ml-20">
                             {error && <p>{error}</p>}
-                            {showDialog && <DialogBox message="Project created successfully" onClose={handleCloseDialog} />}
+                            {showDialog && <DialogBox message="Timesheet submitted successfully" onClose={handleCloseDialog} />}
                             <button type="submit" className="p-button p-component create-button" onClick={() => handleSubmit(rowsData)}>
                                 <span className="p-button-icon p-c p-button-icon-right pi pi-arrow-right">
                                 </span>

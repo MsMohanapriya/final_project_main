@@ -101,22 +101,25 @@ export class Confirm extends Component {
 
                         </List>
                         <br />
-
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
                         <Button
                             color="secondary"
                             variant="contained"
                             onClick={this.back}
+                            style={{ height: '45%' }}
                         >Back</Button>
 
                         <Button
                             color="primary"
                             variant="contained"
+                            style={{ height: '45%' }}
                             onClick={(e) => {
                                 console.log(e)
                                 this.continue(e);
                                 this.props.handleSubmit();
                             }}
                         >Submit</Button>
+                        </div>
                     {/* </Dialog> */}
                 </>
             </MuiThemeProvider>

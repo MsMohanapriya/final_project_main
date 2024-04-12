@@ -27,6 +27,11 @@ function CreateProject() {
     const handleProjectIdChange = (event) => {
         setProjectId(event.target.value);
     };
+    useEffect(() => {
+        if (!sessionStorage.getItem('accessToken')) {
+            navigate('/login');
+        }
+    }, [])
 
     const handleProjectNameChange = (event) => {
         setProjectName(event.target.value);
