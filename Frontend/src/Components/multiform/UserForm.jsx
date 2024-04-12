@@ -364,7 +364,7 @@ const UserForm = () => {
 
     const handleSubmit = async () => {
         try {
-            if (formData.roles !== 'admin') {
+            if (userRole !== 'admin') {
                 throw new Error('Only admins can register new users');
             }
 
@@ -376,6 +376,7 @@ const UserForm = () => {
                 },
                 body: JSON.stringify(formData),
             });
+            console.log("Successfully sent!")
 
             const res = await response.json();
 
@@ -399,8 +400,14 @@ const UserForm = () => {
     };
 
     return (
-        <Dashboard className='navbar'>
-            <Box component="main" sx={{ flexGrow: 2, paddingLeft: 10, paddingRight: 2, paddingTop: 6 }}>
+        <>
+            <Dashboard className='navbar' />
+            <Box component="main" sx={{
+                flexGrow: 2, paddingLeft: 20, paddingRight: 20, paddingTop: 15, margin: 'auto', // Center horizontally
+                maxWidth: 600
+            }}>
+
+            
                 {step === 1 && (
                     <FormUserDetails
                         nextStep={nextStep}
@@ -421,6 +428,7 @@ const UserForm = () => {
                         nextStep={nextStep}
                         prevStep={prevStep}
                         values={formData}
+                        handleSubmit={handleSubmit}
                     />
                 )}
                 {step === 4 && (
@@ -428,7 +436,9 @@ const UserForm = () => {
                     // Or return a Success component if you have one
                 )}
             </Box>
-        </Dashboard>
+
+        </>
+
     );
 };
 

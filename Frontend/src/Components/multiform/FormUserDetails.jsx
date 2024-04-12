@@ -21,13 +21,13 @@ export class FormUserDetails extends Component {
     render() {
         const { values, handleChange } = this.props;
         return (
-            <MuiThemeProvider theme={theme}>
+            // >
                 <>
-                    <Dialog
+                    {/* <Dialog
                         open
                         fullWidth
                         maxWidth='sm'
-                    >
+                    > */}
                         <AppBar title="Enter User Details" />
                         <TextField
                             placeholder="Enter User ID"
@@ -129,9 +129,9 @@ export class FormUserDetails extends Component {
                             variant="contained"
                             onClick={this.continue}
                         >Continue</Button>
-                    </Dialog>
+                    {/* </Dialog> */}
                 </>
-            </MuiThemeProvider>
+            // </MuiThemeProvider>
         );
     }
 }

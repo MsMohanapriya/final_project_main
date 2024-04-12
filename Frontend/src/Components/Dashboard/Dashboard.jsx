@@ -40,7 +40,7 @@ const AppBar = styled(MuiAppBar, {
 
 
 
-export default function Dashboard() {
+function Dashboard() {
     
     const [open, setOpen] = useState(false);
     // const [dark, setDark] = useState(true);
@@ -99,3 +99,4 @@ export default function Dashboard() {
        
     );
 }
+export default Dashboard;

@@ -65,11 +65,11 @@ export const FormPersonalDetails = (props) => {
         return (
             <MuiThemeProvider theme={theme}>
                 <>
-                    <Dialog
+                    {/* <Dialog
                         open
                         fullWidth
                         maxWidth='sm'
-                    >
+                    > */}
                         <AppBar title="Enter Personal Details" />
                         <TextField
                             id="gender"
@@ -193,7 +193,7 @@ export const FormPersonalDetails = (props) => {
                             variant="contained"
                             onClick={continueStep}
                         >Continue</Button>
-                    </Dialog>
+                    {/* </Dialog> */}
                 </>
             </MuiThemeProvider>
         );

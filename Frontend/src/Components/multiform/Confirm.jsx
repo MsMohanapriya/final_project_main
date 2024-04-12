@@ -43,11 +43,11 @@ export class Confirm extends Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <>
-                    <Dialog
+                    {/* <Dialog
                         open
                         fullWidth
                         maxWidth='sm'
-                    >
+                    > */}
                         <AppBar title="Confirm User Data" />
                         <List>
                             <ListItem>
@@ -111,9 +111,13 @@ export class Confirm extends Component {
                         <Button
                             color="primary"
                             variant="contained"
-                            onClick={this.continue}
+                            onClick={(e) => {
+                                console.log(e)
+                                this.continue(e);
+                                this.props.handleSubmit();
+                            }}
                         >Submit</Button>
-                    </Dialog>
+                    {/* </Dialog> */}
                 </>
             </MuiThemeProvider>
         );

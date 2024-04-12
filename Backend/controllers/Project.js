@@ -1,6 +1,6 @@
 
 const { default: mongoose } = require('mongoose');
-const { ProjectModel, ProjectAllocationModel } = require('../models/Admin');
+const { ProjectModel, ProjectAllocationModel,FeedbackQuestionModel } = require('../models/Admin');
 // const ProjectAllocationModel = ('../models/Admin');
 const { Types: { ObjectId } } = require('mongoose');
 
@@ -102,35 +102,44 @@ const AllocateProject = async (req, res) => {
 
 
 const createFeedbackQuestions = async (req, res) => {
-  try {
+
+  console.log("in create feedback")
+
     const { projectId, projectName, questions } = req.body;
     console.log(req.body);
     // Find the project by projectId
-    const project = await Project.find({ projectId });
+    const project = await ProjectModel.find({ projectId });
 
-    console.log(project);
-    const newFeedbackQuestions = new FeedbackQuestion({
+    // console.log('projects fr feedbck ques:',project);
+    const newFeedbackQues ={
       projectId,
       projectName,
       questions
-    });
-
-    const result = await newFeedbackQuestions.save();
+    };
+    // console.log('feedbackQuestions', newFeedbackQuestions);
+  FeedbackQuestionModel.create(newFeedbackQues)
+      .then(data => {
+        res.status(200).json({ message: 'Feedback questions added successfully', data });
+      })
+      .catch(err => {
+        console.error('Error adding feedback questions:', err);
+        res.status(500).json({ message: 'Error adding feedback questions' });
+    })
     // if (!project) {
     //   return res.status(404).json({ message: 'Project not found' });
     // }
 
     // Add feedback questions to the project
-    project.feedbackQuestions = questions;
+    // project.feedbackQuestions = questions;
 
-    // Save the updated project
-    await project.save();
+    // // Save the updated project
+    // await project.save();
 
-    res.status(201).json({ message: 'Feedback questions added successfully', project });
-  } catch (error) {
-    console.error('Error adding feedback questions:', error);
-    res.status(500).json({ message: 'Error adding feedback questions' });
-  }
+  //   res.status(200).json({ message: 'Feedback questions added successfully', result });
+  // } catch (error) {
+  //   console.error('Error adding feedback questions:', error);
+  //   res.status(500).json({ message: 'Error adding feedback questions' });
+  // }
 };
   
   module.exports = {
