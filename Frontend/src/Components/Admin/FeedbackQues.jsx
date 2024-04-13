@@ -15,7 +15,7 @@ function FeedbackQuestionsPage() {
     }, []);
     useEffect(() => {
         if (!sessionStorage.getItem('accessToken')) {
-            navigate('/login');
+            navigate('/');
         }
     }, [])
 
@@ -83,10 +83,7 @@ function FeedbackQuestionsPage() {
             if (data.message === "Feedback questions created successfully") {
                 // Handle success, maybe show a dialog or redirect
                 console.log('Feedback questions created successfully');
-            } else {
-                // Handle failure
-                setError('Error creating feedback questions');
-            }
+            } 
         } catch (error) {
             console.error('Error creating feedback questions:', error);
             setError('Error creating feedback questions');

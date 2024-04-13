@@ -46,7 +46,7 @@ function TimeSheet() {
     }, [startDate, endDate]);
     useEffect(() => {
         if (!sessionStorage.getItem('accessToken')) {
-            navigate('/login');
+            navigate('/');
         }
     }, [])
 

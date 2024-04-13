@@ -73,22 +73,6 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-
-
-const otpSchema = new mongoose.Schema({
-    email: {
-      type: String
-    },
-    otp: {
-      type: String,
-      required:true
-    },
-    created_at: {
-      type: Date,
-      default: Date.now
-    }
-  });
-
  
 
 const timesheetSchema = new mongoose.Schema({
@@ -151,14 +135,21 @@ const timesheetSchema = new mongoose.Schema({
     visible: {}
 });
 
-
+const feedbackSchema = new mongoose.Schema({
+  overallPerformance: { type: Number, required: true },
+  codeQuality: { type: Number, required: true },
+  functionality: { type: Number, required: true },
+  communication: { type: Number, required: true },
+  timeliness: { type: Number, required: true },
+  // Add more fields as needed
+});
 
 const TimesheetModel = mongoose.model('timesheet', timesheetSchema);
-const UserModel = mongoose.model("users", userSchema)
-const otpModel = mongoose.model("temp_otps", otpSchema)
+const UserModel = mongoose.model("users", userSchema);
+const FeedbackModel =mongoose.model("feedbacks" , feedbackSchema )
 
 module.exports = {
     UserModel,
-    otpModel,
-    TimesheetModel
+  TimesheetModel,
+    FeedbackModel
 };

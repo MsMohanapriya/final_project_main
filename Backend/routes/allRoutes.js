@@ -7,9 +7,9 @@ const AuthControllers = require('../controllers/Auth');
 
 //main apis
 // router.get('/test',AuthControllers.test);
-router.post('/login',AuthControllers.login);
+router.post('/',AuthControllers.login);
 router.post('/registerUser',utils.authenticateJWT,AuthControllers.register_user);
-router.post('/generateOtp',AuthControllers.generate_otp);
+
 router.post('/changePassword',AuthControllers.change_password);
 // router.post('/userDetail',AuthControllers.user_detail);
 router.post('/registerTimesheet',TimeSheetController.storeTimesheetData);
@@ -19,6 +19,6 @@ router.post('/createFeedbackQuestions', ProjectController.createFeedbackQuestion
 router.get('/projects', ProjectController.fetchAllProject)
 router.post('/user/projects', ProjectController.fetchUserProject)
 router.get('/users', AuthControllers.fetchAllUsers)
-// router.post('/feedback',ProjectController.)
+router.post('/feedback', TimeSheetController.submitFeedback)
 
 module.exports = router;

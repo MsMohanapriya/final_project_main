@@ -1,354 +1,102 @@
-// import React, { useState, useEffect, useRef } from 'react';
-// import { Card } from 'primereact/card';
-// import { Button } from 'primereact/button';
-// import { Dialog } from 'primereact/dialog';
-// import { Dropdown } from 'primereact/dropdown';
-// import { Toast } from 'primereact/toast';
+import React, { useState } from "react";
+import { Button, FormControl, FormLabel, Radio, RadioGroup, FormControlLabel } from "@mui/material";
+import { Rating } from "@mui/material";
+import styled from "styled-components";
 
-// function Feedback() {
-//   const [selectedProject, setSelectedProject] = useState(null);
-//   const [displayModal, setDisplayModal] = useState(false);
-//   const [feedbackData, setFeedbackData] = useState({
-//     question1: 0,
-//     question2: 0,
-//     question3: 0,
-//     question4: 0,
-//     question5: 0,
-//     comment: ''
-//   });
-//   const [projects, setProjects] = useState([]);
-//   const [token, setToken] = useState('');
-//   const [toastVisible, setToastVisible] = useState(false);
-//   const toast = useRef(null);
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 
-//   useEffect(() => {
-//     // Fetch data from the API endpoint using the token
-//     const fetchProjects = async () => {
-//       const storedToken = sessionStorage.getItem('token');
-//       setToken(storedToken);
-//       try {
-//         const response = await fetch('http://localhost:3000/api/feedback_status', {
-//           headers: {
-//             Authorization: `Bearer ${storedToken}`
-//           }
-//         });
-//         const data = await response.json();
-//         setProjects(data);
-//       } catch (error) {
-//         console.error('Error fetching projects:', error);
-//       }
-//     };
+const FeedbackForm = () => {
+  const [overallProgress, setOverallProgress] = useState(0);
+  const [communication, setCommunication] = useState(0);
+  const [timeline, setTimeline] = useState(0);
+  const [qualityOfWork, setQualityOfWork] = useState(0);
+  const [projectManagement, setProjectManagement] = useState(0);
 
-//     fetchProjects();
-//   }, []);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-//   const filteredProjects = projects.filter(project => !project.submission_status);
+    const feedbackData = {
+      overallProgress,
+      communication,
+      timeline,
+      qualityOfWork,
+      projectManagement
+    };
 
-//   const handleSubmitFeedback = async () => {
-//     // Create feedback object with selected project details
-//     const feedback = {
-//       ...feedbackData,
-//       project_name: selectedProject.project_name,
-//       project_id: selectedProject.project_id,
-//       email: selectedProject.email,
-//       user_id: selectedProject.user_id
-//     };
+    try {
+      const response = await fetch('http://localhost:5000/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(feedbackData)
+      });
 
-//     try {
-//       // Submit feedback
-//       const response = await fetch('http://localhost:3000/api/submit_feedback', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Authorization: `Bearer ${token}`
-//         },
-//         body: JSON.stringify(feedback)
-//       });
-//       // Handle response as needed
-//       console.log('Feedback submitted:', response);
+      if (!response.ok) {
+        throw new Error('Failed to submit feedback');
+      }
 
-//       // Update submission status
-//       const updateResponse = await fetch('http://localhost:3000/api/update_submission_status', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Authorization: `Bearer ${token}`
-//         },
-//         body: JSON.stringify({
-//           project_id: selectedProject.project_id,
-//           email: selectedProject.email
-//         })
-//       });
-//       // Handle update response as needed
-//       console.log('Submission status updated:', updateResponse);
-
-//       // Show toast message
-//       setToastVisible(true);
-//       toast.current.show({ severity: 'success', summary: 'Feedback Submitted', detail: 'Your feedback has been submitted successfully.' });
-
-//       // Fetch updated projects data
-//       const updatedResponse = await fetch('http://localhost:3000/api/feedback_status', {
-//         headers: {
-//           Authorization: `Bearer ${token}`
-//         }
-//       });
-//       const updatedData = await updatedResponse.json();
-//       setProjects(updatedData);
-//     } catch (error) {
-//       console.error('Error submitting feedback:', error);
-//     }
-
-//     // Reset feedback data
-//     setFeedbackData({
-//       question1: 0,
-//       question2: 0,
-//       question3: 0,
-//       question4: 0,
-//       question5: 0,
-//       comment: ''
-//     });
-//     // Close modal
-//     setDisplayModal(false);
-//   };
-
-//   const formatDate = (dateString) => {
-//     const date = new Date(dateString);
-//     return date.toLocaleDateString(); // Convert to local date format
-//   };
-
-//   return (
-//     <div className="grid">
-//       {filteredProjects.map(project => (
-//         <div key={project.project_id} className="col">
-//           <Card title={project.project_name}>
-//             <div>
-//               <p><strong>Week Start Date:</strong> {formatDate(project.week_startdate)}</p>
-//               <p><strong>Week End Date:</strong> {formatDate(project.week_enddate)}</p>
-//               <Button label="Submit Feedback" className="p-button-success" onClick={() => {
-//                 setSelectedProject(project);
-//                 setDisplayModal(true);
-//               }} />
-//             </div>
-//           </Card>
-//         </div>
-//       ))}
-//       <Dialog
-//         visible={displayModal}
-//         onHide={() => setDisplayModal(false)}
-//         header={`Submit Feedback for ${selectedProject?.project_name}`}
-//         modal
-//         style={{ width: '500px' }}
-//         footer={
-//           <div>
-//             <Button label="Close" icon="pi pi-times" className="p-button-text" onClick={() => setDisplayModal(false)} />
-//             <Button label="Submit" icon="pi pi-check" className="p-button-success" onClick={handleSubmitFeedback} />
-//           </div>
-//         }
-//       >
-//         <div className="p-fluid">
-//           <div className="p-field">
-//             <label htmlFor="question1">Question 1</label>
-//             <Dropdown
-//               id="question1"
-//               value={feedbackData.question1}
-//               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-//               onChange={(e) => setFeedbackData({ ...feedbackData, question1: e.value })}
-//               placeholder="Select a value"
-//             />
-//           </div>
-//           <div className="p-field">
-//             <label htmlFor="question2">Question 2</label>
-//             <Dropdown
-//               id="question2"
-//               value={feedbackData.question2}
-//               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-//               onChange={(e) => setFeedbackData({ ...feedbackData, question2: e.value })}
-//               placeholder="Select a value"
-//             />
-//           </div>
-//           <div className="p-field">
-//             <label htmlFor="question3">Question 3</label>
-//             <Dropdown
-//               id="question3"
-//               value={feedbackData.question3}
-//               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-//               onChange={(e) => setFeedbackData({ ...feedbackData, question3: e.value })}
-//               placeholder="Select a value"
-//             />
-//           </div>
-//           <div className="p-field">
-//             <label htmlFor="question4">Question 4</label>
-//             <Dropdown
-//               id="question4"
-//               value={feedbackData.question4}
-//               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-//               onChange={(e) => setFeedbackData({ ...feedbackData, question4: e.value })}
-//               placeholder="Select a value"
-//             />
-//           </div>
-//           <div className="p-field">
-//             <label htmlFor="question5">Question 5</label>
-//             <Dropdown
-//               id="question5"
-//               value={feedbackData.question5}
-//               options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-//               onChange={(e) => setFeedbackData({ ...feedbackData, question5: e.value })}
-//               placeholder="Select a value"
-//             />
-//           </div>
-//           <div className="p-field">
-//             <label htmlFor="comment">Extra Comment</label>
-//             <textarea
-//               id="comment"
-//               value={feedbackData.comment}
-//               onChange={(e) => setFeedbackData({ ...feedbackData, comment: e.target.value })}
-//               rows={3}
-//               cols={30}
-//             ></textarea>
-//           </div>
-//         </div>
-//       </Dialog>
-//       <Toast ref={toast} />
-//     </div>
-//   );
-// }
-
-// export default Feedback;
-
-
-import React, { useState, useRef } from 'react';
-import { Card } from 'primereact/card';
-import { Button } from 'primereact/button';
-import { Dialog } from 'primereact/dialog';
-import { Dropdown } from 'primereact/dropdown';
-import { Toast } from 'primereact/toast';
-
-function Feedback() {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [displayModal, setDisplayModal] = useState(false);
-  const [feedbackData, setFeedbackData] = useState({
-    question1: 0,
-    question2: 0,
-    question3: 0,
-    question4: 0,
-    question5: 0,
-    comment: ''
-  });
-  const [toastVisible, setToastVisible] = useState(false);
-  const toast = useRef(null);
-
-  const handleSubmitFeedback = () => {
-    console.log("Feedback Submitted:", feedbackData);
-    setToastVisible(true);
-    setFeedbackData({
-      question1: 0,
-      question2: 0,
-      question3: 0,
-      question4: 0,
-      question5: 0,
-      comment: ''
-    });
-    setDisplayModal(false);
+      console.log('Feedback submitted successfully!');
+    } catch (error) {
+      console.error('Error submitting feedback:', error.message);
+    }
   };
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(); // Convert to local date format
-  };
-
   return (
-    <div className="grid">
-      {/* Simulated projects */}
-      {[1, 2, 3].map((projectId) => (
-        <div key={projectId} className="col">
-          <Card title={`Project ${projectId}`}>
-            <div>
-              <p><strong>Week Start Date:</strong> {formatDate(new Date())}</p>
-              <p><strong>Week End Date:</strong> {formatDate(new Date())}</p>
-              <Button label="Submit Feedback" className="p-button-success" onClick={() => setDisplayModal(true)} />
-            </div>
-          </Card>
-        </div>
-      ))}
-      <Dialog
-        visible={displayModal}
-        onHide={() => setDisplayModal(false)}
-        header={`Submit Feedback for ${selectedProject?.project_name}`}
-        modal
-        style={{ width: '500px' }}
-        footer={
-          <div>
-            <Button label="Close" icon="pi pi-times" className="p-button-text" onClick={() => setDisplayModal(false)} />
-            <Button label="Submit" icon="pi pi-check" className="p-button-success" onClick={handleSubmitFeedback} />
-          </div>
-        }
-      >
-        <div className="p-fluid">
-          <div className="p-field">
-            <label htmlFor="question1" className="black-label">Question 1</label>
-            <Dropdown
-              id="question1"
-              value={feedbackData.question1}
-              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={(e) => setFeedbackData({ ...feedbackData, question1: e.value })}
-              placeholder="Select a value"
-            />
-          </div>
-          <div className="p-field">
-            <label htmlFor="question2" className="black-label">Question 2</label>
-            <Dropdown
-              id="question2"
-              value={feedbackData.question2}
-              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={(e) => setFeedbackData({ ...feedbackData, question2: e.value })}
-              placeholder="Select a value"
-            />
-          </div>
-          <div className="p-field">
-            <label htmlFor="question3" className="black-label">Question 3</label>
-            <Dropdown
-              id="question3"
-              value={feedbackData.question3}
-              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={(e) => setFeedbackData({ ...feedbackData, question3: e.value })}
-              placeholder="Select a value"
-            />
-          </div>
-          <div className="p-field">
-            <label htmlFor="question4" className="black-label">Question 4</label>
-            <Dropdown
-              id="question4"
-              value={feedbackData.question4}
-              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={(e) => setFeedbackData({ ...feedbackData, question4: e.value })}
-              placeholder="Select a value"
-            />
-          </div>
-          <div className="p-field">
-            <label htmlFor="question5" className="black-label">Question 5</label>
-            <Dropdown
-              id="question5"
-              value={feedbackData.question5}
-              options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-              onChange={(e) => setFeedbackData({ ...feedbackData, question5: e.value })}
-              placeholder="Select a value"
-            />
-          </div>
-          <div className="p-field">
-            <label htmlFor="comment">Extra Comment</label>
-            <textarea
-              id="comment"
-              value={feedbackData.comment}
-              onChange={(e) => setFeedbackData({ ...feedbackData, comment: e.target.value })}
-              rows={3}
-              cols={30}
-            ></textarea>
-          </div>
-        </div>
-      </Dialog>
-      <Toast ref={toast} />
-    </div>
+    <StyledForm onSubmit={handleSubmit}>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">How satisfied are you with the overall progress of the project?</FormLabel>
+        <Rating
+          name="overall-progress"
+          value={overallProgress}
+          onChange={(event, newValue) => setOverallProgress(newValue)}
+        />
+      </FormControl>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">Rate the communication between team members on a scale of 1 to 5</FormLabel>
+        <RadioGroup
+          name="communication"
+          value={communication}
+          onChange={(event) => setCommunication(parseInt(event.target.value))}
+        >
+          <FormControlLabel value="1" control={<Radio />} label="1" />
+          <FormControlLabel value="2" control={<Radio />} label="2" />
+          <FormControlLabel value="3" control={<Radio />} label="3" />
+          <FormControlLabel value="4" control={<Radio />} label="4" />
+          <FormControlLabel value="5" control={<Radio />} label="5" />
+        </RadioGroup>
+      </FormControl>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">Did you find the project timeline realistic? Please rate from 1 to 5</FormLabel>
+        <Rating
+          name="timeline"
+          value={timeline}
+          onChange={(event, newValue) => setTimeline(newValue)}
+        />
+      </FormControl>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">How would you rate the quality of work delivered by the team?</FormLabel>
+        <Rating
+          name="quality-of-work"
+          value={qualityOfWork}
+          onChange={(event, newValue) => setQualityOfWork(newValue)}
+        />
+      </FormControl>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">Rate the effectiveness of the project management on a scale of 1 to 5</FormLabel>
+        <Rating
+          name="project-management"
+          value={projectManagement}
+          onChange={(event, newValue) => setProjectManagement(newValue)}
+        />
+      </FormControl>
+      <Button variant="contained" type="submit">Submit Feedback</Button>
+    </StyledForm>
   );
-}
+};
 
-export default Feedback;
+export default FeedbackForm;
+

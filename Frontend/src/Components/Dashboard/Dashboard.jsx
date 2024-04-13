@@ -48,7 +48,7 @@ function Dashboard() {
 
     useEffect(() => {
         if (!sessionStorage.getItem('accessToken')) {
-            navigate('/login');
+            navigate('/');
         }
     }, []);
 

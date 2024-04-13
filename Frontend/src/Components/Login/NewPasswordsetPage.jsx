@@ -11,7 +11,11 @@ function ChangePasswordPage() {
   const handleNewPasswordChange = (event) => {
     setNewPassword(event.target.value);
   };
-
+  useEffect(() => {
+    if (!sessionStorage.getItem('accessToken')) {
+      navigate('/');
+    }
+  }, [])
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
   };
@@ -77,7 +81,7 @@ function ChangePasswordPage() {
         {showDialog && <DialogBox message="Password changed successfully" onClose={handleCloseDialog} />}
         <button type="submit">Change Password</button>
       </form>
-      <Link to="/login">Back to Login</Link>
+      <Link to="/">Back to Login</Link>
     </div>
   );
 }

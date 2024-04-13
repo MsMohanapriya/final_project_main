@@ -1,7 +1,7 @@
 
 const jwt = require('jsonwebtoken');
 const accessTokenSecret = 'youraccesstokensecret';
-const { UserModel, otpModel } = require('../models/Models')
+const { UserModel } = require('../models/Models')
 const { transporter } = require('../utils/utils');
 const { ProjectModel } = require('../models/Admin');
 
@@ -68,11 +68,11 @@ const register_user = async (req, res) => {
                 requirePasswordChange: true,
                 created_at: new Date()
             });
- 
- 
+
+
             try {
                 const result = await newUser.save();
-                console.log("res",result);
+                console.log("res", result);
 
             } catch (error) {
                 console.error(error);
@@ -88,7 +88,7 @@ const register_user = async (req, res) => {
                     subject: 'Welcome to Application',
                     text: 'Mail added',
                     html: `<p><b>Hey there!</b></p>
-                        <p>Welcome to the Company Portal! An admin has added your email to our portal.</p>
+                        <p>Welcome to the Company Portal! we have  added your email to our portal.</p>
                         <p>To get started, please <a href="${link}">click here</a> to login to the portal using the following credentials:</p>
                         <p><strong>Email:</strong> ${email}</p>
                         <p><strong>Password:</strong> ${password}</p>
@@ -119,54 +119,6 @@ const register_user = async (req, res) => {
 };
 
 
-const generate_otp = async (req, res) => {
-    try {
-        const { email } = req.body;
-        const result = await UserModel.find();
-        const user = await result.find(u => { return u.email === email });
-        console.log(req.body)
-        if (user) {
-            const otp = Math.floor(10000 + Math.random() * 90000).toString();
-
-            const newTempOTP = new otpModel({
-                email: email,
-                otp: otp,
-                created_at: new Date()
-            });
-
-            // Save the tempOTP document to the database
-            try {
-                const result = await newTempOTP.save();
-                console.log(result);
-            } catch (error) {
-                console.error(error);
-            }
-
-            res.json({ message: "OTP created successfully", payload: result });
-
-            const mailData = {
-                from: 'mohanathangamanivk@gmail.com',
-                to: email,
-                subject: 'OTP - please do not share dude',
-                text: 'OTP requested',
-                html: `<b>Hey there! </b> <br> your otp is ${otp}<br/>`,
-            };
-
-            transporter.sendMail(mailData, function (err, info) {
-                if (err)
-                    console.log(err)
-                else
-                    console.log(info);
-            });
-        } else {
-            res.json({ message: "There is no email in db" })
-        }
-
-    } catch (err) {
-        console.error('Error executing query', err);
-        res.status(500).json({ message: 'Error generating otp' });
-    }
-};
 
 
 
@@ -199,7 +151,7 @@ const fetchAllUsers = async (req, res) => {
         const users = await UserModel.find({});
         console.log("Users fetched successfully:", users);
         return res.status(200).json({ users: users });
-        
+
     } catch (error) {
         console.error(err);
         return res.status(400).json({ message: err.message });
@@ -212,7 +164,6 @@ const fetchAllUsers = async (req, res) => {
 module.exports = {
     login,
     register_user,
-    generate_otp,
     change_password,
     fetchAllUsers
 }

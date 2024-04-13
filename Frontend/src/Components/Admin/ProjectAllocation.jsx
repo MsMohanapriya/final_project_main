@@ -211,7 +211,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProjectAllocation.css';
 import DialogBox from '../Login/DIalogBox';
-import ButtonAppBar from '../navbar/navbar';
+
 import Dashboard from '../Dashboard/Dashboard';
 import Box from '@mui/material/Box';
 
@@ -230,7 +230,7 @@ function AllocateProject() {
 
     useEffect(() => {
         if (!sessionStorage.getItem('accessToken')) {
-            navigate('/login');
+            navigate('/');
         }
     }, []);
 
@@ -244,6 +244,10 @@ function AllocateProject() {
             console.error('Error fetching users:', error);
         }
     };
+    function setErrorWithTimeout(errorMessage) {
+        setError(errorMessage);
+        setTimeout(clearError, 2000);
+    }
 
     const fetchProjects = async () => {
         try {
@@ -255,7 +259,9 @@ function AllocateProject() {
             console.error('Error fetching projects:', error);
         }
     };
-
+    const clearError = () => {
+        setError('');
+    };
     const handleSubmit = async (event) => {
         
         console.log("hiii");
@@ -283,8 +289,8 @@ function AllocateProject() {
                     projectId: selectedProject,
                     projectName: projects.find(project => project.project_id === selectedProject).projectName,
                     user_id: selectedUser,
-                    userName: users.find(user => user.user_id === selectedUser).userName
-                   
+                    userName: users.find(user => user.user_id === selectedUser).userName,
+                   created_at: new Date()
                 }),
             });
             const res = await response.json();
@@ -293,10 +299,10 @@ function AllocateProject() {
                 setSelectedProject('');
                 setSelectedUser('');
             } else {
-                setError('Error in allocating project');
+                setErrorWithTimeout('Error in creating project');
             }
         } catch (error) {
-            setError(error.message);
+            setErrorWithTimeout(error.message);
         }
     };
     const handleProjectChange = (event) => {
@@ -310,7 +316,7 @@ function AllocateProject() {
     const handleCloseDialog = () => {
         setShowDialog(false);
     };
-
+    
     return (
         <div>
             <Dashboard className='navbar' />
@@ -320,7 +326,7 @@ function AllocateProject() {
                         <div className="title-bar black-text">
                             <h1>Allocate Projects</h1>
                         </div>
-                        <form  className="row">
+                        <form onSubmit={handleSubmit} className="row">
                             <div className="col-md-6" style={{ width: '100%' }}>
                                 <div className="form-group">
                                     <label htmlFor="projectId">Select Project</label>

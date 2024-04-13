@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,Component } from 'react';
 import './Project.css';
 import DialogBox from '../Login/DIalogBox';
-import ButtonAppBar from '../navbar/navbar';
+
 import Dashboard from '../Dashboard/Dashboard';
 import Box from '@mui/material/Box';
+import { createTheme } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 
 function CreateProject() {
@@ -29,7 +32,7 @@ function CreateProject() {
     };
     useEffect(() => {
         if (!sessionStorage.getItem('accessToken')) {
-            navigate('/login');
+            navigate('/');
         }
     }, [])
 
@@ -77,7 +80,9 @@ function CreateProject() {
         updatedTasks.splice(index, 1);
         setTasks(updatedTasks);
     };
-
+    const clearError = () => {
+        setError('');
+    };
     function setErrorWithTimeout(errorMessage) {
         setError(errorMessage);
         setTimeout(clearError, 2000);
@@ -155,7 +160,7 @@ function CreateProject() {
                                 <h1>Create New Project</h1>
                             </div>
                             <form onSubmit={handleSubmit} className="row">
-                                <div className="col-md-6">
+                               
                                     <div className="form-group">
                                         <label htmlFor="projectId">Project ID</label>
                                         <input
@@ -196,8 +201,8 @@ function CreateProject() {
                                             min={projectStartDate}
                                         />
                                     </div>
-                                </div>
-                                <div className="col-md-6">
+                               
+                                
                                     <div className="form-group">
                                         <label htmlFor="projectStatus">Project Status</label>
                                         <select
@@ -235,7 +240,7 @@ function CreateProject() {
                                             <option value="3">Operations</option>
                                         </select>
                                     </div>
-                                </div>
+                                
 
                                 {tasks.map((task, index) => (
                                     <div key={index} className="task-input-row">

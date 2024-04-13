@@ -1,6 +1,6 @@
 
 
-const timesheetModel = require('../models/Models').TimesheetModel;
+const { TimesheetModel, FeedbackModel } = require('../models/Models');
 const jwt = require('jsonwebtoken');
 const accessTokenSecret = 'youraccesstokensecret';
 const storeTimesheetData = async (req, res) => {
@@ -32,7 +32,7 @@ const storeTimesheetData = async (req, res) => {
         console.log('bckend timesheet:', req.body)
         if(decodedToken.email){
 
-            const newTimesheet = new timesheetModel({
+            const newTimesheet = new TimesheetModel({
                 user_id: user_id,
                 pname: proj,
                 task: task,
@@ -61,7 +61,22 @@ const storeTimesheetData = async (req, res) => {
     }
 };
 
+
+
+const submitFeedback = async (req, res) => {
+    try {
+        const newFeedback = new FeedbackModel(req.body);
+        console.log(req.body);
+        await newFeedback.save();
+        res.status(201).json({ success: true, message: "Feedback submitted successfully" });
+    } catch (error) {
+        console.error("Error submitting feedback:", error);
+        res.status(500).json({ success: false, message: "Failed to submit feedback" });
+    }
+};
+
 module.exports = {
-    storeTimesheetData
+    storeTimesheetData,
+    submitFeedback
 };
 

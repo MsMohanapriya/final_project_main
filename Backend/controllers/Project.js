@@ -1,8 +1,8 @@
 
-const { default: mongoose } = require('mongoose');
+// const { default: mongoose } = require('mongoose');
 const { ProjectModel, ProjectAllocationModel,FeedbackQuestionModel } = require('../models/Admin');
 // const ProjectAllocationModel = ('../models/Admin');
-const { Types: { ObjectId } } = require('mongoose');
+// const { Types: { ObjectId } } = require('mongoose');
 
 const fetchAllProject = async (req, res) => {
   try {
@@ -80,7 +80,7 @@ const AllocateProject = async (req, res) => {
     if (!project) {
       return res.status(400).json({ message: "No project found with the given projectId" });
     }
-
+    console.log('pp', project);
     // Create a new project allocation document using the project model
     const allocatedProject = new ProjectAllocationModel({
       projectId: projectId,

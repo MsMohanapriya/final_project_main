@@ -57,7 +57,7 @@
     background-color: #a308eb;
   }
   
-    .task-input-row {
+    /* .task-input-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -70,4 +70,4 @@
   
     .task-input-row button {
       margin-left: 10px;
-    }
+    } */

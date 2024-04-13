@@ -18,7 +18,7 @@ function HomePage() {
   useEffect(() => {
     if (!roles) {
       // If role is not defined, redirect to the login page
-      navigate('/login');
+      navigate('/');
     }
   }, [navigate, roles]);
 
