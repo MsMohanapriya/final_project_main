@@ -8,7 +8,7 @@ import ChangePasswordPage from './Components/Login/NewPasswordsetPage';
 import TimeSheet from './Components/TimeSheet/TimeSheet';
 import HomePage from './Components/Login/Home';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
+import './index.css';
 import CreateProject from './Components/Admin/Project';
 import AllocateProject from './Components/Admin/ProjectAllocation';
 import FeedbackQuestionsPage from './Components/Admin/FeedbackQues';
@@ -45,7 +45,7 @@ function App() {
             <Route path="/changepassword" element={<ChangePasswordPage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/timesheet" element={<TimeSheet />} />
-          <Route path="/feedback" element={<FeedbackForm />} />
+            <Route path="/Feedback" element={<FeedbackForm />} />
             <Route path="/createproject" element={<CreateProject />} />
             <Route path="/allocateproject" element={<AllocateProject />} />
             {/* <Route path="/createFeedbackQuestions" element={<CreateFeedbackQuestions />} /> */}

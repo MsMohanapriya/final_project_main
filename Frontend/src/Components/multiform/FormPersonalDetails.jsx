@@ -24,16 +24,16 @@ export const FormPersonalDetails = (props) => {
 
     const { values, handleChange, nextStep, prevStep } = props;
 
-    const [designationId, setDesignationId] = useState('');
-    const [designation, setDesignation] = useState('');
+    // const [designationId, setDesignationId] = useState('');
+    // const [designation, setDesignation] = useState('');
 
-    const handleDesignationChange = (event) => {
-        const selectedDesignationId = event.target.value;
-        setDesignationId(selectedDesignationId);
-        // Optionally, if you want to update the designation name as well
-        const selectedDesignation = event.target.options[event.target.selectedIndex].text;
-        setDesignation(selectedDesignation);
-    };
+    // const handleDesignationChange = (event) => {
+    //     const selectedDesignationId = event.target.value;
+    //     setDesignationId(selectedDesignationId);
+    //     // Optionally, if you want to update the designation name as well
+    //     const selectedDesignation = event.target.options[event.target.selectedIndex].text;
+    //     setDesignation(selectedDesignation);
+    // };
 
     //  handleDesignationChange = (event) => {
     //     const selectedDesignationId = event.target.value;
@@ -42,13 +42,13 @@ export const FormPersonalDetails = (props) => {
     //     const selectedDesignation = event.target.options[event.target.selectedIndex].text;
     //     setDesignation(selectedDesignation);
     // };
-     const handleDepartmentChange = (event) => {
-        const selectedDepartmentId = event.target.value;
-        setDepartmentId(selectedDepartmentId);
-        // Optionally, if you want to update the designation name as well
-        const selectedDepartment = event.target.options[event.target.selectedIndex].text;
-        setDepartment(selectedDepartment);
-    };
+    //  const handleDepartmentChange = (event) => {
+    //     const selectedDepartmentId = event.target.value;
+    //     setDepartmentId(selectedDepartmentId);
+    //     // Optionally, if you want to update the designation name as well
+    //     const selectedDepartment = event.target.options[event.target.selectedIndex].text;
+    //     setDepartment(selectedDepartment);
+    // };
     const continueStep = (e) => {
         e.preventDefault();
         nextStep();
@@ -129,7 +129,7 @@ export const FormPersonalDetails = (props) => {
                             select
                             label="Designation"
                             defaultValue={values.designationId}
-                            onChange={handleDesignationChange}
+                            onChange={handleChange("designationId")}
                             fullWidth
                             required
                         >
@@ -153,7 +153,7 @@ export const FormPersonalDetails = (props) => {
                             select
                             label="Department"
                             defaultValue={values.departmentId}
-                            onChange={handleDepartmentChange}
+                            onChange={handleChange("departmentId")}
                             fullWidth
                             required
                         >

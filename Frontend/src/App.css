@@ -40,6 +40,16 @@
 .read-the-docs {
   color: #888;
 } */
+
+@font-face {
+  font-family: 'Caudex';
+  src: url('Fonts/Caudex-Regular.ttf') format('truetype');
+  src: url('Fonts/Caudex-Bold.ttf') format('truetype');
+  /* Add more src declarations for different font formats if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
 .timesheet{
   background: #19105B;
   color: white; 
@@ -204,4 +214,7 @@ title{
 }
 .h1{
   color: #19105B;
+}
+body {
+  font-family: 'Caudex', sans-serif;
 }

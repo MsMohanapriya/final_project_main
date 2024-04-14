@@ -57,6 +57,14 @@ const projectAllocationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  startDate: {
+    type: Date,
+    required: true
+  },
+  endDate: {
+    type: Date,
+    required: true
+  },
   created_at: {
     type: Date,
     default: Date.now

@@ -68,39 +68,82 @@ const createProject = async (req, res) => {
 };
 
  
+// const AllocateProject = async (req, res) => {
+//   console.log("in allct proj")
+//   try {
+//     // Destructure project details from request body
+//     const { projectId, projectName, user_id, userName } = req.body;
+//     console.log("all proj body", req.body);
+//     // Check if the project with the given projectId exists
+//     const project = await ProjectModel.findOne({ projectId });
+
+//     if (!project) {
+//       return res.status(400).json({ message: "No project found with the given projectId" });
+//     }
+//     console.log('pp', project);
+//     // Create a new project allocation document using the project model
+//     const allocatedProject = new ProjectAllocationModel({
+//       projectId: projectId,
+//       // projectName: projectName,
+//       user_id: user_id,
+//       userName: userName,
+//       created_at: new Date()
+//     });
+
+//     // Save the new project allocation document to the database
+//     const result = await allocatedProject.save();
+//     console.log("projresult", result);
+//     res.status(201).json({ message: "Project allocated successfully", project_alloted: result });
+//   } catch (error) {
+//     console.error('Error allocating project', error);
+//     res.status(500).json({ message: error.message || "Error allocating project" });
+//   }
+// };
+
 const AllocateProject = async (req, res) => {
-  console.log("in allct proj")
+  console.log("Received request to allocate project:");
+  console.log("Request body:", req.body);
+
   try {
     // Destructure project details from request body
-    const { projectId, projectName, user_id, userName } = req.body;
-    console.log("all proj body", req.body);
-    // Check if the project with the given projectId exists
-    const project = await ProjectModel.findOne({ projectId });
+    const { projectId, projectName, user_id, userName, startDate, endDate } = req.body;
+    // console.log("Received project details:");
+    // console.log("Project ID:", projectId);
+    // console.log("Project Name:", projectName);
+    // console.log("User ID:", user_id);
+    // console.log("User Name:", userName);
+    // console.log("Start Date:", startDate);
+    // console.log("End Date:", endDate);
 
+    // Check if the project with the given projectId exists
+    // const project = await ProjectModel.findOne({ projectId });
+    
+    const project = await ProjectModel.findOne({ project_id: projectId });
     if (!project) {
       return res.status(400).json({ message: "No project found with the given projectId" });
     }
-    console.log('pp', project);
+
     // Create a new project allocation document using the project model
     const allocatedProject = new ProjectAllocationModel({
       projectId: projectId,
-      // projectName: projectName,
+      projectName: projectName,
       user_id: user_id,
       userName: userName,
+      startDate: startDate,
+      endDate: endDate,
       created_at: new Date()
     });
 
     // Save the new project allocation document to the database
     const result = await allocatedProject.save();
-    console.log("projresult", allocatedProject);
+    console.log("Project allocated successfully:", result);
+    
     res.status(201).json({ message: "Project allocated successfully", project_alloted: result });
   } catch (error) {
-    console.error('Error allocating project', error);
+    console.error('Error allocating project:', error);
     res.status(500).json({ message: error.message || "Error allocating project" });
   }
 };
-
-
 
 const createFeedbackQuestions = async (req, res) => {
 

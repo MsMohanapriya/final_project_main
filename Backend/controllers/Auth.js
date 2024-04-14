@@ -40,13 +40,13 @@ const login = async (req, res) => {
 const register_user = async (req, res) => {
     const link = 'http://localhost:5173/login'
     try {
-        const { user_id, userName, dateOfJoin, mobileNumber, email, city, state, pin, dateOfBirth, gender, reportingUserId, reporterName, roles, designationId, designation, departmentId, department, user_status, password } = req.body;
+        const { userId, userName, dateOfJoin, mobileNumber, email, city, state, pin, dateOfBirth, gender, reportingUserId, reporterName, roles, designationId, designation, departmentId, department, user_status, password } = req.body;
         console.log(req.body)
 
         console.log("user", req.user)
         if (req.user && req.user.roles === "admin") {
             const newUser = new UserModel({
-                user_id: user_id,
+                user_id: userId,
                 userName: userName,
                 dateOfJoin: dateOfJoin,
                 mobileNumber: mobileNumber,
@@ -149,7 +149,7 @@ const change_password = async (req, res) => {
 const fetchAllUsers = async (req, res) => {
     try {
         const users = await UserModel.find({});
-        console.log("Users fetched successfully:", users);
+        // console.log("Users fetched successfully:", users);
         return res.status(200).json({ users: users });
 
     } catch (error) {

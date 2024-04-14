@@ -52,7 +52,7 @@ const UserForm = () => {
             if (userRole !== 'admin') {
                 throw new Error('Only admins can register new users');
             }
-
+            console.log(formData);
             const response = await fetch('http://localhost:5000/api/registerUser', {
                 method: 'POST',
                 headers: {

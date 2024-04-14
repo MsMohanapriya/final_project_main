@@ -34,7 +34,7 @@ export class FormUserDetails extends Component {
                         placeholder="Enter User ID"
                         label="User ID"
                         onChange={handleChange('userId')}
-                        defaultValue={values.userId}
+                        defaultValue={values.user_id}
                         margin="normal"
                         fullWidth
                     />

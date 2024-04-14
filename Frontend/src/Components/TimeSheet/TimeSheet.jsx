@@ -10,8 +10,7 @@ import { convertLength } from "@mui/material/styles/cssUtils";
 import DialogBox from "../Login/DIalogBox";
 import Box from '@mui/material/Box';
 import Dashboard from '../Dashboard/Dashboard';
-
-
+import { useNavigate } from "react-router-dom";
 
 
 function TimeSheet() {
@@ -25,10 +24,7 @@ function TimeSheet() {
         user_id: '', proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: '', start_date: startDate, end_date: endDate
     }]);
 
-    //    this state is for whole table of Sales
-    // const [rowsData2, setRowsData2] = useState([{
-    //     proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
-    // }]);
+    const navigate = useNavigate();
     const user_id = sessionStorage.getItem('userId')
     const [proj, setProj] = useState('')
     const [task, setTasks] = useState('')
@@ -84,30 +80,6 @@ function TimeSheet() {
     const handleCloseDialog = () => {
         setShowDialog(false);
     };
-    //    Functions for Sales
-    // const addTableRows2 = () => {
-    //     const rowsInput = {
-    //         proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
-    //     }
-    //     setRowsData2([...rowsData2, rowsInput])
-    // }
-    // const deleteTableRows2 = (index) => {
-    //     const rows = [...rowsData2];
-    //     rows.splice(index, 1);
-    //     setRowsData2(rows);
-    // }
-
-    // const handleChange2 = (index, evnt) => {
-    //     const { name, value } = evnt.target;
-    //     const rowsInput = [...rowsData2];
-
-    //     if (value == '' || parseInt(value) <= 24) {
-    //         rowsInput[index][name] = value;
-    //         setRowsData2(rowsInput);
-    //     }
-    //     rowsInput[index][name] = value;
-    //     setRowsData2(rowsInput);
-    // }
 
     // Calculate total for displaying in last row using reduce function
     let montot = rowsData.reduce((previousValue, currentValue) => {
@@ -116,12 +88,7 @@ function TimeSheet() {
         else
             return previousValue
     }, 0);
-    // + rowsData2.reduce((previousValue, currentValue) => {
-    //     if (currentValue.mon !== '')
-    //         return parseInt(previousValue) + parseInt(currentValue.mon)
-    //     else
-    //         return previousValue
-    // }, 0);
+
 
     let tuetot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.tue !== '')
@@ -129,12 +96,7 @@ function TimeSheet() {
         else
             return previousValue
     }, 0);
-    // + rowsData2.reduce((previousValue, currentValue) => {
-    //     if (currentValue.tue !== '')
-    //         return parseInt(previousValue) + parseInt(currentValue.tue)
-    //     else
-    //         return previousValue
-    // }, 0);
+
 
     let wedtot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.wed !== '')
@@ -142,12 +104,7 @@ function TimeSheet() {
         else
             return previousValue
     }, 0);
-    // + rowsData2.reduce((previousValue, currentValue) => {
-    //     if (currentValue.wed !== '')
-    //         return parseInt(previousValue) + parseInt(currentValue.wed)
-    //     else
-    //         return previousValue
-    // }, 0);
+
 
     let thutot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.thu !== '')
@@ -155,12 +112,7 @@ function TimeSheet() {
         else
             return previousValue
     }, 0);
-    // + rowsData2.reduce((previousValue, currentValue) => {
-    //     if (currentValue.thu !== '')
-    //         return parseInt(previousValue) + parseInt(currentValue.thu)
-    //     else
-    //         return previousValue
-    // }, 0);
+
 
     let fritot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.fri !== '')
@@ -168,12 +120,7 @@ function TimeSheet() {
         else
             return previousValue
     }, 0);
-    // + rowsData2.reduce((previousValue, currentValue) => {
-    //     if (currentValue.fri !== '')
-    //         return parseInt(previousValue) + parseInt(currentValue.fri)
-    //     else
-    //         return previousValue
-    // }, 0);
+
 
     let sattot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.sat !== '')
@@ -181,24 +128,14 @@ function TimeSheet() {
         else
             return previousValue
     }, 0);
-    // + rowsData2.reduce((previousValue, currentValue) => {
-    //     if (currentValue.sat !== '')
-    //         return parseInt(previousValue) + parseInt(currentValue.sat)
-    //     else
-    //         return previousValue
-    // }, 0);
+
     let suntot = rowsData.reduce((previousValue, currentValue) => {
         if (currentValue.sun !== '')
             return parseInt(previousValue) + parseInt(currentValue.sun)
         else
             return previousValue
     }, 0)
-    // + rowsData2.reduce((previousValue, currentValue) => {
-    //     if (currentValue.sun !== '')
-    //         return parseInt(previousValue) + parseInt(currentValue.sun)
-    //     else
-    //         return previousValue
-    // }, 0);
+
     var fintot = montot + tuetot + wedtot + thutot + fritot + sattot + suntot;
 
 
@@ -218,92 +155,10 @@ function TimeSheet() {
         return total;
     };
 
-    // calculate row total to display in last coloumn of Sales
-    // const calculateTotal2 = (index) => {
-    //     if (rowsData2[index].mon !== '')
-    //         var monn = rowsData2[index].mon;
-    //     else
-    //         var monn = '0'
-    //     if (rowsData2[index].tue !== '')
-    //         var tuee = rowsData2[index].tue;
-    //     else
-    //         var tuee = '0'
-    //     if (rowsData2[index].wed !== '')
-    //         var wedd = rowsData2[index].wed;
-    //     else
-    //         var wedd = '0'
-    //     if (rowsData2[index].thu !== '')
-    //         var thuu = rowsData2[index].thu;
-    //     else
-    //         var thuu = '0'
-    //     if (rowsData2[index].fri !== '')
-    //         var frii = rowsData2[index].fri;
-    //     else
-    //         var frii = '0'
-    //     if (rowsData2[index].sat !== '')
-    //         var satt = rowsData2[index].sat;
-    //     else
-    //         var satt = '0'
-    //     if (rowsData2[index].sun !== '')
-    //         var sunn = rowsData2[index].sun;
-    //     else
-    //         var sunn = '0'
 
-    //     return parseInt(monn) +
-    //         parseInt(tuee) +
-    //         parseInt(wedd) +
-    //         parseInt(thuu) +
-    //         parseInt(frii) +
-    //         parseInt(satt) +
-    //         parseInt(sunn);
-    // };
-
-    // const fetchdata = async () => {
-
-    //     try {
-    //         const res = await axios.get("/api")
-    //         setRowsData(res.data)
-    //     }
-    //     catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-
-    // const fetchdata2 = async () => {
-
-    //     try {
-    //         const res = await axios.get("/api2")
-    //         setRowsData2(res.data)
-    //     }
-    //     catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-    // const retdata = async () => {
-
-    //     try {
-    //         await axios.put("/api", rowsData)
-    //         fetchdata()
-    //     }
-    //     catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-    // const retdata2 = async () => {
-
-    //     try {
-    //         await axios.put("/api2", rowsData2)
-    //         fetchdata2()
-    //     }
-    //     catch (error) {
-    //         console.log(error)
-    //     }
-    // }
 
     const handleSubmit = async (rowsData) => {
+       
         console.log(rowsData)
         console.log(user_id)
         const newTimesheet = {
@@ -334,9 +189,10 @@ function TimeSheet() {
         console.log("called ", response)
         const responseData = await response.json();
 
-        if (response.ok) {
+        if (response===200) {
             // Handle success: show dialog and reset form fields
             setShowDialog(true);
+            navigate("/Feedback");
             // resetFormFields();
         } else {
             // Handle failure: set error message
@@ -367,119 +223,105 @@ function TimeSheet() {
         // localStorage.setItem("sales", JSON.stringify(rowsData2))
     }
 
-    // const submit = () => {
-    //     alert("Submitted sucessfully")
-    //     localStorage.removeItem("BAU")
-    //     localStorage.removeItem("sales")
-    //     retdata()
-    //     retdata2()
-    //     setRowsData([{
-    //         proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
-    //     }])
-    //     setRowsData2([{
-    //         proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
-    //     }])
-    // }
 
     return (
         <>
             <Dashboard className='navbar' />
 
 
-            <Box component="main" sx={{ flexGrow: 2, paddingLeft: 10, paddingRight: 2, paddingTop: 6}}>
+            <Box component="main" sx={{ flexGrow: 2, paddingLeft: 10, paddingRight: 2, paddingTop: 6 }}>
 
-                {/* <ButtonAppBar /> */}
-                {/* listItems = ['Dashboard', 'Timesheet', 'Leave', 'Work From Home', 'Feedback', 'Survey', 'Service Desks', 'Forms', 'Travel', 'Expenses', 'Resourcesing'] */}
-                {/* <ButtonAppBar title="Timesheet"  /> */}
-                {/* <form onSubmit={handleSubmit} className="row"> */}
-                <main>
-                    {/* <div className="totalhours"> */}
-                    {/* <h className="fs-13 fw-bold text-blue m-0 pt-2">Total Hours: {fintot}</h> */}
-                    <Duration startDate={startDate} endDate={endDate} setEndDate={setEndDate} setStartDate={setStartDate} hours={fintot} />
-                    {/* <p6 className="fs-13 text-blue m-0 pt-2"> &lt; 29 Jan 2024 - 04 Feb 2024 &gt;  </p6> */}
-                    {/* </div> */}
-                    <br></br>
 
-                    <div className='timesheet' >
-                        <p>Allocation Extension</p> <KeyboardArrowDownIcon />
-                    </div>
-                    <div style={{ height: "10px" }} ></div>
-                    <div className='timesheet'>
-                        Timesheet
-                    </div>
-                    <div className="ttt">
+                <form onSubmit={handleSubmit} className="row">
+                    <main>
+                        {/* <div className="totalhours"> */}
+                        {/* <h className="fs-13 fw-bold text-blue m-0 pt-2">Total Hours: {fintot}</h> */}
+                        <Duration startDate={startDate} endDate={endDate} setEndDate={setEndDate} setStartDate={setStartDate} hours={fintot} />
+                        {/* <p6 className="fs-13 text-blue m-0 pt-2"> &lt; 29 Jan 2024 - 04 Feb 2024 &gt;  </p6> */}
+                        {/* </div> */}
+                        <br></br>
 
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th style={{ width: "100px" }}> Project Type</th>
-                                    <th>Project Name</th>
-                                    <th>Task</th>
-                                    <th  >Comment</th>
-                                    <th >Mon <span id="date"></span></th>
-                                    <th>Tue <span id="date"></span></th>
-                                    <th>Wed <span id="date"></span></th>
-                                    <th>Thu <span id="date"></span></th>
-                                    <th>Fri <span id="date"></span></th>
-                                    <th>Sat <span id="date"></span></th>
-                                    <th>Sun <span id="date"></span></th>
-
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* This is the component for individual rows of BAU */}
-                                <TableRows rowsData={rowsData} deleteTableRows={deleteTableRows} handleChange={handleChange} calculateTotal={calculateTotal} addTableRows={addTableRows} />
-                                {/* This is the component for individual rows of Sales */}
-                                {/* <TableRows2 rowsData2={rowsData2} deleteTableRows2={deleteTableRows2} handleChange2={handleChange2} calculateTotal2={calculateTotal2} addTableRows2={addTableRows2} /> */}
-                                <tr>
-                                    <td>Total Hours:</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td ><input style={{ color: `${montot > 8 ? "red" : ""}` }} type="number" value={montot} name="mon" className="form-control" /></td>
-                                    <td><input style={{ color: `${tuetot > 8 ? "red" : ""}` }} type="number" value={tuetot} name="tue" className="form-control" /> </td>
-                                    <td><input style={{ color: `${wedtot > 8 ? "red" : ""}` }} type="number" value={wedtot} name="wed" className="form-control" /> </td>
-                                    <td><input style={{ color: `${thutot > 8 ? "red" : ""}` }} type="number" value={thutot} name="thu" className="form-control" /> </td>
-                                    <td><input style={{ color: `${fritot > 8 ? "red" : ""}` }} type="number" value={fritot} name="fri" className="form-control" /> </td>
-                                    <td><input style={{ color: `${sattot > 8 ? "red" : ""}` }} type="number" value={sattot} name="sat" className="form-control" /> </td>
-                                    <td><input style={{ color: `${suntot > 8 ? "red" : ""}` }} type="number" value={suntot} name="sun" className={`${suntot > 7 ? 'form-control ' : "form-control"}`} /> </td>
-                                    <td><input type="number" value={fintot} name="fintot" className="form-control" /> </td>
-
-                                </tr>
-                                <tr>
-                                    <td>Machine Hours</td>
-
-                                </tr>
-                                <tr>
-                                    <td>Break Hours</td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div className="d-flex justify-end mt-24">
-                        <div>
-                            <button type="submit" className="p-button p-component create-ts-button" onClick={save}>
-                                <span className="p-button-label p-c">
-                                    Save
-                                </span>
-                            </button>
+                        <div className='timesheet' >
+                            <p>Allocation Extension</p> <KeyboardArrowDownIcon />
                         </div>
-                        <div className="ml-20">
-                            {error && <p>{error}</p>}
-                            {showDialog && <DialogBox message="Timesheet submitted successfully" onClose={handleCloseDialog} />}
-                            <button type="submit" className="p-button p-component create-button" onClick={() => handleSubmit(rowsData)}>
-                                <span className="p-button-icon p-c p-button-icon-right pi pi-arrow-right">
-                                </span>
-                                <span className="p-button-label p-c">
-                                    Submit
-                                </span>
-                            </button>
+                        <div style={{ height: "10px" }} ></div>
+                        <div className='timesheet'>
+                            Timesheet
                         </div>
-                    </div>
-                </main>
+                        <div className="ttt">
+
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th style={{ width: "100px" }}> Project Type</th>
+                                        <th>Project Name</th>
+                                        <th>Task</th>
+                                        <th  >Comment</th>
+                                        <th >Mon <span id="date"></span></th>
+                                        <th>Tue <span id="date"></span></th>
+                                        <th>Wed <span id="date"></span></th>
+                                        <th>Thu <span id="date"></span></th>
+                                        <th>Fri <span id="date"></span></th>
+                                        <th>Sat <span id="date"></span></th>
+                                        <th>Sun <span id="date"></span></th>
+
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {/* This is the component for individual rows of BAU */}
+                                    <TableRows rowsData={rowsData} deleteTableRows={deleteTableRows} handleChange={handleChange} calculateTotal={calculateTotal} addTableRows={addTableRows} />
+                                    {/* This is the component for individual rows of Sales */}
+                                    {/* <TableRows2 rowsData2={rowsData2} deleteTableRows2={deleteTableRows2} handleChange2={handleChange2} calculateTotal2={calculateTotal2} addTableRows2={addTableRows2} /> */}
+                                    <tr>
+                                        <td>Total Hours:</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td ><input style={{ color: `${montot > 8 ? "red" : ""}` }} type="number" value={montot} name="mon" className="form-control" /></td>
+                                        <td><input style={{ color: `${tuetot > 8 ? "red" : ""}` }} type="number" value={tuetot} name="tue" className="form-control" /> </td>
+                                        <td><input style={{ color: `${wedtot > 8 ? "red" : ""}` }} type="number" value={wedtot} name="wed" className="form-control" /> </td>
+                                        <td><input style={{ color: `${thutot > 8 ? "red" : ""}` }} type="number" value={thutot} name="thu" className="form-control" /> </td>
+                                        <td><input style={{ color: `${fritot > 8 ? "red" : ""}` }} type="number" value={fritot} name="fri" className="form-control" /> </td>
+                                        <td><input style={{ color: `${sattot > 8 ? "red" : ""}` }} type="number" value={sattot} name="sat" className="form-control" /> </td>
+                                        <td><input style={{ color: `${suntot > 8 ? "red" : ""}` }} type="number" value={suntot} name="sun" className={`${suntot > 7 ? 'form-control ' : "form-control"}`} /> </td>
+                                        <td><input type="number" value={fintot} name="fintot" className="form-control" /> </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Machine Hours</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Break Hours</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="d-flex justify-end mt-24">
+                            <div>
+                                <button type="submit" className="p-button p-component create-ts-button" onClick={save}>
+                                    <span className="p-button-label p-c">
+                                        Save
+                                    </span>
+                                </button>
+                            </div>
+                            <div className="ml-20">
+                                {error && <p>{error}</p>}
+                                {showDialog && <DialogBox message="Timesheet submitted successfully" onClose={handleCloseDialog} />}
+                                <button type="submit" className="p-button p-component create-button" onClick={() => handleSubmit(rowsData)}>
+                                    <span className="p-button-icon p-c p-button-icon-right pi pi-arrow-right">
+                                    </span>
+                                    <span className="p-button-label p-c">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </main>
+                    </form>
             </Box>
         </>
 
