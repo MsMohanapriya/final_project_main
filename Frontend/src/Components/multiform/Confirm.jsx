@@ -10,11 +10,11 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme();
 
 export class Confirm extends Component {
-    continue = e => {
-        e.preventDefault();
-        // PROCESS FORM //
-        this.props.nextStep();
-    };
+    // continue = e => {
+    //     e.preventDefault();
+    //     // PROCESS FORM //
+    //     this.props.nextStep();
+    // };
 
     back = e => {
         e.preventDefault();
@@ -106,16 +106,17 @@ export class Confirm extends Component {
                             color="secondary"
                             variant="contained"
                             onClick={this.back}
-                            style={{ height: '45%' }}
+                            style={{ padding: '10px', backgroundColor: '#FF6196', color: '#ffffff', border: 'none', borderRadius: '5px', cursor: 'pointer', transition: 'background-color 0.3s ease' }}
                         >Back</Button>
 
                         <Button
                             color="primary"
                             variant="contained"
-                            style={{ height: '45%' }}
+                            style={{ padding: '10px', backgroundColor: '#19105b', color: '#ffffff', border: 'none', borderRadius: '5px', cursor: 'pointer', transition: 'background-color 0.3s ease' }}
                             onClick={(e) => {
+                                e.preventDefault()
                                 console.log(e)
-                                this.continue(e);
+                                // this.continue(e);
                                 this.props.handleSubmit();
                             }}
                         >Submit</Button>

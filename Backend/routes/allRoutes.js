@@ -4,7 +4,7 @@ const TimeSheetController = require('../controllers/TimeSheet')
 const ProjectController = require('../controllers/Project')
 const router = Router();
 const AuthControllers = require('../controllers/Auth');
-
+const FeedbackControllers = require('../controllers/Feedback')
 //main apis
 // router.get('/test',AuthControllers.test);
 router.post('/',AuthControllers.login);
@@ -19,6 +19,6 @@ router.post('/createFeedbackQuestions', ProjectController.createFeedbackQuestion
 router.get('/projects', ProjectController.fetchAllProject)
 router.post('/user/projects', ProjectController.fetchUserProject)
 router.get('/users', AuthControllers.fetchAllUsers)
-router.post('/feedback', TimeSheetController.submitFeedback)
+router.post('/feedback', FeedbackControllers.submitFeedback)
 
 module.exports = router;

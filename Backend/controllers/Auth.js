@@ -43,6 +43,13 @@ const register_user = async (req, res) => {
         const { userId, userName, dateOfJoin, mobileNumber, email, city, state, pin, dateOfBirth, gender, reportingUserId, reporterName, roles, designationId, designation, departmentId, department, user_status, password } = req.body;
         console.log(req.body)
 
+        const currentUser = await UserModel.findOne({ email: email });
+
+        if (currentUser) {
+            console.log("errrrrrrrrrrrrrr");
+            return res.status(400).json({message: 'User already exists'});
+        }
+
         console.log("user", req.user)
         if (req.user && req.user.roles === "admin") {
             const newUser = new UserModel({

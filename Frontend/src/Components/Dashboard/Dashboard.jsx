@@ -45,32 +45,22 @@ const AppBar = styled(MuiAppBar, {
 
 function Dashboard() {
     const navigate = useNavigate();
-
+    const isAuthenticated = !!sessionStorage.getItem('accessToken');
     useEffect(() => {
         if (!sessionStorage.getItem('accessToken')) {
             navigate('/');
         }
     }, []);
+    useEffect(() => {
+        if (!isAuthenticated) {
+            setOpen(false); // Close the sidebar if not authenticated
+        }
+    }, [isAuthenticated]);
 
     const [open, setOpen] = useState(true);
-    // const [anchorElNav, setAnchorElNav] = React.useState(null);
-    // const [anchorElUser, setAnchorElUser] = React.useState(1);
+
     const settings = ['Profile', 'Logout'];
-    // const [dark, setDark] = useState(true);
-
-
-    // const darkTheme = useMemo(() => createTheme({
-    //     Palette: {
-    //         mode: dark ? 'dark' : 'light'
-    // }
-    // }), [dark])
-
-
-    // const handleOpenUserMenu = (event) => {
-    //     setAnchorElUser(event.currentTarget);
-    // };
-    // const handleCloseUserMenu = () => {
-    //     setAnchorElUser(null);
+   
    
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -113,8 +103,8 @@ function Dashboard() {
                     
                 </Toolbar>
             </AppBar>
-            
-            <SideList {...{ open, setOpen }} />
+            {isAuthenticated && <SideList {...{ open, setOpen }} />}
+       
         </Box>
 
     );

@@ -16,30 +16,27 @@ import { useNavigate } from "react-router-dom";
 function TimeSheet() {
 
     const [startDate, setStartDate] = useState();
-    const [endDate, setEndDate] = useState(new Date());
+    const [endDate, setEndDate] = useState();
     const [error, setError] = useState()
     const [showDialog, setShowDialog] = useState(false);
     //    this state is for whole table of BAU
     const [rowsData, setRowsData] = useState([{
-        user_id: '', proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: '', start_date: startDate, end_date: endDate
+        pname: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
     }]);
 
     const navigate = useNavigate();
     const user_id = sessionStorage.getItem('userId')
-    const [proj, setProj] = useState('')
-    const [task, setTasks] = useState('')
-    const [mon, setMon] = useState('')
-    const [tue, setTue] = useState('')
-    const [wed, setWed] = useState('')
-    const [thur, setThur] = useState('')
-    const [fri, setFri] = useState('')
-    const [sat, setSat] = useState('')
-    const [sun, setSun] = useState('')
-    const [total, setTotal] = useState('')
+    // const [proj, setProj] = useState('')
+    // const [task, setTasks] = useState('')
+    // const [mon, setMon] = useState('')
+    // const [tue, setTue] = useState('')
+    // const [wed, setWed] = useState('')
+    // const [thur, setThur] = useState('')
+    // const [fri, setFri] = useState('')
+    // const [sat, setSat] = useState('')
+    // const [sun, setSun] = useState('')
+    // const [total, setTotal] = useState('')
 
-    useEffect(() => {
-        console.log(startDate, endDate)
-    }, [startDate, endDate]);
     useEffect(() => {
         if (!sessionStorage.getItem('accessToken')) {
             navigate('/');
@@ -49,11 +46,9 @@ function TimeSheet() {
     //    Functions for BAU
     const addTableRows = () => {
         const rowsInput = {
-            proj: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
+            pname: '', task: '', mon: '', tue: '', wed: '', thu: '', fri: '', sat: '', sun: '', tot: ''
         }
         setRowsData([...rowsData, rowsInput])
-
-
     }
 
     const deleteTableRows = (index) => {
@@ -63,18 +58,12 @@ function TimeSheet() {
 
     }
 
-    const handleChange = (index, evnt) => {
-        const { name, value } = evnt.target;
+    const handleChange = (index, e) => {
+        const { name, value } = e.target;
         const rowsInput = [...rowsData];
-        if (value == '' || parseInt(value) <= 24) {
-            rowsInput[index][name] = value;
-            setRowsData(rowsInput);
 
-        }
         rowsInput[index][name] = value;
         setRowsData(rowsInput);
-        // console.log(rowsData) 
-        console.log(rowsData)
     }
 
     const handleCloseDialog = () => {
@@ -152,44 +141,40 @@ function TimeSheet() {
             }
         });
 
-        return total;
+        const rowsInput = [...rowsData];
+
+        rowsInput[index]['tot'] = total;
+        setRowsData(rowsInput);
     };
 
 
 
-    const handleSubmit = async (rowsData) => {
-       
-        console.log(rowsData)
-        console.log(user_id)
-        const newTimesheet = {
-            user_id: user_id,
-            pname: proj,
-            task: task,
-            mon: mon,
-            tue: tue,
-            wed: wed,
-            thur: thur,
-            fri: fri,
-            sat: sat,
-            sun: sun,
-            total_hrs: total,
-            start_period: startDate,
-            end_period: endDate,
-            created_at: new Date()
-        };
-        console.log(newTimesheet)
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log({
+            user_id,
+            rowsData,
+            startDate,
+            endDate
+        })
         const response = await fetch('http://localhost:5000/api/registerTimesheet', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${sessionStorage.getItem("accessToken")}`
             },
-            body: JSON.stringify(newTimesheet),
+            body: JSON.stringify({
+                user_id,
+                rowsData,
+                startDate,
+                endDate
+            }),
         });
-        console.log("called ", response)
+        
         const responseData = await response.json();
+        console.log(responseData)
 
-        if (response===200) {
+        if (response.ok) {
             // Handle success: show dialog and reset form fields
             setShowDialog(true);
             navigate("/Feedback");
@@ -202,26 +187,26 @@ function TimeSheet() {
     };
 
 
-    useEffect(() => {
-        // LOCAL STORAGE
-        const data1 = localStorage.getItem("BAU")
-        // const data2 = localStorage.getItem("sales")
-        if (data1) {
-            setRowsData(JSON.parse(data1))
-        }
-        // if (data2) {
-        //     setRowsData2(JSON.parse(data2))
-        // }
+    // useEffect(() => {
+    //     // LOCAL STORAGE
+    //     const data1 = localStorage.getItem("BAU")
+    //     // const data2 = localStorage.getItem("sales")
+    //     if (data1) {
+    //         setRowsData(JSON.parse(data1))
+    //     }
+    //     // if (data2) {
+    //     //     setRowsData2(JSON.parse(data2))
+    //     // }
 
-        // fetchdata()
-        // fetchdata2()
-    }, []);
+    //     // fetchdata()
+    //     // fetchdata2()
+    // }, []);
 
-    const save = () => {
-        alert("Saved")
-        localStorage.setItem("BAU", JSON.stringify(rowsData))
-        // localStorage.setItem("sales", JSON.stringify(rowsData2))
-    }
+    // const save = () => {
+    //     alert("Saved")
+    //     localStorage.setItem("BAU", JSON.stringify(rowsData))
+    //     // localStorage.setItem("sales", JSON.stringify(rowsData2))
+    // }
 
 
     return (
@@ -302,7 +287,7 @@ function TimeSheet() {
                         </div>
                         <div className="d-flex justify-end mt-24">
                             <div>
-                                <button type="submit" className="p-button p-component create-ts-button" onClick={save}>
+                                <button type="submit" className="p-button p-component create-ts-button">
                                     <span className="p-button-label p-c">
                                         Save
                                     </span>
@@ -311,7 +296,7 @@ function TimeSheet() {
                             <div className="ml-20">
                                 {error && <p>{error}</p>}
                                 {showDialog && <DialogBox message="Timesheet submitted successfully" onClose={handleCloseDialog} />}
-                                <button type="submit" className="p-button p-component create-button" onClick={() => handleSubmit(rowsData)}>
+                                <button type="submit" className="p-button p-component create-button">
                                     <span className="p-button-icon p-c p-button-icon-right pi pi-arrow-right">
                                     </span>
                                     <span className="p-button-label p-c">

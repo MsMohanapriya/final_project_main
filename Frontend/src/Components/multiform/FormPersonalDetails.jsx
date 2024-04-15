@@ -70,8 +70,11 @@ export const FormPersonalDetails = (props) => {
                         fullWidth
                         maxWidth='sm'
                     > */}
-                        <AppBar title="Enter Personal Details" />
-                    <div style={{ marginBottom: '20px' }}>
+                    <AppBar title="Enter Personal Details" style={{ marginBottom: '20px' }} />
+                    <div style={{ fontFamily: 'Caudex, sans-serif', width: '100%', maxWidth: '400px', padding: '20px', backgroundColor: '#ffffff', borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)' }}>
+
+
+                    <div >
                         <TextField
                             id="gender"
                             select
@@ -80,6 +83,7 @@ export const FormPersonalDetails = (props) => {
                             onChange={handleChange('gender')}
                             fullWidth
                             required
+                            style={{ marginBottom: '20px' }}
                         >
                             <MenuItem value="">Select Gender</MenuItem>
                             <MenuItem value="male">Male</MenuItem>
@@ -95,6 +99,7 @@ export const FormPersonalDetails = (props) => {
                             onChange={handleChange('reportingUserId')}
                             fullWidth
                             required
+                             style={{ marginBottom: '20px' }}
                         />
                     </div>
                     <div style={{ marginBottom: '20px' }}>
@@ -194,15 +199,17 @@ export const FormPersonalDetails = (props) => {
                         color="secondary"
                         variant="contained"
                             onClick={backStep}
-                            style={{ height: '45%' }}
+                                style={{ padding: '10px', backgroundColor: '#FF6196', border: 'none', borderRadius: '5px', cursor: 'pointer', transition: 'background-color 0.3s ease' }}
                     >Back</Button>
                     <Button
                         color="primary"
                         variant="contained"
-                            onClick={continueStep}
-                            style={{ height: '45%' }}
+                                onClick={continueStep}
+                                
+                                style={{  padding: '10px', backgroundColor: '#19105b', color: '#ffffff', border: 'none', borderRadius: '5px', cursor: 'pointer', transition: 'background-color 0.3s ease' }}
                     >Continue</Button>
                     {/* </Dialog> */}
+                    </div>
                     </div>
                 </>
             </MuiThemeProvider>

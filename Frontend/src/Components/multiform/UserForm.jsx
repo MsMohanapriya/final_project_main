@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const UserForm = () => {
     const [userRole, setUserRole] = useState('');
+    const [dataExists, setDataExists] = useState('');
     useEffect(() => {
         setUserRole(sessionStorage.getItem('roles'));
     }, []);
@@ -37,7 +38,9 @@ const UserForm = () => {
         reportingUserId: '',
         reporterName: '',
         roles: '',
+        designation:'',
         designationId: '',
+        department:'',
         departmentId: '',
         user_status: '',
         password: ''
@@ -61,17 +64,16 @@ const UserForm = () => {
                 },
                 body: JSON.stringify(formData),
             });
-            console.log("Successfully sent!")
+            // console.log("res------", response)
 
             const res = await response.json();
 
-            if (response.ok) {
-                alert("User registration successful");
-            } else {
-                throw new Error(res.message);
+            console.log(res);
+
+            if (res.message === 'User already exists') {
+                alert("User already exists");
             }
         } catch (error) {
-            console.error('Error registering user:', error.message);
             alert("Error registering user: " + error.message);
         }
     };
@@ -111,17 +113,17 @@ const UserForm = () => {
                 )}
                 {step === 3 && (
                     <Confirm
-                        nextStep={nextStep}
+                        // nextStep={dataExists && nextStep}
                         prevStep={prevStep}
                         values={formData}
                         handleSubmit={handleSubmit}
                     />
                 )}
-                {step === 4 && (
+                {/* {step === 4 && (
                     // < showDialog && <DialogBox message="User created successfully" onClose={handleCloseDialog} />/>
                     <Success />
                     // Or return a Success component if you have one
-                )}
+                )} */}
             </Box>
 
         </>

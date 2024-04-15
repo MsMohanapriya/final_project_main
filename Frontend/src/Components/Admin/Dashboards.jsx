@@ -134,7 +134,7 @@
 //                     </tbody>
 //                 </Table>
 
-              
+
 
 //                 <Modal show={showSuccessModal} onHide={() => setShowSuccessModal(false)}>
 //                     <Modal.Header closeButton>
@@ -202,38 +202,10 @@ function UserList() {
         <>
             <Dashboard className="navbar" />
             <div style={{ maxWidth: "900px", margin: "0 auto", padding: "20px" }}>
-                <h1 style={{ textAlign: "center", marginBottom: "20px" ,color: "black" }}>
+                <h1 style={{ textAlign: "center", marginTop: "55px", color: "black" }}>
                     User Details Dashboard
                 </h1>
-                <div style={{ marginBottom: "20px" }}>
-                    <label style={{ marginRight: "10px",color: "black" }} htmlFor="userTypeFilter">
-                        Filter by User Type:
-                    </label>
-                    <select
-                        id="userTypeFilter"
-                        style={{
-                            backgroundColor: "rgba(255, 255, 255, 0.6)",
-                            borderRadius: "5px",
-                        }}
-                        value={userTypeFilter}
-                        onChange={(e) => setUserTypeFilter(e.target.value)}
-                    >
-                        <option value="All">All</option>
-                        <option value="">Select Designation</option>
-                         <option value="Business Administrator">Business Administrator</option>
-                        <option value="CEO">CEO</option>
-                         <option value="Consultant">Consultant</option>
-                         <option value="Intern">Intern</option>
-                         <option value="Manager">Manager</option>
-                         <option value="Senior Associate Consultant">Senior Associate Consultant</option>
-                         <option value="Senior Consultant">Senior Consultant</option>
-                         <option value="Solutions Consultant">Solutions Consultant</option>
-                         <option value="Software Engineer">Software Engineer</option>
-                         <option value="Solution Enabler">Solution Enabler</option>
-                         <option value="Senior Software Engineer">Senior Software Engineer</option>
-                        {/* Add other options here */}
-                    </select>
-                </div>
+               
 
                 <Table
                     striped
@@ -247,10 +219,10 @@ function UserList() {
                     <thead style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}>
                         <tr>
                             <th>S.No.</th>
-                            <th>ID</th>
+                            {/* <th>ID</th> */}
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Designation</th>
+                            {/* <th>Designation</th> */}
                         </tr>
                     </thead>
                     <tbody style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}>
@@ -260,10 +232,10 @@ function UserList() {
                                 style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}
                             >
                                 <td>{serialNumber + index}</td>
-                                <td>{user.user_id}</td>
+                                {/* <td>{user.user_id}</td> */}
                                 <td>{user.userName}</td>
                                 <td>{user.email}</td>
-                                <td>{user.designation}</td>
+                                {/* <td>{user.designation}</td> */}
                             </tr>
                         ))}
                     </tbody>

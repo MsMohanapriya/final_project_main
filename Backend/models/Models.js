@@ -73,83 +73,67 @@ const userSchema = new mongoose.Schema({
   }
 });
 
- 
-
-const timesheetSchema = new mongoose.Schema({
-    
-    email: {
-        type: String
-    },
-    // PID: {
-    //     type: String
-    // },
-    // activity: {
-    //     type: String
-    // },
-    // comments: {
-    //     type: String
-  // },
-  user_id: {
-      type : String
-    },
-    pname: {
-        type: String // Assuming pname is a string field
+const timesheetRow = new mongoose.Schema({
+  
+  pname: {
+    type: String // Assuming pname is a string field
   },
   task: {
-      type : String
-    },
-    start_period: {
-        type: String
-    },
-    end_period: {
-        type: String
-    },
-    mon: {
-        type: Number
-    },
-    tue: {
-        type: Number
-    },
-    wed: {
-        type: Number
-    },
-    thur: {
-        type: Number
-    },
-    fri: {
-        type: Number
-    },
-    sat: {
-        type: Number
-    },
-    sun: {
-        type: Number
-    },
-    total_hrs:{
-      type: Number
-    },
-    created_at: {
-        type: Date,
-        default: Date.now
-    },
-    visible: {}
+    type: String
+  },
+  mon: {
+    type: Number
+  },
+  tue: {
+    type: Number
+  },
+  wed: {
+    type: Number
+  },
+  thu: {
+    type: Number
+  },
+  fri: {
+    type: Number
+  },
+  sat: {
+    type: Number
+  },
+  sun: {
+    type: Number
+  },
+  tot: {
+    type: Number
+  }
+})
+
+const timesheetSchema = new mongoose.Schema({
+  user_id: {
+    type: String
+  },
+  rowsData: [timesheetRow],
+  start_period: {
+    type: String
+  },
+  end_period: {
+    type: String
+  },
+  created_at: {
+    type: Date,
+    default: Date.now
+  }
+    
+  
 });
 
-const feedbackSchema = new mongoose.Schema({
-  overallPerformance: { type: Number, required: true },
-  codeQuality: { type: Number, required: true },
-  functionality: { type: Number, required: true },
-  communication: { type: Number, required: true },
-  timeliness: { type: Number, required: true },
-  // Add more fields as needed
-});
+
 
 const TimesheetModel = mongoose.model('timesheet', timesheetSchema);
 const UserModel = mongoose.model("users", userSchema);
-const FeedbackModel =mongoose.model("feedbacks" , feedbackSchema )
+
 
 module.exports = {
     UserModel,
   TimesheetModel,
-    FeedbackModel
+   
 };

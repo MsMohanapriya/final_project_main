@@ -25,33 +25,22 @@ const storeTimesheetData = async (req, res) => {
         // const user_id = decodedToken.user_id;
         // console.log('User ID:', user_id);
 
-        
-        const {  user_id,proj, task, start_period, end_period, mon, tue, wed, thur, fri, sat, sun, tot } = req.body;
+        const { user_id, rowsData, startDate, endDate } = req.body;
+        console.log(req.body)
 
         // console.log(user_id)
-        console.log('bckend timesheet:', req.body)
+        // console.log('bckend timesheet:', req.body)
         if(decodedToken.email){
 
             const newTimesheet = new TimesheetModel({
-                user_id: user_id,
-                pname: proj,
-                task: task,
-                
-                mon: mon,
-                tue: tue,
-                wed: wed,
-                thur: thur,
-                fri: fri,
-                sat: sat,
-                sun: sun,
-                total_hrs: tot,
-                start_period: start_period,
-                end_period: end_period,
-                created_at: Date.now()
+                user_id,
+                rowsData,
+                start_period: startDate,
+                end_period: endDate
             });
             // console.log(newTimesheet)
             const result = await newTimesheet.save();
-            console.log("result:",result);
+            // console.log("result:",result);
             res.json({ message: "Timesheet data stored successfully", timesheet: result });
         }
 
@@ -63,20 +52,20 @@ const storeTimesheetData = async (req, res) => {
 
 
 
-const submitFeedback = async (req, res) => {
-    try {
-        const newFeedback = new FeedbackModel(req.body);
-        console.log(req.body);
-        await newFeedback.save();
-        res.status(201).json({ success: true, message: "Feedback submitted successfully" });
-    } catch (error) {
-        console.error("Error submitting feedback:", error);
-        res.status(500).json({ success: false, message: "Failed to submit feedback" });
-    }
-};
+// const submitFeedback = async (req, res) => {
+//     try {
+//         const newFeedback = new FeedbackModel(req.body);
+//         console.log(req.body);
+//         await newFeedback.save();
+//         res.status(201).json({ success: true, message: "Feedback submitted successfully" });
+//     } catch (error) {
+//         console.error("Error submitting feedback:", error);
+//         res.status(500).json({ success: false, message: "Failed to submit feedback" });
+//     }
+// };
 
 module.exports = {
     storeTimesheetData,
-    submitFeedback
+    // submitFeedback
 };
 

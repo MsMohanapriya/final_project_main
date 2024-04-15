@@ -83,7 +83,7 @@ const SideList = ({ open, setOpen }) => {
     useEffect(() => {
         // Side effect code here
         const roles = sessionStorage.getItem('roles');
-        const user = ['Dashboard', 'Timesheet', 'Feedback'];
+        const user = ['Timesheet', 'Feedbacks'];
         const admin = ['Dashboard', 'Timesheet', 'userform', 'CreateProject', 'AllocateProject', 'CreateFeedback'];
         if (roles === "admin")
             setShowing(admin);
@@ -128,7 +128,7 @@ const SideList = ({ open, setOpen }) => {
                                     {text === 'Dashboard' && <DashboardIcon />}
                                     {text === 'Timesheet' && <TimelineIcon />}
                                     {text === 'CreateFeedback' && <ForumSharpIcon />}
-                                    {text === 'Feedback' && <ForumSharpIcon />}
+                                    {text === 'Feedbacks' && <ForumSharpIcon />}
                                     {text === 'userform' && <PersonAddAltSharpIcon />}
                                     {text === 'AllocateProject' && <AssignmentIndSharpIcon />}
                                     {text === 'CreateProject' && <PlaylistAddSharpIcon />}
