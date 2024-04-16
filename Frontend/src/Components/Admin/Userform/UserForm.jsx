@@ -6,9 +6,9 @@ import FormUserDetails from './FormUserDetails';
 import FormPersonalDetails from './FormPersonalDetails';
 import Confirm from './Confirm';
 import Success from './Success';
-import Dashboard from '../Dashboard/Dashboard';
+import Dashboard from '../../Navbar/Dashboard';
 import Box from '@mui/material/Box';
-
+import DialogBox from '../../Login/DIalogBox';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -119,11 +119,7 @@ const UserForm = () => {
                         handleSubmit={handleSubmit}
                     />
                 )}
-                {/* {step === 4 && (
-                    // < showDialog && <DialogBox message="User created successfully" onClose={handleCloseDialog} />/>
-                    <Success />
-                    // Or return a Success component if you have one
-                )} */}
+               
             </Box>
 
         </>

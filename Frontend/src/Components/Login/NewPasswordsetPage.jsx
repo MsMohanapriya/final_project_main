@@ -99,7 +99,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
+import Dashboard from '../Navbar/Dashboard';
 
 function ChangePasswordPage() {
   const [newPassword, setNewPassword] = useState('');

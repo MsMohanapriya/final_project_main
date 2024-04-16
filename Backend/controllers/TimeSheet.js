@@ -52,17 +52,7 @@ const storeTimesheetData = async (req, res) => {
 
 
 
-// const submitFeedback = async (req, res) => {
-//     try {
-//         const newFeedback = new FeedbackModel(req.body);
-//         console.log(req.body);
-//         await newFeedback.save();
-//         res.status(201).json({ success: true, message: "Feedback submitted successfully" });
-//     } catch (error) {
-//         console.error("Error submitting feedback:", error);
-//         res.status(500).json({ success: false, message: "Failed to submit feedback" });
-//     }
-// };
+
 
 module.exports = {
     storeTimesheetData,

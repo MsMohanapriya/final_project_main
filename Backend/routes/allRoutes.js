@@ -20,5 +20,6 @@ router.get('/projects', ProjectController.fetchAllProject)
 router.post('/user/projects', ProjectController.fetchUserProject)
 router.get('/users', AuthControllers.fetchAllUsers)
 router.post('/feedback', FeedbackControllers.submitFeedback)
+router.get('/getFeedbacks/:id', FeedbackControllers.getFeedBacks)
 
 module.exports = router;

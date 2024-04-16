@@ -1,15 +1,15 @@
 
 import { useEffect, useState } from "react";
 import TableRows from "./TableRows"
-import ButtonAppBar from "../navbar/navbar";
+
 // import TableRows2 from "./Tablerows2";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import axios from "axios"
-import Duration from "../duration/duration.component";
+import Duration from "./duration/duration.component";
 import { convertLength } from "@mui/material/styles/cssUtils";
 import DialogBox from "../Login/DIalogBox";
 import Box from '@mui/material/Box';
-import Dashboard from '../Dashboard/Dashboard';
+import Dashboard from '../Navbar/Dashboard';
 import { useNavigate } from "react-router-dom";
 
 

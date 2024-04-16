@@ -160,7 +160,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Table from "react-bootstrap/Table";
-import Dashboard from "../Dashboard/Dashboard";
+import Dashboard from "../Navbar/Dashboard";
 
 function UserList() {
     const [users, setUsers] = useState([]);

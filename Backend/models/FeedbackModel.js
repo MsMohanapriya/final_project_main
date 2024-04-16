@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 
 const feedbackSchema = new mongoose.Schema({
+    user_id: String,
     overallProgress: Number,
     communication: Number,
     timeline: Number,

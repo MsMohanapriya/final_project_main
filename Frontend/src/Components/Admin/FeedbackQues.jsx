@@ -146,8 +146,8 @@
 // export default FeedbackQuestionsPage;
 
 import React, { useState, useEffect } from 'react';
-import ButtonAppBar from '../navbar/navbar';
-import Dashboard from '../Dashboard/Dashboard';
+// import ButtonAppBar from '../navbar/navbar';
+import Dashboard from '../Navbar/Dashboard';
 import Box from '@mui/material/Box';
 import DialogBox from '../Login/DIalogBox';
 
@@ -237,8 +237,9 @@ function FeedbackQuestionsPage() {
                 <div className='feedback-questions-page'>
                     <div className="container" style={{ minheight: '400px', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '5px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)' }}>
                         <div className="title-bar black-text">
-                            <h1>ADD FEEDBACK</h1>
+                            <h2 style={{color:'black'}}>ADD FEEDBACK</h2>
                         </div>
+                        <br/>
                         <form className="row">
                             <div className="col-md-6" style={{ width: '100%' }}>
                                 <div className="form-group">

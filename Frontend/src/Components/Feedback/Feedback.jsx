@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, FormControl, FormLabel, Radio, RadioGroup, FormControlLabel } from "@mui/material";
 import { Rating } from "@mui/material";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const StyledForm = styled.form`
   display: flex;
@@ -38,10 +39,13 @@ const FeedbackForm = () => {
   const [qualityOfWork, setQualityOfWork] = useState(0);
   const [projectManagement, setProjectManagement] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const user_id = sessionStorage.getItem('userId');
+
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const feedbackData = {
+      user_id,
       overallProgress,
       communication,
       timeline,
@@ -64,6 +68,8 @@ const FeedbackForm = () => {
 
       console.log('Feedback submitted successfully!');
       setSubmitted(true);
+
+      setTimeout(() => { navigate("/userdashboard") }, 3000);
     } catch (error) {
       console.error('Error submitting feedback:', error.message);
     }
@@ -123,7 +129,7 @@ const FeedbackForm = () => {
                   color: "#19105b"
                 }
               }}
-        
+
             />
           </FormControl>
           <FormControl component="fieldset">

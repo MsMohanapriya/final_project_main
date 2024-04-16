@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import DialogBox from '../Login/DIalogBox';
-import Dashboard from '../Dashboard/Dashboard';
+import Dashboard from '../Navbar/Dashboard';
 import Box from '@mui/material/Box';
 // import TextField from '@mui/material/TextField';
 // import Button from '@mui/material/Button';
@@ -139,7 +139,7 @@ function CreateProject() {
                     {userRole === 'admin' ? (
                         <div className="container" style={{ minheight: '400px', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '5px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)', width: '400px' }}>
                             <div className="title-bar black-text" style={{ marginBottom: '20px' }}>
-                                <h1 style={{ fontFamily: 'Caudex, sans-serif' }}>ADD PROJECT</h1>
+                                <h2 style={{ fontFamily: 'Caudex, sans-serif' , color: 'black'}}>ADD PROJECT</h2>
                             </div>
                             <form onSubmit={handleSubmit} className="row">
                                 <div className="form-group" style={{ marginBottom: '20px' }}>

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
-
-
 import { createTheme } from '@mui/material/styles';
 
 // Create a theme instance
